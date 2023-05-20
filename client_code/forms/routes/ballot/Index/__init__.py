@@ -11,7 +11,7 @@ columns = [
 ]
 
 
-@routing.route("")
+@routing.route("ballots")
 class Index(IndexTemplate):
     def __init__(self, **properties):
         self.data = list(Ballot.search())

@@ -144,5 +144,5 @@ ballot_manager_abi = [
     }
   ]
 
-def login_required():
+def user_logged_in():
     return user is None

@@ -35,7 +35,7 @@ class Create(CreateTemplate):
         ballot_manager_contract = globals.ethers.Contract(globals.ballot_manager_address, globals.ballot_manager_abi, signer)
         ballot_manager_contract.createBallot(self.item.uuid, self.item.sismo_group_id, self.item.candidates)
 
-        routing.set_url_hash("")
+        routing.set_url_hash("ballots")
 
     def add_candidate_button_click(self, **event_args):
         form = Candidate()
