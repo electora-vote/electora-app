@@ -1,6 +1,7 @@
 unique_ids:
   forms:
     forms.routes.ballot.Create: '1684576761050921304013680.2322'
+    forms.routes.ballot.Create.Candidate: '1684579825131700274849660.9902'
     forms.routes.ballot.Index: '168457421699139667868290.59776'
     forms.routes.ballot.Index.Template: '1684574751898933083576546.0404'
     forms.routes.ballot.Read: '1684575527353477452050554.8212'

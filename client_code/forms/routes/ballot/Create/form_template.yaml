@@ -1,10 +1,10 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"SDKTDD":15,"YCNZVM":45,"CYMULB":15,"LVDCLY":45}'}
+  properties: {col_widths: '{"SDKTDD":15,"YCNZVM":45,"CYMULB":15,"LVDCLY":45,"QCZOOL":15,"KWRYIF":45}'}
 components:
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Name, font_size: null, font: '', spacing_above: small, icon_align: left,
+    text: 'Name:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_1
@@ -32,6 +32,46 @@ components:
   layout_properties: {grid_position: 'SKABTV,LVDCLY'}
   data_bindings:
   - {property: date, code: self.item.ends_at, writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Sismo Group ID:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_3
+  layout_properties: {grid_position: 'UVAGCX,QCZOOL'}
+- type: TextBox
+  properties: {}
+  name: text_box_2
+  layout_properties: {grid_position: 'UVAGCX,KWRYIF'}
+  data_bindings:
+  - {property: text, code: self.item.sismo_group_id, writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Candidates:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_4
+  layout_properties: {grid_position: 'WJHBGV,YJXONK'}
+- type: FlowPanel
+  properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
+    foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_2
+  layout_properties: {grid_position: 'WJHBGV,CMZKFV'}
+  components:
+  - type: Button
+    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Add Candidate, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: 'fa:plus'}
+    name: add_candidate_button
+    layout_properties: {grid_position: 'WJHBGV,JNMGFP'}
+    event_bindings: {click: add_candidate_button_click}
+- type: form:TGQCF3WT6FVL2EM2:Tabulator
+  properties: {role: '', pagination: false, index: id, height: '', header_visible: false,
+    pagination_size: 5, border: '', visible: true, auto_columns: null, spacing_above: small,
+    spacing_below: small}
+  name: tabulator
+  layout_properties: {grid_position: 'ERMIEW,VNSNPC'}
 - type: FlowPanel
   properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
     foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}

@@ -15,7 +15,6 @@ columns = [
 class Index(IndexTemplate):
     def __init__(self, **properties):
         self.data = list(Ballot.search())
-        globals.publisher.subscribe("ballots", self, self.message_handler)
         self.init_components(**properties)
         self.tabulator.data = self.data
         self.tabulator.options = globals.tabulator_options
@@ -35,3 +34,6 @@ class Index(IndexTemplate):
 
     def create_button_click(self, **event_args):
         routing.set_url_hash("ballot/create")
+
+    def form_show(self, **event_args):
+        self.refresh_tabulator()

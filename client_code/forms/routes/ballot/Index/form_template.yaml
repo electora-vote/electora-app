@@ -1,7 +1,7 @@
 container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
-  event_bindings: {}
+  event_bindings: {show: form_show}
 components:
 - type: FlowPanel
   properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
