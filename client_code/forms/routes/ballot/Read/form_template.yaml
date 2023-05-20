@@ -1,0 +1,56 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: Label
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'HCVHFW,ZWWJPW'}
+  data_bindings:
+  - {property: text, code: self.item.name}
+- type: TextArea
+  properties: {role: null, align: left, height: 124, tooltip: '', placeholder: '',
+    border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
+    auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_area_1
+  layout_properties: {grid_position: 'HBJDTP,ZSIELZ'}
+  data_bindings:
+  - {property: text, code: self.item.candidates_display, writeback: true}
+- type: ColumnPanel
+  properties: {role: outlined-card, col_widths: '{}'}
+  name: outlined_card_1
+  layout_properties: {grid_position: 'OCKUCD,MCNKFS'}
+  components:
+  - type: RichText
+    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+      foreground: '', visible: true, font_size: null, content: 'Ends at: {ends_at}',
+      font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+      format: markdown}
+    name: rich_text_1
+    layout_properties: {grid_position: 'PTNTKI,JPITRI'}
+    components:
+    - type: Label
+      properties: {}
+      name: label_2
+      layout_properties: {slot: ends_at}
+      data_bindings:
+      - {property: text, code: self.item.ends_at_display}
+- type: FlowPanel
+  properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
+    foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'LNHNWW,MQYGEJ'}
+  components:
+  - type: Button
+    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Done, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:check'}
+    name: done_button
+    layout_properties: {}
+    event_bindings: {click: done_button_click}
+is_package: true

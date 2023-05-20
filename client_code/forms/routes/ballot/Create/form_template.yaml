@@ -1,0 +1,57 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"SDKTDD":15,"YCNZVM":45,"CYMULB":15,"LVDCLY":45}'}
+components:
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Name, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'VECANX,SDKTDD'}
+- type: TextBox
+  properties: {}
+  name: text_box_1
+  layout_properties: {grid_position: 'VECANX,YCNZVM'}
+  data_bindings:
+  - {property: text, code: self.item.name, writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Ends at:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_2
+  layout_properties: {grid_position: 'SKABTV,CYMULB'}
+  data_bindings: []
+- type: DatePicker
+  properties: {role: null, align: left, max_date: '', pick_time: true, tooltip: '',
+    placeholder: '', border: '', enabled: true, foreground: '', visible: true, font_size: null,
+    font: '', spacing_above: small, spacing_below: small, italic: false, date: '',
+    min_date: '', background: '', bold: false, underline: false, format: ''}
+  name: date_picker_1
+  layout_properties: {grid_position: 'SKABTV,LVDCLY'}
+  data_bindings:
+  - {property: date, code: self.item.ends_at, writeback: true}
+- type: FlowPanel
+  properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
+    foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'XACPAP,IKNNXA'}
+  components:
+  - type: Button
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Cancel, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:times'}
+    name: cancel_button
+    layout_properties: {grid_position: 'XACPAP,EJDMKM'}
+    event_bindings: {click: cancel_button_click}
+  - type: Button
+    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Create, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:check'}
+    name: create_button
+    layout_properties: {}
+    event_bindings: {click: create_button_click}
+is_package: true

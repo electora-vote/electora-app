@@ -1,0 +1,29 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+  event_bindings: {}
+components:
+- type: FlowPanel
+  properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
+    foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'TGOHMP,HIQDDF'}
+  components:
+  - type: Button
+    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: New Ballot, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: 'fa:plus'}
+    name: create_button
+    layout_properties: {grid_position: 'TGOHMP,UZWCBB'}
+    event_bindings: {click: create_button_click}
+- type: form:TGQCF3WT6FVL2EM2:Tabulator
+  properties: {role: '', pagination: false, index: id, height: '', header_visible: false,
+    pagination_size: 5, border: '', visible: true, auto_columns: null, spacing_above: small,
+    spacing_below: small}
+  name: tabulator
+  layout_properties: {grid_position: 'UMUXRX,ZNHWVS'}
+  event_bindings: {row_click: tabulator_row_click}
+  data_bindings:
+  - {property: visible, code: self.data}
+is_package: true
