@@ -12,4 +12,4 @@ class Read(ReadTemplate):
         self.init_components(**properties)
 
     def done_button_click(self, **event_args):
-        routing.set_url_hash("")
+        routing.set_url_hash("ballots")

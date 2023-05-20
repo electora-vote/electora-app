@@ -25,3 +25,8 @@ def add_ballot(attrs):
     user = anvil.users.get_user()
     row = app_tables.ballot.add_row(user=user, uuid=str(uuid4()), **attrs)
     return row
+
+
+@anvil.server.callable
+def get_ballot(attrs):
+    return app_tables.ballot.get(uuid=attrs["uuid"])

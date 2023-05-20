@@ -28,7 +28,7 @@ class Create(CreateTemplate):
     def create_button_click(self, **event_args):
         self.item.candidates = [c["name"] for c in self.candidates]
         self.item.add()
-        routing.set_url_hash("")
+        routing.set_url_hash("ballots")
 
     def add_candidate_button_click(self, **event_args):
         form = Candidate()

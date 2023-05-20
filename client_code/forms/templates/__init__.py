@@ -1,2 +1,2 @@
-from .Login import Login  # noqa F401
+from .Landing import Landing  # noqa F401
 from .Main import Main  # noqa F401

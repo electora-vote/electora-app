@@ -27,9 +27,10 @@ components:
   components:
   - type: RichText
     properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: null, content: 'Ends at: {ends_at}',
-      font: '', spacing_above: small, spacing_below: small, data: null, background: '',
-      format: markdown}
+      foreground: '', visible: true, font_size: null, content: 'Ends at: {ends_at}
+
+        Ballot ID: {ballot_id}', font: '', spacing_above: small, spacing_below: small,
+      data: null, background: '', format: markdown}
     name: rich_text_1
     layout_properties: {grid_position: 'PTNTKI,JPITRI'}
     components:
@@ -39,6 +40,12 @@ components:
       layout_properties: {slot: ends_at}
       data_bindings:
       - {property: text, code: self.item.ends_at_display}
+    - type: Label
+      properties: {}
+      name: label_3
+      layout_properties: {slot: ballot_id}
+      data_bindings:
+      - {property: text, code: self.item.uuid}
 - type: FlowPanel
   properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
     foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}

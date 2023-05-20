@@ -3,8 +3,10 @@ container:
   properties: {col_widths: '{}'}
   event_bindings: {show: form_show}
 components:
-- type: ColumnPanel
+- type: Label
   properties: {}
-  name: content_panel
-  layout_properties: {grid_position: 'IVIGEB,ERJMKT'}
+  name: label_1
+  layout_properties: {grid_position: 'GMCWMP,CAKNHT'}
+  data_bindings:
+  - {property: text, code: self.ballot.name}
 is_package: true
