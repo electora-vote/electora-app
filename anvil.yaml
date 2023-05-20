@@ -9,7 +9,7 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: false, enable_automatically: true, use_email: true,
-    confirm_email: false}
+    confirm_email: false, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 startup: {type: module, module: startup}
 package_name: app
@@ -226,18 +226,6 @@ native_deps: {head_html: "<!--\nJSPM Generator Import Map\nEdit URL: https://gen
     \    \"https://ga.jspm.io/npm:viem@0.3.21/\": {\n    \"@wagmi/chains\": \"https://ga.jspm.io/npm:@wagmi/chains@0.2.16/dist/index.mjs\"\
     \n    }\n  }\n}\n</script>"}
 db_schema:
-  sismo_app:
-    title: sismo_app
-    client: none
-    server: full
-    columns:
-    - name: sismo_id
-      admin_ui: {width: 350}
-      type: string
-    - name: user
-      admin_ui: {width: 200}
-      type: link_single
-      target: users
   users:
     title: Users
     client: none
@@ -261,37 +249,31 @@ db_schema:
     - name: confirmed_email
       admin_ui: {width: 200}
       type: bool
-    - name: sismo_id
-      admin_ui: {width: 200}
-      type: string
-  proof:
-    title: proof
+    - name: remembered_logins
+      type: simpleObject
+      admin_ui: {order: 6, width: 200}
+  ballot:
     client: none
     server: full
     columns:
     - name: name
-      admin_ui: {width: 200}
+      admin_ui: {order: 0, width: 200}
       type: string
-    - name: uuid
-      admin_ui: {width: 200}
-      type: string
-    - name: response
-      admin_ui: {width: 646}
-      type: simpleObject
-    - name: requested_at
-      admin_ui: {width: 200}
-      type: datetime
     - name: user
-      admin_ui: {width: 200}
+      admin_ui: {order: 1, width: 200}
       type: link_single
       target: users
-    - name: received_at
+    - name: uuid
+      admin_ui: {order: 0.5, width: 200}
+      type: string
+    - name: ends_at
       admin_ui: {order: 3, width: 200}
       type: datetime
-    - name: auths
-      admin_ui: {order: -1.5, width: 200}
+    - name: sismo_group_id
+      admin_ui: {order: 4, width: 200}
+      type: string
+    - name: candidates
+      admin_ui: {order: 6, width: 200}
       type: simpleObject
-    - name: claims
-      admin_ui: {order: -1.25, width: 200}
-      type: simpleObject
+    title: ballot
 renamed: true

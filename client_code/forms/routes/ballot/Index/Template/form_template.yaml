@@ -1,0 +1,27 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: Label
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: none, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'FEOWDO,FSUDHW'}
+  data_bindings:
+  - {property: text, code: 'self.item[''name'']'}
+- type: RichText
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: 12, content: 'Ends at {ends_at}', font: '',
+    spacing_above: none, spacing_below: small, data: null, background: '', format: markdown}
+  name: rich_text_1
+  layout_properties: {grid_position: 'QAQGGU,FWXCHJ'}
+  components:
+  - type: Label
+    properties: {}
+    name: label_2
+    layout_properties: {grid_position: 'HGOQOK,ZBIDHV', slot: ends_at}
+    data_bindings:
+    - {property: text, code: 'self.item[''ends_at_display'']'}
+is_package: true
