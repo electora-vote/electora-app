@@ -1,5 +1,4 @@
 import anvil.js
-from anvil_extras import messaging
 
 anvil.js.report_all_exceptions(True)
 
@@ -11,7 +10,6 @@ tabulator_options = {
     "getter": getattr,
     "selectable": "highlight",
 }
-publisher = messaging.Publisher()
 
 
 def login_required():
