@@ -15,7 +15,7 @@ class Home(HomeTemplate):
         form = BallotId()
         response = anvil.alert(form)
         if response:
-            routing.set_url_hash(f"vote/{form.item}")
+            routing.set_url_hash(f"vote/choose/{form.item}")
 
     def ballot_button_click(self, **event_args):
         user = anvil.users.login_with_form()
