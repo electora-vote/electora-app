@@ -1,0 +1,18 @@
+unique_ids:
+  forms:
+    forms.templates.Login: '1683544996958197242258361.21432'
+    forms.templates.Main: '1683533324418356263452250.0012'
+  modules:
+    forms: '1683544444889209626342210.8222'
+    forms.routes: '1683542828486699241550919.7982'
+    forms.templates: '1683544402863371534648593.7796'
+    globals: '1683544017694782652812916.1099'
+    startup: '1683533301206684287018963.4178'
+  server_modules: {}
+  assets:
+    standard-page.html: 3FOZE3HOBNMZPH7HSXTOQMVA34R2KAIX
+    theme.css: GW7HG3K2NVDYWBT5DEW5UMCLYPEPEZIC
+    nucypher/.gitkeep: '1684153668630525132715400.9079'
+    nucypher/nucypher-ts.js: '1684327694145195082417381.75092'
+    nucypher/nucypher_core_wasm.js: '1684154119050282429505809.7638'
+    nucypher/nucypher_core_wasm_bg-U4ZPTMX6.wasm: '1684327653878911693729540.0729'

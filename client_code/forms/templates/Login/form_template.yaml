@@ -1,0 +1,10 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+  event_bindings: {show: form_show}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {grid_position: 'IVIGEB,ERJMKT'}
+is_package: true
