@@ -1,0 +1,7 @@
+plugins:
+  - name: ape-scroll
+  - name: ape-solidity
+geth:
+  scroll:
+    testnet:
+      uri: https://alpha-rpc.scroll.io/l2
