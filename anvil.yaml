@@ -276,4 +276,5 @@ db_schema:
       admin_ui: {order: 6, width: 200}
       type: simpleObject
     title: ballot
+uplink_visible: true
 renamed: true
