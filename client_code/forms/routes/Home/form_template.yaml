@@ -1,14 +1,7 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"WLBDYP":30,"PEOXRO":30}'}
 components:
-- type: Label
-  properties: {role: headline, align: center, tooltip: '', border: '', foreground: '',
-    visible: true, text: Welcome to Electora!, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
-  name: label_1
-  layout_properties: {grid_position: 'ZLJYNE,PXLNUJ'}
 - type: Button
   properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: Vote, font_size: null, font: '', spacing_above: small,

@@ -21,7 +21,7 @@ runtime_options:
   server_version: python3-full
   server_spec: {base: python310-minimal}
   server_spec_disabled: {requirements: eth-ape==0.6.8, base: python310-minimal}
-metadata: {title: Electora}
+metadata: {title: Electora, logo_img: 'asset:brandmark-design (1)-logo.png'}
 startup_form: null
 native_deps: {head_html: "<!--\nJSPM Generator Import Map\nEdit URL: https://generator.jspm.io/#ZY1LCgIxEAWzEDyJy+l8RnHbl/AAMdOYhnQCk1aXXt0oCoK7R1XB222M2T5OVVkLLQY7d2lTaivZ76yVkk6pMFVFBw68N3iPF2H76tAPFP6JTTly7UPQeZa2xGJJM610FQywB/9rskr50HfU8QBHcObGJONzhuCf2ZWJ36oA\n\
     -->\n<script type=\"importmap\">\n{\n\"imports\": {\n    \"@sismo-core/sismo-connect-client\"\

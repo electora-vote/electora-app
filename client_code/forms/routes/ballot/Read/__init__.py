@@ -13,3 +13,8 @@ class Read(ReadTemplate):
 
     def done_button_click(self, **event_args):
         routing.set_url_hash("ballots")
+
+    def done_button_copy_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        pass
+
