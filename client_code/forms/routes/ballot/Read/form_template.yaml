@@ -58,7 +58,7 @@ components:
 
         ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: done_button_copy
+    name: count_button
     layout_properties: {}
     event_bindings: {click: count_button_click}
   - type: Button

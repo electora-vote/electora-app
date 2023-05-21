@@ -1,6 +1,7 @@
 from ._anvil_designer import ReadTemplate
 from anvil_extras import routing
 from app.model import Ballot
+import anvil
 
 
 
@@ -14,7 +15,5 @@ class Read(ReadTemplate):
     def done_button_click(self, **event_args):
         routing.set_url_hash("ballots")
 
-    def done_button_copy_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        pass
-
+    def count_button_click(self, **event_args):
+        anvil.alert("Nope. Sorry. We didn't get this done in time for the ETHDam judging!")

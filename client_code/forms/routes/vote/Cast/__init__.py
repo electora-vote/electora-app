@@ -25,4 +25,7 @@ class Cast(CastTemplate):
     def cast_button_click(self, **event_args):
         self.submit_encrypted_vote()
 
+    def cancel_button_click(self, **event_args):
+        routing.set_url_hash("")
+
 
