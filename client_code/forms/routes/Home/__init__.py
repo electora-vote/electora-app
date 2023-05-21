@@ -10,7 +10,7 @@ from app.model import Ballot
 class Home(HomeTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
-        
+
     def vote_button_click(self, **event_args):
         form = BallotId()
         response = anvil.alert(form)

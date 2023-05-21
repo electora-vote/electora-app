@@ -17,131 +17,63 @@ tabulator_options = {
 }
 
 ballot_manager_abi = [
+    {"inputs": [], "stateMutability": "nonpayable", "type": "constructor"},
     {
-      "inputs": [],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
+        "inputs": [{"internalType": "string", "name": "", "type": "string"}],
+        "name": "ballots",
+        "outputs": [
+            {"internalType": "string", "name": "sismoGroupId", "type": "string"}
+        ],
+        "stateMutability": "view",
+        "type": "function",
     },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "name": "ballots",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "sismoGroupId",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+        "inputs": [
+            {"internalType": "string", "name": "_ballotId", "type": "string"},
+            {"internalType": "string", "name": "_sismoGroupId", "type": "string"},
+            {"internalType": "string[]", "name": "_candidates", "type": "string[]"},
+        ],
+        "name": "createBallot",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function",
     },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_ballotId",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_sismoGroupId",
-          "type": "string"
-        },
-        {
-          "internalType": "string[]",
-          "name": "_candidates",
-          "type": "string[]"
-        }
-      ],
-      "name": "createBallot",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+        "inputs": [{"internalType": "string", "name": "_ballotId", "type": "string"}],
+        "name": "getCandidates",
+        "outputs": [{"internalType": "string[]", "name": "", "type": "string[]"}],
+        "stateMutability": "view",
+        "type": "function",
     },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_ballotId",
-          "type": "string"
-        }
-      ],
-      "name": "getCandidates",
-      "outputs": [
-        {
-          "internalType": "string[]",
-          "name": "",
-          "type": "string[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+        "inputs": [{"internalType": "string", "name": "_ballotId", "type": "string"}],
+        "name": "getSismoGroupID",
+        "outputs": [{"internalType": "string", "name": "", "type": "string"}],
+        "stateMutability": "view",
+        "type": "function",
     },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_ballotId",
-          "type": "string"
-        }
-      ],
-      "name": "getSismoGroupID",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+        "inputs": [
+            {"internalType": "string", "name": "_ballotId", "type": "string"},
+            {
+                "internalType": "string",
+                "name": "_encryptedProofAndVote",
+                "type": "string",
+            },
+        ],
+        "name": "vote",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function",
     },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_ballotId",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_encryptedProofAndVote",
-          "type": "string"
-        }
-      ],
-      "name": "vote",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+        "inputs": [
+            {"internalType": "string", "name": "", "type": "string"},
+            {"internalType": "uint256", "name": "", "type": "uint256"},
+        ],
+        "name": "votes",
+        "outputs": [{"internalType": "string", "name": "", "type": "string"}],
+        "stateMutability": "view",
+        "type": "function",
     },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "votes",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    }
-  ]
+]

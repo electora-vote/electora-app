@@ -13,4 +13,4 @@ def prove_eligibility(ballot_id):
     _claims = [ballot.sismo_group_id]
     request_config["claims"] = [{"groupId": claim} for claim in _claims]
     url = connection.getRequestLink(request_config)
-    window.location.href=url
+    window.location.href = url

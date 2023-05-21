@@ -25,10 +25,12 @@ class ChooseCandidate(ChooseCandidateTemplate):
         self.refresh_data_bindings()
 
     def vote_button_click(self, **event_args):
-        kwargs = {"ballot_id": self.ballot.uuid, "selection": self.selection, "proof": self.proof}
+        kwargs = {
+            "ballot_id": self.ballot.uuid,
+            "selection": self.selection,
+            "proof": self.proof,
+        }
         routing.set_url_hash(url_pattern="vote/cast", url_dict=kwargs)
 
     def cancel_button_click(self, **event_args):
         routing.set_url_hash("")
-
-
