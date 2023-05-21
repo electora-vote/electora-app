@@ -1,0 +1,67 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+  data_bindings: []
+components:
+- type: Label
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_3
+  layout_properties: {grid_position: 'RZCKNC,ZZTVHI'}
+  data_bindings:
+  - {property: text, code: self.ballot.name}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Your proof of eligibility:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'TDCJVT,XTHYDT'}
+- type: TextArea
+  properties: {role: null, align: left, height: 391, tooltip: '', placeholder: '',
+    border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
+    auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_area_1
+  layout_properties: {grid_position: 'FPHLGL,MVUYYX'}
+  data_bindings:
+  - {property: text, code: self.proof, writeback: false}
+- type: RichText
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: 'Your selection: {selection}
+
+      Contract: {contract}', font: '', spacing_above: small, spacing_below: small,
+    data: null, background: '', format: markdown}
+  name: rich_text_1
+  layout_properties: {grid_position: 'BMYAFM,IMEOEX'}
+  components:
+  - type: Label
+    properties: {}
+    name: label_2
+    layout_properties: {slot: selection}
+    data_bindings:
+    - {property: text, code: self.selection}
+  - type: Link
+    properties: {}
+    name: link_1
+    layout_properties: {slot: contract}
+    data_bindings:
+    - {property: text, code: 'self.item[''contract'']'}
+    - {property: url, code: 'self.item[''contract'']'}
+- type: FlowPanel
+  properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
+    foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'PUEUPJ,RSEDQL'}
+  components:
+  - type: Button
+    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Cast Vote!, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: 'fa:check'}
+    name: cast_button
+    layout_properties: {grid_position: 'PUEUPJ,GCBSVG'}
+    event_bindings: {click: cast_button_click}
+is_package: true
