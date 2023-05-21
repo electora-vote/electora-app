@@ -4,7 +4,6 @@ unique_ids:
     forms.routes.ballot.Read: '1684575527353477452050554.8212'
     forms.routes.ballot.Index.Template: '1684574751898933083576546.0404'
     forms.templates.Main: '1683533324418356263452250.0012'
-    forms.templates.Landing: '1684585085643942382754148.1451'
     forms.routes.vote.ChooseCandidate.Template: '1684588099204819794626333.5039'
     forms.routes.Home: '1684584475886952015857387.9318'
     forms.modals.BallotId: '1684582675052907248385867.16'

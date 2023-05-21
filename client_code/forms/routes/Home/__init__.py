@@ -1,6 +1,5 @@
 from ._anvil_designer import HomeTemplate
 import anvil
-import anvil.users
 from anvil_extras import routing
 from app.forms.modals.BallotId import BallotId
 from app import globals, sismo
@@ -24,7 +23,4 @@ class Home(HomeTemplate):
                 routing.route("")
 
     def ballot_button_click(self, **event_args):
-        user = anvil.users.login_with_form()
-        if user is not None:
-            globals.user = user
-            routing.set_url_hash("ballots")
+        routing.set_url_hash("ballots")
