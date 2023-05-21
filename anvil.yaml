@@ -7,10 +7,6 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
   server_config: {}
-- source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: false, enable_automatically: true, use_email: true,
-    confirm_email: false, allow_remember_me: true, remember_me_days: 30}
-  server_config: {user_table: users}
 startup: {type: module, module: startup}
 package_name: app
 allow_embedding: false
@@ -226,55 +222,25 @@ native_deps: {head_html: "<!--\nJSPM Generator Import Map\nEdit URL: https://gen
     \    \"https://ga.jspm.io/npm:viem@0.3.21/\": {\n    \"@wagmi/chains\": \"https://ga.jspm.io/npm:@wagmi/chains@0.2.16/dist/index.mjs\"\
     \n    }\n  }\n}\n</script>"}
 db_schema:
-  users:
-    title: Users
-    client: none
-    server: full
-    columns:
-    - name: email
-      admin_ui: {width: 200}
-      type: string
-    - name: enabled
-      admin_ui: {width: 200}
-      type: bool
-    - name: last_login
-      admin_ui: {width: 200}
-      type: datetime
-    - name: password_hash
-      admin_ui: {width: 200}
-      type: string
-    - name: n_password_failures
-      admin_ui: {width: 200}
-      type: number
-    - name: confirmed_email
-      admin_ui: {width: 200}
-      type: bool
-    - name: remembered_logins
-      type: simpleObject
-      admin_ui: {order: 6, width: 200}
   ballot:
+    title: ballot
     client: none
     server: full
     columns:
     - name: name
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    - name: user
-      admin_ui: {order: 1, width: 200}
-      type: link_single
-      target: users
     - name: uuid
-      admin_ui: {order: 0.5, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: ends_at
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {width: 200}
       type: datetime
     - name: sismo_group_id
-      admin_ui: {order: 4, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: candidates
-      admin_ui: {order: 6, width: 200}
+      admin_ui: {width: 200}
       type: simpleObject
-    title: ballot
 uplink_visible: true
 renamed: true
