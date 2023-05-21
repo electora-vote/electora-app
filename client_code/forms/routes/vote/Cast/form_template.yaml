@@ -50,6 +50,22 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''contract'']'}
     - {property: url, code: 'self.item[''contract'']'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Your encrypted submission:', font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: label_4
+    layout_properties: {}
+  - type: TextArea
+    properties: {role: null, align: left, height: 90, tooltip: '', placeholder: '',
+      border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
+      auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: text_area_2
+    layout_properties: {}
+    data_bindings:
+    - {property: text, code: self.encrypted_submission, writeback: true}
 - type: FlowPanel
   properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
     foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
