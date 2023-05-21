@@ -27,6 +27,7 @@ class Create(CreateTemplate):
 
     def create_button_click(self, **event_args):
         self.item.candidates = [c["name"] for c in self.candidates]
+        self.item.add()
 
         provider = globals.ethers.providers.Web3Provider(ethereum)
         signer = provider.getSigner()
@@ -37,7 +38,6 @@ class Create(CreateTemplate):
             self.item.uuid, self.item.sismo_group_id, self.item.candidates
         )
 
-        self.item.add()
         routing.set_url_hash("ballots")
 
     def add_candidate_button_click(self, **event_args):
