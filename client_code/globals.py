@@ -145,6 +145,3 @@ ballot_manager_abi = [
       "type": "function"
     }
   ]
-
-def user_logged_in():
-    return user is None
