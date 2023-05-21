@@ -6,7 +6,7 @@ from uuid import uuid4
 @anvil.server.callable
 def search_ballot(*args, **kwargs):
     return app_tables.ballot.search(*args, **kwargs)
-   
+
 
 @anvil.server.callable
 def add_ballot(attrs):

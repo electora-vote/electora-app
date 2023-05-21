@@ -4,7 +4,6 @@ from app.model import Ballot
 import anvil
 
 
-
 @routing.route("ballot/uuid/{uuid}")
 class Read(ReadTemplate):
     def __init__(self, **properties):
@@ -16,4 +15,6 @@ class Read(ReadTemplate):
         routing.set_url_hash("ballots")
 
     def count_button_click(self, **event_args):
-        anvil.alert("Nope. Sorry. We didn't get this done in time for the ETHDam judging!")
+        anvil.alert(
+            "Nope. Sorry. We didn't get this done in time for the ETHDam judging!"
+        )
