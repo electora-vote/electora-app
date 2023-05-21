@@ -1,9 +1,11 @@
 import anvil.js
+import anvil.server
 
 anvil.js.report_all_exceptions(True)
 
+origin = anvil.server.get_app_origin()
 sismo_client = anvil.js.import_from("@sismo-core/sismo-connect-client")
-ethers = anvil.js.import_from("ethers")
+sismo_app_id = "0x022828235eed6dc1978b239bdd735bae"
 scroll_rpc_url = "https://alpha-rpc.scroll.io/l2"
 ballot_manager_address = "0x7ee88EB2209039fAb7e61Be48fAefEaCA492ACAD"
 user = None
