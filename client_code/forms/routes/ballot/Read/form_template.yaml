@@ -54,9 +54,18 @@ components:
   components:
   - type: Button
     properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Done, font_size: null, font: '', spacing_above: small,
+      foreground: '', visible: true, text: 'Count
+
+        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: done_button_copy
+    layout_properties: {}
+    event_bindings: {click: count_button_click}
+  - type: Button
+    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Close, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:check'}
+      underline: false, icon: ''}
     name: done_button
     layout_properties: {}
     event_bindings: {click: done_button_click}
