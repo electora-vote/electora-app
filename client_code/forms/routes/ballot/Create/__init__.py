@@ -1,10 +1,10 @@
-from ._anvil_designer import CreateTemplate
 import anvil
 from anvil_extras import routing
-from app.model import Ballot
 from app import globals
+from app.model import Ballot
+
+from ._anvil_designer import CreateTemplate
 from .Candidate import Candidate
-from anvil.js.window import ethereum
 
 columns = [
     {"field": "name"},
@@ -28,16 +28,7 @@ class Create(CreateTemplate):
     def create_button_click(self, **event_args):
         self.item.candidates = [c["name"] for c in self.candidates]
         self.item.add()
-
-        provider = globals.ethers.providers.Web3Provider(ethereum)
-        signer = provider.getSigner()
-        ballot_manager_contract = globals.ethers.Contract(
-            globals.ballot_manager_address, globals.ballot_manager_abi, signer
-        )
-        ballot_manager_contract.createBallot(
-            self.item.uuid, self.item.sismo_group_id, self.item.candidates
-        )
-
+        self.item.create()
         routing.set_url_hash("ballots")
 
     def add_candidate_button_click(self, **event_args):
