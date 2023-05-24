@@ -55,6 +55,7 @@ contract BallotManager {
     }
 
     function vote(string memory _ballotId, string memory _encryptedProofAndVote) public {
+	require(block.timestamp <= ballots[_ballotId].endTime);
         votes[_ballotId].push(_encryptedProofAndVote);
     }
 }
