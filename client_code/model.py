@@ -28,7 +28,8 @@ class Ballot:
                 self.name,
                 self.ends_at.timestamp(),
                 self.sismo_group_id,
-                self.storage_location,
+                0,
+                "",
                 self.candidates,
                 self.protocol_version,
             )
