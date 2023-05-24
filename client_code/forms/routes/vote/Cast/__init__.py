@@ -2,7 +2,8 @@ from ._anvil_designer import CastTemplate
 from anvil_extras import routing
 import anvil
 from app.model import Ballot
-from app import globals, nucypher
+from app import globals
+from app.services import nucypher
 from anvil.js.window import ethereum
 
 
