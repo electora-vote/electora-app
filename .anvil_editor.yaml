@@ -24,6 +24,7 @@ unique_ids:
     globals: '1683544017694782652812916.1099'
     forms.routes.vote: '1684582299326793774660459.4979'
   server_modules:
+    _nucypher: MF6KCN6PSXGZ66OWWL6X64ZGP7TBZDUP
     api: '168457464602961024818263.59596'
   assets:
     brandmark-design (1)-logo.png: '1684659212443524328928780.6343'

@@ -1,9 +1,10 @@
-from ._anvil_designer import HomeTemplate
 import anvil
 from anvil_extras import routing
+from app import sismo
 from app.forms.modals.BallotId import BallotId
-from app import globals, sismo
 from app.model import Ballot
+
+from ._anvil_designer import HomeTemplate
 
 
 @routing.route("")

@@ -221,35 +221,4 @@ native_deps: {head_html: "<!--\nJSPM Generator Import Map\nEdit URL: https://gen
     : \"https://ga.jspm.io/npm:proxy-compare@2.5.0/dist/index.modern.js\"\n    },\n\
     \    \"https://ga.jspm.io/npm:viem@0.3.21/\": {\n    \"@wagmi/chains\": \"https://ga.jspm.io/npm:@wagmi/chains@0.2.16/dist/index.mjs\"\
     \n    }\n  }\n}\n</script>"}
-db_schema:
-  ballot:
-    title: ballot
-    client: none
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: uuid
-      admin_ui: {width: 200}
-      type: string
-    - name: ends_at
-      admin_ui: {width: 200}
-      type: datetime
-    - name: sismo_group_id
-      admin_ui: {width: 200}
-      type: string
-    - name: dkg_ritual_id
-      admin_ui: {width: 200}
-      type: number
-    - name: storage_location
-      admin_ui: {width: 200}
-      type: string
-    - name: candidates
-      admin_ui: {width: 200}
-      type: simpleObject
-    - name: protocol_version
-      admin_ui: {width: 200}
-      type: number
-uplink_visible: true
 renamed: true

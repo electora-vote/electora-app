@@ -1,2 +1,2 @@
-from .ChooseCandidate import ChooseCandidate
-from .Cast import Cast
+from .ChooseCandidate import ChooseCandidate  # noqa F401
+from .Cast import Cast  # noqa F401

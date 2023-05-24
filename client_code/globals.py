@@ -1,13 +1,14 @@
-from importlib import import_module
 import anvil.js
 import anvil.server
 
 anvil.js.report_all_exceptions(True)
 
 try:
-    ethereum = import_module("anvil.js.window.ethereum")
+    from anvil.js.window import ethereum  # noqa F401
+
+    ethereum_available = True
 except ImportError:
-    ethereum = None
+    ethereum_available = False
 
 origin = anvil.server.get_app_origin()
 sismo_client = anvil.js.import_from("@sismo-core/sismo-connect-client")
