@@ -66,19 +66,19 @@ class Ballot:
         if not globals.ethereum_available:
             raise ValueError("No wallet available")
 
-        # provider = globals.ethers.providers.Web3Provider(globals.ethereum)
-        # signer = provider.getSigner()
-        # ballot_manager_contract = globals.ethers.Contract(
-        #     globals.ballot_manager_address, globals.ballot_manager_abi, signer
-        # )
-        # ballot_manager_contract.createBallot(
-        #     self.uuid,
-        #     self.name,
-        #     self.ends_at.timestamp(),
-        #     self.sismo_group_id,
-        #     self.dkg_ritual_id,
-        #     self.storage_location,
-        #     self.candidates,
-        #     self.protocol_version,
-        # )
+        provider = globals.ethers.providers.Web3Provider(globals.ethereum)
+        signer = provider.getSigner()
+        ballot_manager_contract = globals.ethers.Contract(
+            globals.ballot_manager_address, globals.ballot_manager_abi, signer
+        )
+        ballot_manager_contract.createBallot(
+            self.uuid,
+            self.name,
+            self.ends_at.timestamp(),
+            self.sismo_group_id,
+            self.dkg_ritual_id,
+            self.storage_location,
+            self.candidates,
+            self.protocol_version,
+        )
         self.save()
