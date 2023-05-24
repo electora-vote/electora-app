@@ -6,6 +6,7 @@ contract BallotManager {
 	string name;
 	uint endTime;
         string sismoGroupId;
+	uint8 dkgRitualId;
 	string storageLocation;
         string[] candidates;
 	uint8 protocolVersion;
@@ -16,15 +17,24 @@ contract BallotManager {
     constructor() {
     }
 
-    function createBallot(string memory _ballotId, string memory _name, unint memory _endTime, string memory _sismoGroupId, string memory _storageLocation, string[] memory _candidates, uint8 memory _protocolVersion) public {
-        ballots[_ballotId] = BallotInfo(_name, _endTime, _sismoId, _dkgRitualId, _storageLocation, _candidates, _protocolVersion);
+    function createBallot(
+	string memory _ballotId,
+	string memory _name,
+	uint _endTime, 
+	string memory _sismoGroupId,
+	uint8 _dkgRitualId,
+	string memory _storageLocation,
+	string[] memory _candidates,
+	uint8 _protocolVersion
+    ) public {
+        ballots[_ballotId] = BallotInfo(_name, _endTime, _sismoGroupId, _dkgRitualId, _storageLocation, _candidates, _protocolVersion);
     }
 
     function getName(string memory _ballotId) external view returns(string memory) {
 	return ballots[_ballotId].name;
     }
 
-    function getEndTime(string memory _ballotId) external view returns(uint memory) {
+    function getEndTime(string memory _ballotId) external view returns(uint) {
 	return ballots[_ballotId].endTime;
     }
 
@@ -40,7 +50,7 @@ contract BallotManager {
         return ballots[_ballotId].candidates;
     }
 
-    function getProtocolVersion(string memory _ballotId) external view returns(uint8 memory) {
+    function getProtocolVersion(string memory _ballotId) external view returns(uint8) {
 	return ballots[_ballotId].protocolVersion;
     }
 
