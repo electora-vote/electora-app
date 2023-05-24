@@ -13,7 +13,13 @@ def search_ballot(*args, **kwargs):
 
 @anvil.server.callable
 def add_ballot(attrs):
-    return app_tables.ballot.add_row(uuid=str(uuid4()), **attrs)
+    defaults = {
+        "uuid": uuid4(),
+        "dkg_ritual_id": 0,
+        "storage_location": "",
+        "protocol_version": 1,
+    }
+    return app_tables.ballot.add_row(**defaults, **attrs)
 
 
 @anvil.server.callable

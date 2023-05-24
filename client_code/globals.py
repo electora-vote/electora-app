@@ -1,7 +1,13 @@
+from importlib import import_module
 import anvil.js
 import anvil.server
 
 anvil.js.report_all_exceptions(True)
+
+try:
+    ethereum = import_module("anvil.js.window.ethereum")
+except ImportError:
+    ethereum = None
 
 origin = anvil.server.get_app_origin()
 sismo_client = anvil.js.import_from("@sismo-core/sismo-connect-client")
