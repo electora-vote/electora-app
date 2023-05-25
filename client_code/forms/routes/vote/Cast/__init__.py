@@ -1,10 +1,10 @@
-from ._anvil_designer import CastTemplate
-from anvil_extras import routing
-import anvil
-from app.model import Ballot
-from app import globals
-from app.services import nucypher
 from anvil.js.window import ethereum
+from anvil_extras import routing
+from app import globals
+from app.model import Ballot
+from app.services import nucypher
+
+from ._anvil_designer import CastTemplate
 
 
 @routing.route("vote/cast", url_keys=["ballot_id", "selection", "proof"])

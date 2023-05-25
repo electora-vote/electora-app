@@ -1,1 +1,1 @@
-from . import routes, templates  # noqa F401
+from . import routes, templates  # noqa unused_import

@@ -14,19 +14,16 @@ columns = [
 @routing.route("ballots")
 class Index(IndexTemplate):
     def __init__(self, **properties):
-        self.data = list(Ballot.search())
+        self.refresh_tabulator()
         self.init_components(**properties)
-        self.tabulator.data = self.data
         self.tabulator.options = globals.tabulator_options
         self.tabulator.columns = columns
 
     def message_handler(self, message):
-        print("handled")
         self.refresh_tabulator()
 
     def refresh_tabulator(self):
-        self.data = list(Ballot.search())
-        self.tabulator.data = self.data
+        self.tabulator.data = Ballot.all()
 
     def tabulator_row_click(self, row, **event_args):
         model = row.get_model()

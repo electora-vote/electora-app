@@ -1,4 +1,3 @@
-from app import globals
 import anvil.server
 
 

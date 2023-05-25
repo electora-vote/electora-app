@@ -1,9 +1,7 @@
-from ._anvil_designer import ChooseCandidateTemplate
-import anvil
-from anvil.js import window
 from anvil_extras import routing
 from app.model import Ballot
-from app import globals
+
+from ._anvil_designer import ChooseCandidateTemplate
 
 columns = [{"field": "name"}]
 

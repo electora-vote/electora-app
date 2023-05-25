@@ -16,9 +16,7 @@ enrico = Enrico(encrypting_key=DkgPublicKey.from_bytes(bytes.fromhex(key)))
 bob = Bob(
     eth_provider_uri=goerli_uri,
     domain="lynx",
-    known_nodes=[
-        Ursula.from_teacher_uri(teacher_uri, min_stake=0)
-    ],
+    known_nodes=[Ursula.from_teacher_uri(teacher_uri, min_stake=0)],
 )
 bob.start_learning_loop(now=True)
 print("Bob has finished learning")

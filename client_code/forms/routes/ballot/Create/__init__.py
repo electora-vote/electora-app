@@ -15,25 +15,26 @@ columns = [
 class Create(CreateTemplate):
     def __init__(self, **properties):
         self.item = Ballot()
-        self.candidates = []
         self.init_components(**properties)
-        self.tabulator.data = self.candidates
+        self.refresh_tabulator()
         self.tabulator.options = globals.tabulator_options
         self.tabulator.options["use_model"] = False
         self.tabulator.columns = columns
+
+    def refresh_tabulator(self):
+        self.tabulator.data = [{"name": c} for c in self.item.candidates]
+        self.refresh_data_bindings()
 
     def cancel_button_click(self, **event_args):
         routing.set_url_hash("")
 
     def create_button_click(self, **event_args):
-        self.item.candidates = [c["name"] for c in self.candidates]
-        self.item.add()
-        self.item.create()
+        self.item.register()
         routing.set_url_hash("ballots")
 
     def add_candidate_button_click(self, **event_args):
         form = Candidate()
         response = anvil.alert(form)
         if response:
-            self.candidates.append(form.item)
-            self.tabulator.data = self.candidates
+            self.item.add_candidate(form.item["name"])
+            self.refresh_tabulator()
