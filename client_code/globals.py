@@ -4,7 +4,7 @@ import anvil.server
 anvil.js.report_all_exceptions(True)
 
 try:
-    from anvil.js.window import ethereum  # noqa F401
+    from anvil.js.window import ethereum  # noqa unused_import
 
     ethereum_available = True
 except ImportError:

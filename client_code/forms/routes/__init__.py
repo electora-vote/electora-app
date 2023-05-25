@@ -1,2 +1,2 @@
-from . import ballot, vote  # noqa F401
-from .Home import Home  # noqa F401
+from . import ballot, vote  # noqa unused_import
+from .Home import Home  # noqa unused_import
