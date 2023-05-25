@@ -23,6 +23,7 @@ class Create(CreateTemplate):
 
     def refresh_tabulator(self):
         self.tabulator.data = [{"name": c} for c in self.item.candidates]
+        self.refresh_data_bindings()
 
     def cancel_button_click(self, **event_args):
         routing.set_url_hash("")
