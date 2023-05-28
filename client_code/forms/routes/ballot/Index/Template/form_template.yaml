@@ -23,5 +23,5 @@ components:
     name: label_2
     layout_properties: {grid_position: 'HGOQOK,ZBIDHV', slot: ends_at}
     data_bindings:
-    - {property: text, code: 'self.item[''ends_at_display'']'}
+    - {property: text, code: 'self.item[''formatted_ends_at'']'}
 is_package: true
