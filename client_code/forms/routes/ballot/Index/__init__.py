@@ -1,13 +1,14 @@
 from ._anvil_designer import IndexTemplate
 from anvil_extras import routing
 from app.model import Ballot
-from app import globals
+from app.formatters import FormattedBallot
+from app import session
 from .Template import Template
 
 columns = [
     {"field": "uuid", "formatter": Template},
     {"field": "name", "visible": False},
-    {"field": "ends_at_display", "visible": False},
+    {"field": "formatted_ends_at", "visible": False},
 ]
 
 
@@ -16,14 +17,15 @@ class Index(IndexTemplate):
     def __init__(self, **properties):
         self.refresh_tabulator()
         self.init_components(**properties)
-        self.tabulator.options = globals.tabulator_options
+        self.tabulator.options = session.tabulator_options
         self.tabulator.columns = columns
 
     def message_handler(self, message):
         self.refresh_tabulator()
 
     def refresh_tabulator(self):
-        self.tabulator.data = Ballot.all()
+        ballots = session.LOCAL_STORE.all(Ballot)
+        self.tabulator.data = [FormattedBallot(b) for b in ballots]
 
     def tabulator_row_click(self, row, **event_args):
         model = row.get_model()

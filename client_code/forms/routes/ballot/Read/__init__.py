@@ -1,6 +1,8 @@
 from ._anvil_designer import ReadTemplate
 from anvil_extras import routing
 from app.model import Ballot
+from app.formatters import FormattedBallot
+from app import session
 import anvil
 
 
@@ -8,7 +10,8 @@ import anvil
 class Read(ReadTemplate):
     def __init__(self, **properties):
         uuid = self.dynamic_vars["uuid"]
-        self.item = Ballot.get(uuid)
+        ballot = session.LOCAL_STORE.get(Ballot, uuid)
+        self.item = FormattedBallot(ballot)
         self.init_components(**properties)
 
     def done_button_click(self, **event_args):

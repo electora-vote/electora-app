@@ -19,7 +19,7 @@ components:
   name: text_area_1
   layout_properties: {grid_position: 'HBJDTP,ZSIELZ'}
   data_bindings:
-  - {property: text, code: self.item.candidates_display, writeback: true}
+  - {property: text, code: self.item.formatted_candidates, writeback: true}
 - type: ColumnPanel
   properties: {role: outlined-card, col_widths: '{}'}
   name: outlined_card_1
@@ -39,7 +39,7 @@ components:
       name: label_2
       layout_properties: {slot: ends_at}
       data_bindings:
-      - {property: text, code: self.item.ends_at_display}
+      - {property: text, code: self.item.formatted_ends_at}
     - type: Label
       properties: {}
       name: label_3

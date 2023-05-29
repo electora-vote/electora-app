@@ -1,8 +1,9 @@
 import anvil
 from anvil_extras import routing
+from app import session
 from app.forms.modals.BallotId import BallotId
 from app.model import Ballot
-from app.services import sismo
+from app.services import proof
 
 from ._anvil_designer import HomeTemplate
 
@@ -16,9 +17,9 @@ class Home(HomeTemplate):
         form = BallotId()
         response = anvil.alert(form)
         if response:
-            ballot = Ballot.get(key=form.item)
+            ballot = session.LOCAL_STORE.get(Ballot, form.item)
             if ballot.uuid:
-                sismo.prove_eligibility(form.item)
+                proof.prove_eligibility(ballot)
             else:
                 anvil.alert("No valid ballot found with that id.")
                 routing.route("")

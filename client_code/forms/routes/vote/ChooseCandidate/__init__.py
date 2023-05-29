@@ -1,5 +1,6 @@
 from anvil_extras import routing
 from app.model import Ballot
+from app import session
 
 from ._anvil_designer import ChooseCandidateTemplate
 
@@ -11,7 +12,7 @@ class ChooseCandidate(ChooseCandidateTemplate):
     def __init__(self, **properties):
         self.proof = self.url_dict["sismoConnectResponseCompressed"]
         uuid = self.dynamic_vars["ballot_id"]
-        self.ballot = Ballot.get(uuid)
+        self.ballot = session.LOCAL_STORE.get(Ballot, uuid)
         self.selection = ""
         self.init_components(**properties)
         self.tabulator.data = [{"name": c} for c in self.ballot.candidates]

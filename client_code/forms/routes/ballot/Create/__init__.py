@@ -1,6 +1,6 @@
 import anvil
 from anvil_extras import routing
-from app import globals
+from app import session
 from app.model import Ballot
 
 from ._anvil_designer import CreateTemplate
@@ -17,7 +17,7 @@ class Create(CreateTemplate):
         self.item = Ballot()
         self.init_components(**properties)
         self.refresh_tabulator()
-        self.tabulator.options = globals.tabulator_options
+        self.tabulator.options = session.tabulator_options
         self.tabulator.options["use_model"] = False
         self.tabulator.columns = columns
 
@@ -29,12 +29,12 @@ class Create(CreateTemplate):
         routing.set_url_hash("")
 
     def create_button_click(self, **event_args):
-        self.item.register()
+        session.LOCAL_STORE.save(self.item)
         routing.set_url_hash("ballots")
 
     def add_candidate_button_click(self, **event_args):
         form = Candidate()
         response = anvil.alert(form)
         if response:
-            self.item.add_candidate(form.item["name"])
+            self.item.candidates.append(form.item["name"])
             self.refresh_tabulator()
