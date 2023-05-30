@@ -1,5 +1,6 @@
 import ape
 import pytest
+import datetime
 
 
 @pytest.fixture(scope="module")
@@ -10,7 +11,7 @@ def ballot_manager(project, accounts):
 def test_create_ballot(ballot_manager, accounts):
     ballot_manager.createBallot(
         "ballot_id",
-        1234,
+        int(datetime.datetime.now().timestamp()),
         "test_sismo_id",
         1,
         "test_storage_location",

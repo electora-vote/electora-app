@@ -161,7 +161,7 @@ class OnChainStore:
     def register_ballot(self, ballot):
         self.contract.createBallot(
             ballot.uuid,
-            ballot.ends_at,
+            int(ballot.ends_at.timestamp()),
             ballot.sismo_group_id,
             ballot.dkg_ritual_id,
             ballot.storage_location,
