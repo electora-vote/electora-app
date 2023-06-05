@@ -1,5 +1,6 @@
 import anvil.js
 import anvil.server
+from anvil_extras import messaging
 from app.services import storage
 
 anvil.js.report_all_exceptions(True)
@@ -14,3 +15,4 @@ tabulator_options = {
 }
 LOCAL_STORE = storage.LocalStore()
 ONCHAIN_STORE = storage.OnChainStore()
+PUBLISHER = messaging.Publisher(with_logging=False)

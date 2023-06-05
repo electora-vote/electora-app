@@ -16,7 +16,6 @@ class Create(CreateTemplate):
     def __init__(self, **properties):
         self.item = Ballot()
         self.init_components(**properties)
-        self.refresh_tabulator()
         self.tabulator.options = session.tabulator_options
         self.tabulator.options["use_model"] = False
         self.tabulator.columns = columns
@@ -30,8 +29,7 @@ class Create(CreateTemplate):
 
     def create_button_click(self, **event_args):
         session.LOCAL_STORE.save(self.item)
-        session.ONCHAIN_STORE.register_ballot(self.item)
-        routing.set_url_hash("ballots")
+        routing.set_url_hash(f"?ballot_id={self.item.uuid}")
 
     def add_candidate_button_click(self, **event_args):
         form = Candidate()

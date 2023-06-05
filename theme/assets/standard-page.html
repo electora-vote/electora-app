@@ -25,6 +25,10 @@
       <div anvil-slot-repeat="default" class="anvil-measure-this"></div>
       <div class="placeholder drop-here" anvil-if-slot-empty="default" anvil-drop-slot="default">Drop a ColumnPanel here.</div>
     </div>
+    
+    <div class="right-nav">
+      <div anvil-slot-repeat="detail"></div>
+    </div>
   </div>
 
   <div class="nav-shield"></div>
@@ -33,8 +37,35 @@
  
 <script>
   var ln = $('.structure > .nav-holder > .left-nav');
+  var rn = $('.structure > .nav-holder > .right-nav');
   var lnp = $('.structure > .nav-holder > .left-nav-placeholder');
   var appBar = $('.app-bar')[0];
+
+  function showDetailPanel() {
+    rn.addClass("shown").removeClass("hidden").css({right: "-100%"}).css({right: -rn.outerWidth()}).animate({right: 0}, function() {
+      rn.removeClass("in-transition");
+    });
+    updateNavShieldVisibility();
+    addMarginToContent();
+    if (window.innerWidth > 998) {
+      $('.content').css("margin-right",0).animate({'margin-right': rn.outerWidth().toString() + 'px'}, function(){})
+    } 
+  }
+
+  function hideDetailPanel() {
+    rn.animate({right: -rn.outerWidth()}, function() {
+      rn.removeClass("in-transition shown").addClass("hidden");
+    });
+    updateNavShieldVisibility();
+    addMarginToContent();
+    if (window.innerWidth > 998) { 
+      $('.content').animate({'margin-right':0}, function(){})
+    }
+  }
+
+  function isDetailPanelVisible() {
+    return rn.is(":visible");
+  }
   
   function hideSidebar() {
     ln.animate({left: -ln.outerWidth()}, function() {
@@ -54,8 +85,12 @@
     });
     $(window).trigger('resize');
     if (window.innerWidth > 998) {
-      $('.content').animate({'margin-left': ln.outerWidth().toString() + 'px'}, function(){})
+      $('.content').css('margin-left',0).animate({'margin-left': ln.outerWidth().toString() + 'px'}, function(){})
     } 
+  }
+
+  function updateNavShieldVisibility() {
+    $('.nav-shield').toggleClass("shown", rn.is(":visible") || ln.is(":visible"));
   }
   
   $('.sidebar-toggle, .nav-shield').off('click').on('click', function() { 
@@ -63,6 +98,9 @@
       hideSidebar();
     } else if(!ln.is(":empty")) {
       showSidebar();
+    }
+    if (rn.is(":visible") || $('.nav-shield').is(".shown")) {
+      hideDetailPanel();
     }
   });
   $('.left-nav').off('click').on('click', 'a, button', function() {
@@ -117,6 +155,11 @@
       } else {
         //if not in the designer, only add margin for the left-nav because placeholder still has a width outside of designer
         $('.content').css({'margin-left': ln.outerWidth() + 'px'});
+      }
+      if (rn.is(":visible")) {
+        $('.content').css({'margin-right': rn.outerWidth() + 'px'});
+      } else {
+        $('.content').css({'margin-right': 0});        
       }
     }
   }

@@ -8,7 +8,7 @@ components:
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_1
-  layout_properties: {grid_position: 'HCVHFW,ZWWJPW'}
+  layout_properties: {grid_position: 'PZYYWE,ZOVIKM', full_width_row: false}
   data_bindings:
   - {property: text, code: self.item.name}
 - type: TextArea
@@ -17,13 +17,15 @@ components:
     auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
     background: '', bold: false, underline: false}
   name: text_area_1
-  layout_properties: {grid_position: 'HBJDTP,ZSIELZ'}
+  layout_properties: {grid_position: 'HBJDTP,ZSIELZ', full_width_row: false}
   data_bindings:
   - {property: text, code: self.item.formatted_candidates, writeback: true}
 - type: ColumnPanel
-  properties: {role: outlined-card, col_widths: '{}'}
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
   name: outlined_card_1
-  layout_properties: {grid_position: 'OCKUCD,MCNKFS'}
+  layout_properties: {grid_position: 'OCKUCD,MCNKFS', full_width_row: false}
   components:
   - type: RichText
     properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
@@ -46,27 +48,33 @@ components:
       layout_properties: {slot: ballot_id}
       data_bindings:
       - {property: text, code: self.item.uuid}
-- type: FlowPanel
-  properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
-    foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
-  name: flow_panel_1
-  layout_properties: {grid_position: 'LNHNWW,MQYGEJ'}
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_1
+  layout_properties: {grid_position: 'IHBUHR,UMPUKY'}
   components:
-  - type: Button
-    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: 'Count
-
-        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: count_button
-    layout_properties: {}
-    event_bindings: {click: count_button_click}
-  - type: Button
-    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Close, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: done_button
-    layout_properties: {}
-    event_bindings: {click: done_button_click}
+  - type: FlowPanel
+    properties: {role: null, spacing: medium, align: right, tooltip: '', border: '',
+      foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+    name: flow_panel_2
+    layout_properties: {grid_position: 'ZNQJOB,TOBZHH'}
+    components:
+    - type: Button
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Cast Vote, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:check'}
+      name: vote_button
+      layout_properties: {}
+      event_bindings: {click: vote_button_click}
+- type: Button
+  properties: {role: bottom, align: center, tooltip: Hide detail, border: '', enabled: true,
+    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:sign-out'}
+  name: hide_button
+  layout_properties: {grid_position: 'IDRITS,BJYGZH'}
+  event_bindings: {click: hide_button_click}
 is_package: true

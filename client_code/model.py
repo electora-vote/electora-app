@@ -8,7 +8,7 @@ class Ballot:
 
     def __init__(
         self,
-        uuid=str(uuid4()),
+        uuid=uuid4().hex,
         name="",
         ends_at=dt.datetime.now(),
         sismo_group_id="",
@@ -25,6 +25,12 @@ class Ballot:
         self.storage_location = storage_location
         self.protocol_version = protocol_version
         self.candidates = candidates or []
+
+    def keys(self):
+        return self.__dict__.keys()
+
+    def __getitem__(self, key):
+        return getattr(self, key)
 
 
 class Vote:
