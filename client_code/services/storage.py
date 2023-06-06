@@ -36,54 +36,28 @@ class LocalStore:
 
 
 class OnChainStore:
-    address = "0x86347dab0B77F766e5C8e833d97D96AB7aA15f90"
+    address = "0x7ee88EB2209039fAb7e61Be48fAefEaCA492ACAD"
     url = f"https://scrollexplorer.unifra.io/address/{address}"
     abi = [
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"},
-                {"internalType": "uint256", "name": "_endTime", "type": "uint256"},
-                {"internalType": "string", "name": "_sismoGroupId", "type": "string"},
-                {"internalType": "uint8", "name": "_dkgRitualId", "type": "uint8"},
-                {
-                    "internalType": "string",
-                    "name": "_storageLocation",
-                    "type": "string",
-                },
-                {"internalType": "string[]", "name": "_candidates", "type": "string[]"},
-                {"internalType": "uint8", "name": "_protocolVersion", "type": "uint8"},
-            ],
-            "name": "createBallot",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function",
-        },
         {"inputs": [], "stateMutability": "nonpayable", "type": "constructor"},
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"},
-                {
-                    "internalType": "string",
-                    "name": "_encryptedProofAndVote",
-                    "type": "string",
-                },
-            ],
-            "name": "vote",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function",
-        },
         {
             "inputs": [{"internalType": "string", "name": "", "type": "string"}],
             "name": "ballots",
             "outputs": [
-                {"internalType": "uint256", "name": "endTime", "type": "uint256"},
-                {"internalType": "string", "name": "sismoGroupId", "type": "string"},
-                {"internalType": "uint8", "name": "dkgRitualId", "type": "uint8"},
-                {"internalType": "string", "name": "storageLocation", "type": "string"},
-                {"internalType": "uint8", "name": "protocolVersion", "type": "uint8"},
+                {"internalType": "string", "name": "sismoGroupId", "type": "string"}
             ],
             "stateMutability": "view",
+            "type": "function",
+        },
+        {
+            "inputs": [
+                {"internalType": "string", "name": "_ballotId", "type": "string"},
+                {"internalType": "string", "name": "_sismoGroupId", "type": "string"},
+                {"internalType": "string[]", "name": "_candidates", "type": "string[]"},
+            ],
+            "name": "createBallot",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function",
         },
         {
@@ -99,24 +73,6 @@ class OnChainStore:
             "inputs": [
                 {"internalType": "string", "name": "_ballotId", "type": "string"}
             ],
-            "name": "getEndTime",
-            "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
-            "stateMutability": "view",
-            "type": "function",
-        },
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"}
-            ],
-            "name": "getProtocolVersion",
-            "outputs": [{"internalType": "uint8", "name": "", "type": "uint8"}],
-            "stateMutability": "view",
-            "type": "function",
-        },
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"}
-            ],
             "name": "getSismoGroupID",
             "outputs": [{"internalType": "string", "name": "", "type": "string"}],
             "stateMutability": "view",
@@ -124,11 +80,16 @@ class OnChainStore:
         },
         {
             "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"}
+                {"internalType": "string", "name": "_ballotId", "type": "string"},
+                {
+                    "internalType": "string",
+                    "name": "_encryptedProofAndVote",
+                    "type": "string",
+                },
             ],
-            "name": "getStorageLocation",
-            "outputs": [{"internalType": "string", "name": "", "type": "string"}],
-            "stateMutability": "view",
+            "name": "vote",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function",
         },
         {
@@ -159,15 +120,7 @@ class OnChainStore:
         return self._contract
 
     def register_ballot(self, ballot):
-        self.contract.createBallot(
-            ballot.uuid,
-            int(ballot.ends_at.timestamp()),
-            ballot.sismo_group_id,
-            ballot.dkg_ritual_id,
-            ballot.storage_location,
-            ballot.candidates,
-            ballot.protocol_version,
-        )
+        self.contract.createBallot(**ballot.__dict__)
 
     def cast_vote(self, ballot, ciphertext):
         self.contract.vote(ballot.uuid, ciphertext)

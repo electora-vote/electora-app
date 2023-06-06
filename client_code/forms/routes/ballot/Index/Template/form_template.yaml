@@ -11,17 +11,4 @@ components:
   layout_properties: {grid_position: 'FEOWDO,FSUDHW'}
   data_bindings:
   - {property: text, code: 'self.item[''name'']'}
-- type: RichText
-  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: 12, content: 'Ends at {ends_at}', font: '',
-    spacing_above: none, spacing_below: small, data: null, background: '', format: markdown}
-  name: rich_text_1
-  layout_properties: {grid_position: 'QAQGGU,FWXCHJ'}
-  components:
-  - type: Label
-    properties: {}
-    name: label_2
-    layout_properties: {grid_position: 'HGOQOK,ZBIDHV', slot: ends_at}
-    data_bindings:
-    - {property: text, code: 'self.item[''formatted_ends_at'']'}
 is_package: true
