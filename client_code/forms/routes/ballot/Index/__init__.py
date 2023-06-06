@@ -2,6 +2,7 @@ from anvil_extras import routing
 from app import session
 from app.model import Ballot
 import anvil.js
+import anvil
 
 from ..Read import Read
 from ._anvil_designer import IndexTemplate
@@ -24,7 +25,8 @@ class Index(IndexTemplate):
     def show_ballot(self, uuid):
         ballot = session.LOCAL_STORE.get(Ballot, uuid)
         form = Read(ballot=ballot)
-        session.PUBLISHER.publish(channel="detail", title="show", content=form)
+        main = anvil.get_open_form()
+        main.show_detail(form)
 
     def init_tabulator(self):
         self.tabulator.options = session.tabulator_options
