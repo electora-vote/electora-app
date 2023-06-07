@@ -8,7 +8,7 @@ sismo_app_id = "0x022828235eed6dc1978b239bdd735bae"
 def prove_eligibility(ballot):
     connection = sismo_client.SismoConnect({"appId": sismo_app_id})
     callback = anvil.js.window.encodeURIComponent(
-        f"{session.origin}/#vote/choose/{ballot.uuid}"
+        f"{session.ORIGIN}/#vote/choose/{ballot.uuid}"
     )
     request_config = {
         "callbackUrl": callback,
