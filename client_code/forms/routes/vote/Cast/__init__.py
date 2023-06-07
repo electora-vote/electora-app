@@ -1,4 +1,3 @@
-from anvil.js.window import ethereum
 from anvil_extras import routing
 from app import session
 from app.model import Ballot, Vote
