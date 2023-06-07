@@ -1,6 +1,5 @@
 import anvil.js
 from app import session
-from app.model import Ballot
 
 sismo_client = anvil.js.import_from("@sismo-core/sismo-connect-client")
 sismo_app_id = "0x022828235eed6dc1978b239bdd735bae"

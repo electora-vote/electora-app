@@ -1,6 +1,5 @@
 import anvil.js
 from anvil_extras.storage import indexed_db
-from . import encryption
 
 _ethers = anvil.js.import_from("ethers")
 
