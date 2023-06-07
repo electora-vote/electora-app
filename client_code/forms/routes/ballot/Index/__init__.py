@@ -53,5 +53,5 @@ class Index(IndexTemplate):
         self.refresh_tabulator()
         if "ballot_id" in self.url_dict:
             self.show_ballot(self.url_dict["ballot_id"])
-        if "create_ballot" in self.url_dict:
+        elif "create_ballot" in self.url_dict:
             self.create_ballot()
