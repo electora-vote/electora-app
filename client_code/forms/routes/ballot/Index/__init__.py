@@ -34,7 +34,7 @@ class Index(IndexTemplate):
         anvil.get_open_form().show_detail(form)
 
     def init_tabulator(self):
-        self.tabulator.options = session.tabulator_options
+        self.tabulator.options = session.tabulator_options()
         self.tabulator.columns = columns
 
     def refresh_tabulator(self):

@@ -16,7 +16,8 @@ class Create(CreateTemplate):
     def __init__(self, **properties):
         self.item = Ballot()
         self.init_components(**properties)
-        self.tabulator.options = session.tabulator_options
+        self.tabulator.options = session.tabulator_options()
+        self.tabulator.options["use_model"] = False
         self.tabulator.columns = columns
 
     def refresh_tabulator(self):
