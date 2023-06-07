@@ -1,6 +1,5 @@
 import datetime as dt
 from uuid import uuid4
-from app.services import encryption
 
 
 class Ballot:
@@ -25,12 +24,6 @@ class Ballot:
         self.storage_location = storage_location
         self.protocol_version = protocol_version
         self.candidates = candidates or []
-
-    def keys(self):
-        return self.__dict__.keys()
-
-    def __getitem__(self, key):
-        return getattr(self, key)
 
 
 class Vote:
