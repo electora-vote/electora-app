@@ -18,7 +18,7 @@ class Main(MainTemplate):
         if not anvil.js.window.isDetailPanelVisible():
             anvil.js.window.showDetailPanel()
 
-    def remove_detail(self):
+    def hide_detail(self):
         if self.detail:
             self.detail.remove_from_parent()
         self.detail = None
