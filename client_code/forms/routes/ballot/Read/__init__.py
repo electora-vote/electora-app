@@ -1,5 +1,4 @@
 import anvil.js
-from app.model import Ballot
 from app.formatters import FormattedBallot
 from app.services import proof
 
