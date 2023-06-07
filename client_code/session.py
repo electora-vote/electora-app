@@ -3,9 +3,6 @@ import anvil.server
 from app.services import storage
 
 anvil.js.report_all_exceptions(True)
-scroll_rpc_url = "https://alpha-rpc.scroll.io/l2"
-
-ORIGIN = anvil.server.get_app_origin()
 
 
 def tabulator_options():
@@ -19,3 +16,5 @@ def tabulator_options():
 
 LOCAL_STORE = storage.LocalStore()
 ONCHAIN_STORE = storage.OnChainStore()
+ORIGIN = anvil.server.get_app_origin()
+SCROLL_RPC_URL = "https://alpha-rpc.scroll.io/l2"
