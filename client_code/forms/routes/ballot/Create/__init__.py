@@ -25,6 +25,7 @@ class Create(CreateTemplate):
         self.refresh_data_bindings()
 
     def cancel_button_click(self, **event_args):
+        anvil.get_open_form().hide_detail()
         routing.set_url_hash("")
 
     def create_button_click(self, **event_args):

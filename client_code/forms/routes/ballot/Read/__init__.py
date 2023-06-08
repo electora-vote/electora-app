@@ -12,7 +12,7 @@ class Read(ReadTemplate):
         self.init_components(**properties)
 
     def hide_button_click(self, **event_args):
-        anvil.js.window.hideDetailPanel()
+        anvil.get_open_form().hide_detail()
 
     def vote_button_click(self, **event_args):
         proof.prove_eligibility(self.ballot)
