@@ -1,8 +1,6 @@
 name: Deploy to Anvil
 
 on:
-  release:
-    types: [published]
   push:
     branches: [main]
 
