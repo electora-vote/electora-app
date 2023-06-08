@@ -13,9 +13,10 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
-- type: FlowPanel
-  properties: {role: null, spacing: medium, align: left, tooltip: '', border: '',
-    foreground: '', visible: true, spacing_above: small, spacing_below: large, background: ''}
-  name: flow_panel_1
+- type: Label
+  properties: {role: display, align: left, tooltip: '', border: '', foreground: white,
+    visible: true, text: electora, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_1
   layout_properties: {slot: title}
-  components: []
