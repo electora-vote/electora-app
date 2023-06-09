@@ -1,11 +1,11 @@
+import anvil
+import anvil.js
 from anvil_extras import routing
 from app import session
 from app.model import Ballot
-import anvil.js
-import anvil
 
-from ..Read import Read
 from ..Create import Create
+from ..Read import Read
 from ._anvil_designer import IndexTemplate
 from .Template import Template
 
@@ -44,7 +44,11 @@ class Index(IndexTemplate):
 
     def tabulator_row_click(self, row, **event_args):
         model = row.get_model()
-        routing.set_url_hash(f"?ballot_id={model.uuid}")
+        url_hash = f"?ballot_id={model.uuid}"
+        cache_is_valid = (
+            url_hash != routing.get_url_hash() or anvil.get_open_form().detail_visible
+        )
+        routing.set_url_hash(url_hash, load_from_cache=cache_is_valid)
 
     def create_button_click(self, **event_args):
         self.create_ballot()
