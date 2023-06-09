@@ -46,7 +46,7 @@ class Index(IndexTemplate):
         model = row.get_model()
         url_hash = f"?ballot_id={model.uuid}"
         cache_is_valid = (
-            url_hash != routing.get_url_hash() or anvil.js.window.isDetailPanelVisble()
+            url_hash != routing.get_url_hash() or anvil.js.window.isDetailPanelVisible()
         )
         routing.set_url_hash(url_hash, load_from_cache=cache_is_valid)
 
