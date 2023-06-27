@@ -21,7 +21,7 @@ class Cast(CastTemplate):
         self.init_components(**properties)
 
     def cast_button_click(self, **event_args):
-        session.ONCHAIN_STORE.cast_vote(self.ballot, self.ciphertext)
+        session.ONCHAIN_STORE.cast_vote(self.vote.ballot, self.ciphertext)
 
     def cancel_button_click(self, **event_args):
         routing.set_url_hash("")

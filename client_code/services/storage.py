@@ -1,7 +1,8 @@
 import anvil.js
 from anvil_extras.storage import indexed_db
 
-_ethers = anvil.js.import_from("ethers")
+
+_ethers = anvil.js.import_from("ethers").ethers
 
 try:
     from anvil.js.window import ethereum  # noqa unused_import
@@ -106,15 +107,19 @@ class OnChainStore:
     def __init__(self):
         self._contract = None
 
+        if not _ethereum_available:
+            raise ValueError("No connected wallet found")
+        else:
+            self.provider = _ethers.BrowserProvider(ethereum)
+            self.signer = self.provider.getSigner()
+
     @property
     def contract(self):
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
 
         if not self._contract:
-            provider = _ethers.providers.Web3Provider(ethereum)
-            signer = provider.getSigner()
-            self._contract = _ethers.Contract(self.address, self.abi, signer)
+            self._contract = _ethers.Contract(self.address, self.abi, self.signer)
 
         return self._contract
 
@@ -122,4 +127,19 @@ class OnChainStore:
         self.contract.createBallot(**ballot.__dict__)
 
     def cast_vote(self, ballot, ciphertext):
-        self.contract.vote(ballot.uuid, ciphertext)
+        # self.contract.vote(ballot.uuid, ciphertext)
+        from anvil.js.window import Bundlr
+        WebBundlr = Bundlr.default
+        self.provider.getSigner = lambda *args: self.signer
+        bundlr = WebBundlr("https://devnet.bundlr.network", "matic", self.provider)
+        bundlr.ready()
+        tags = [{ "name": "ballot_uuid", "value": "ballot.uuid" }]
+        self.signer._signTypedData = self.signer.signTypedData
+        num_bytes = len(ciphertext.encode("utf8"))
+        atomic_price = bundlr.getPrice(num_bytes)
+        converted_price = bundlr.utils.fromAtomic(num_bytes)
+        print(f"Uploading {num_bytes} bytes costs {converted_price}")
+        bundlr.fund(atomic_price)
+        response = bundlr.upload(ciphertext, tags)
+        print(response)
+        

@@ -1,4 +1,4 @@
-from secrets import key
+from secrets import Enricokey
 
 from ferveo_py import Ciphertext
 from ferveo_py.ferveo_py import DkgPublicKey
@@ -7,12 +7,13 @@ from nucypher.characters.lawful import Enrico as Enrico
 from nucypher.characters.lawful import Ursula
 from nucypher.cli.utils import connect_to_blockchain
 from nucypher.utilities.emitters import StdoutEmitter
+from nucypher.policy.conditions.lingo import ConditionLingo
 
 goerli_uri = "https://goerli.infura.io/v3/663d60ae0f504f168b362c2bda60f81c"
 teacher_uri = "https://lynx.nucypher.network:9151"
 
 connect_to_blockchain(eth_provider_uri=goerli_uri, emitter=StdoutEmitter())
-enrico = Enrico(encrypting_key=DkgPublicKey.from_bytes(bytes.fromhex(key)))
+enrico = Enrico(encrypting_key=DkgPublicKey.from_bytes(bytes.fromhex(Enricokey)))
 bob = Bob(
     eth_provider_uri=goerli_uri,
     domain="lynx",
@@ -27,9 +28,10 @@ def get_conditions(timestamp):
         "method": "timelock",
         "returnValueTest": {"comparator": ">=", "value": timestamp},
     }
-    conditions = [
-        time_condition,
-    ]
+    conditions = {
+        "version": ConditionLingo.VERSION,
+        "condition": time_condition,
+    }
     return conditions
 
 
