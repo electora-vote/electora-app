@@ -1,6 +1,7 @@
 import anvil.js
 from anvil_extras.storage import indexed_db
 from anvil.js.window import Bundlr
+import app.services.manager as manager
 
 
 _ethers = anvil.js.import_from("ethers").ethers
@@ -56,3 +57,27 @@ class ArweaveStore:
         self.bundlr.fund(atomic_price)
         response = self.bundlr.upload(ciphertext, {"tags": tags})
         print(response)
+
+
+class ScrollStore:
+    def __init__(self):
+        self._contract = None
+
+        if not _ethereum_available:
+            raise ValueError("No connected wallet found")
+        else:
+            self.provider = _ethers.providers.Web3Provider(ethereum)
+            self.signer = self.provider.getSigner()
+
+    @property
+    def contract(self):
+        if not _ethereum_available:
+            raise ValueError("No connected wallet found")
+
+        if not self._contract:
+            self._contract = _ethers.Contract(manager.address, manager.abi, self.signer)
+
+        return self._contract
+
+    def register_ballot(self, ballot):
+        self.contract.createBallot(**ballot.__dict__)

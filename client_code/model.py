@@ -12,18 +12,16 @@ class Ballot:
         ends_at=dt.datetime.now(),
         sismo_group_id="",
         dkg_ritual_id=0,
-        storage_location="",
         protocol_version=1,
         candidates=None,
     ):
         self.uuid = uuid
         self.name = name
-        self.ends_at = ends_at
+        self.ends_at = int(ends_at.timestamp())
         self.sismo_group_id = sismo_group_id
         self.dkg_ritual_id = dkg_ritual_id
-        self.storage_location = storage_location
-        self.protocol_version = protocol_version
         self.candidates = candidates or []
+        self.protocol_version = protocol_version
 
 
 class Vote:
