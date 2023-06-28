@@ -110,7 +110,7 @@ class OnChainStore:
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
         else:
-            self.provider = _ethers.BrowserProvider(ethereum)
+            self.provider = _ethers.providers.Web3Provider(ethereum)
             self.signer = self.provider.getSigner()
 
     @property
@@ -129,17 +129,15 @@ class OnChainStore:
     def cast_vote(self, ballot, ciphertext):
         # self.contract.vote(ballot.uuid, ciphertext)
         from anvil.js.window import Bundlr
+
         WebBundlr = Bundlr.default
-        self.provider.getSigner = lambda *args: self.signer
         bundlr = WebBundlr("https://devnet.bundlr.network", "matic", self.provider)
         bundlr.ready()
-        tags = [{ "name": "ballot_uuid", "value": "ballot.uuid" }]
-        self.signer._signTypedData = self.signer.signTypedData
+        tags = [{"name": "ballot_uuid", "value": ballot.uuid}]
         num_bytes = len(ciphertext.encode("utf8"))
         atomic_price = bundlr.getPrice(num_bytes)
         converted_price = bundlr.utils.fromAtomic(num_bytes)
         print(f"Uploading {num_bytes} bytes costs {converted_price}")
         bundlr.fund(atomic_price)
-        response = bundlr.upload(ciphertext, tags)
+        response = bundlr.upload(ciphertext, {"tags": tags})
         print(response)
-        
