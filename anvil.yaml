@@ -22,206 +22,81 @@ runtime_options:
   server_spec_disabled: {requirements: eth-ape==0.6.8, base: python310-minimal}
 metadata: {title: Electora, logo_img: 'asset:brandmark-design (1)-logo.png'}
 startup_form: null
-native_deps: {head_html: "<!--\nJSPM Generator Import Map\nEdit URL: https://generator.jspm.io/#ZY1LCgIxEAWzEDyJy+l8RnHbl/AAMdOYhnQCk1aXXt0oCoK7R1XB222M2T5OVVkLLQY7d2lTaivZ76yVkk6pMFVFBw68N3iPF2H76tAPFP6JTTly7UPQeZa2xGJJM610FQywB/9rskr50HfU8QBHcObGJONzhuCf2ZWJ36oA\n\
-    -->\n<script type=\"importmap\">\n{\n\"imports\": {\n    \"@sismo-core/sismo-connect-client\"\
+native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client/build/bundle.js\"\
+    ></script>\n<!--\n  JSPM Generator Import Map\n  Edit URL: https://generator.jspm.io/#Y2JhYGBiDs0rySzJSU1hcCjOLM7N103OL0rVhzHz8lKTS3STczJT80ocDPQM9AwNGVJLMlKLih1M9cz1jACHakV6QwA\n\
+    -->\n <script type=\"importmap\">\n{\n  \"imports\": {\n    \"@sismo-core/sismo-connect-client\"\
     : \"https://ga.jspm.io/npm:@sismo-core/sismo-connect-client@0.0.11/lib/esm/index.js\"\
-    ,\n    \"@wagmi/core\": \"https://ga.jspm.io/npm:@wagmi/core@1.0.2/dist/index.js\"\
-    ,\n    \"@wagmi/core/chains\": \"https://ga.jspm.io/npm:@wagmi/core@1.0.2/dist/chains.js\"\
-    ,\n    \"@web3modal/ethereum\": \"https://ga.jspm.io/npm:@web3modal/ethereum@2.4.1/dist/index.js\"\
-    ,\n    \"@web3modal/html\": \"https://ga.jspm.io/npm:@web3modal/html@2.4.1/dist/index.js\"\
-    ,\n    \"ethers\": \"https://ga.jspm.io/npm:ethers@5.7.0/lib.esm/index.js\",\n\
-    \    \"viem\": \"https://ga.jspm.io/npm:viem@0.3.21/dist/esm/index.js\"\n},\n\"\
-    scopes\": {\n    \"https://ga.jspm.io/\": {\n    \"#esm/src/hashes/sha2.js\":\
-    \ \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/@empty.js\",\n    \"@adraffy/ens-normalize\"\
-    : \"https://ga.jspm.io/npm:@adraffy/ens-normalize@1.9.0/dist/index.js\",\n   \
-    \ \"@ethersproject/abi\": \"https://ga.jspm.io/npm:@ethersproject/abi@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/abstract-provider\": \"https://ga.jspm.io/npm:@ethersproject/abstract-provider@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/abstract-signer\": \"https://ga.jspm.io/npm:@ethersproject/abstract-signer@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/address\": \"https://ga.jspm.io/npm:@ethersproject/address@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/base64\": \"https://ga.jspm.io/npm:@ethersproject/base64@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/basex\": \"https://ga.jspm.io/npm:@ethersproject/basex@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/bignumber\": \"https://ga.jspm.io/npm:@ethersproject/bignumber@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/bytes\": \"https://ga.jspm.io/npm:@ethersproject/bytes@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/constants\": \"https://ga.jspm.io/npm:@ethersproject/constants@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/contracts\": \"https://ga.jspm.io/npm:@ethersproject/contracts@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/hash\": \"https://ga.jspm.io/npm:@ethersproject/hash@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/hdnode\": \"https://ga.jspm.io/npm:@ethersproject/hdnode@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/json-wallets\": \"https://ga.jspm.io/npm:@ethersproject/json-wallets@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/keccak256\": \"https://ga.jspm.io/npm:@ethersproject/keccak256@5.7.0/lib/index.js\"\
-    ,\n    \"@ethersproject/logger\": \"https://ga.jspm.io/npm:@ethersproject/logger@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/networks\": \"https://ga.jspm.io/npm:@ethersproject/networks@5.7.1/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/pbkdf2\": \"https://ga.jspm.io/npm:@ethersproject/pbkdf2@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/properties\": \"https://ga.jspm.io/npm:@ethersproject/properties@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/providers\": \"https://ga.jspm.io/npm:@ethersproject/providers@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/random\": \"https://ga.jspm.io/npm:@ethersproject/random@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/rlp\": \"https://ga.jspm.io/npm:@ethersproject/rlp@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/sha2\": \"https://ga.jspm.io/npm:@ethersproject/sha2@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/signing-key\": \"https://ga.jspm.io/npm:@ethersproject/signing-key@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/solidity\": \"https://ga.jspm.io/npm:@ethersproject/solidity@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/strings\": \"https://ga.jspm.io/npm:@ethersproject/strings@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/transactions\": \"https://ga.jspm.io/npm:@ethersproject/transactions@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/units\": \"https://ga.jspm.io/npm:@ethersproject/units@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/wallet\": \"https://ga.jspm.io/npm:@ethersproject/wallet@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/web\": \"https://ga.jspm.io/npm:@ethersproject/web@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@ethersproject/wordlists\": \"https://ga.jspm.io/npm:@ethersproject/wordlists@5.7.0/lib.esm/index.js\"\
-    ,\n    \"@lit/reactive-element\": \"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/development/reactive-element.js\"\
-    ,\n    \"@lit/reactive-element/decorators/\": \"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/development/decorators/\"\
-    ,\n    \"@motionone/animation\": \"https://ga.jspm.io/npm:@motionone/animation@10.15.1/dist/index.es.js\"\
-    ,\n    \"@motionone/dom\": \"https://ga.jspm.io/npm:@motionone/dom@10.15.5/dist/index.es.js\"\
-    ,\n    \"@motionone/easing\": \"https://ga.jspm.io/npm:@motionone/easing@10.15.1/dist/index.es.js\"\
-    ,\n    \"@motionone/generators\": \"https://ga.jspm.io/npm:@motionone/generators@10.15.1/dist/index.es.js\"\
-    ,\n    \"@motionone/types\": \"https://ga.jspm.io/npm:@motionone/types@10.15.1/dist/index.es.js\"\
-    ,\n    \"@motionone/utils\": \"https://ga.jspm.io/npm:@motionone/utils@10.15.1/dist/index.es.js\"\
-    ,\n    \"@noble/curves/abstract/utils\": \"https://ga.jspm.io/npm:@noble/curves@1.0.0/esm/abstract/utils.js\"\
-    ,\n    \"@noble/curves/secp256k1\": \"https://ga.jspm.io/npm:@noble/curves@1.0.0/esm/secp256k1.js\"\
-    ,\n    \"@noble/hashes/crypto\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/crypto.js\"\
-    ,\n    \"@noble/hashes/hmac\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/hmac.js\"\
-    ,\n    \"@noble/hashes/sha256\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/sha256.js\"\
-    ,\n    \"@noble/hashes/sha3\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/sha3.js\"\
-    ,\n    \"@noble/hashes/utils\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/utils.js\"\
-    ,\n    \"@stablelib/binary\": \"https://ga.jspm.io/npm:@stablelib/binary@1.0.1/lib/binary.js\"\
-    ,\n    \"@stablelib/chacha\": \"https://ga.jspm.io/npm:@stablelib/chacha@1.0.1/lib/chacha.js\"\
-    ,\n    \"@stablelib/chacha20poly1305\": \"https://ga.jspm.io/npm:@stablelib/chacha20poly1305@1.0.1/lib/chacha20poly1305.js\"\
-    ,\n    \"@stablelib/constant-time\": \"https://ga.jspm.io/npm:@stablelib/constant-time@1.0.1/lib/constant-time.js\"\
-    ,\n    \"@stablelib/ed25519\": \"https://ga.jspm.io/npm:@stablelib/ed25519@1.0.3/lib/ed25519.js\"\
-    ,\n    \"@stablelib/hash\": \"https://ga.jspm.io/npm:@stablelib/hash@1.0.1/lib/hash.js\"\
-    ,\n    \"@stablelib/hkdf\": \"https://ga.jspm.io/npm:@stablelib/hkdf@1.0.1/lib/hkdf.js\"\
-    ,\n    \"@stablelib/hmac\": \"https://ga.jspm.io/npm:@stablelib/hmac@1.0.1/lib/hmac.js\"\
-    ,\n    \"@stablelib/int\": \"https://ga.jspm.io/npm:@stablelib/int@1.0.1/lib/int.js\"\
-    ,\n    \"@stablelib/poly1305\": \"https://ga.jspm.io/npm:@stablelib/poly1305@1.0.1/lib/poly1305.js\"\
-    ,\n    \"@stablelib/random\": \"https://ga.jspm.io/npm:@stablelib/random@1.0.2/lib/random.js\"\
-    ,\n    \"@stablelib/sha256\": \"https://ga.jspm.io/npm:@stablelib/sha256@1.0.1/lib/sha256.js\"\
-    ,\n    \"@stablelib/sha512\": \"https://ga.jspm.io/npm:@stablelib/sha512@1.0.1/lib/sha512.js\"\
-    ,\n    \"@stablelib/wipe\": \"https://ga.jspm.io/npm:@stablelib/wipe@1.0.1/lib/wipe.js\"\
-    ,\n    \"@stablelib/x25519\": \"https://ga.jspm.io/npm:@stablelib/x25519@1.0.3/lib/x25519.js\"\
-    ,\n    \"@wagmi/chains\": \"https://ga.jspm.io/npm:@wagmi/chains@0.2.22/dist/index.mjs\"\
-    ,\n    \"@wagmi/connectors\": \"https://ga.jspm.io/npm:@wagmi/connectors@1.0.2/dist/index.js\"\
-    ,\n    \"@wagmi/connectors/injected\": \"https://ga.jspm.io/npm:@wagmi/connectors@1.0.2/dist/injected.js\"\
-    ,\n    \"@wagmi/connectors/walletConnect\": \"https://ga.jspm.io/npm:@wagmi/connectors@1.0.2/dist/walletConnect.js\"\
-    ,\n    \"@wagmi/connectors/walletConnectLegacy\": \"https://ga.jspm.io/npm:@wagmi/connectors@1.0.2/dist/walletConnectLegacy.js\"\
-    ,\n    \"@wagmi/core/connectors/walletConnectLegacy\": \"https://ga.jspm.io/npm:@wagmi/core@1.0.2/dist/connectors/walletConnectLegacy.js\"\
-    ,\n    \"@wagmi/core/providers/jsonRpc\": \"https://ga.jspm.io/npm:@wagmi/core@1.0.2/dist/providers/jsonRpc.js\"\
-    ,\n    \"@walletconnect/core\": \"https://ga.jspm.io/npm:@walletconnect/core@2.7.2/dist/index.es.js\"\
-    ,\n    \"@walletconnect/crypto\": \"https://ga.jspm.io/npm:@walletconnect/crypto@1.0.3/dist/esm/browser/index.js\"\
-    ,\n    \"@walletconnect/encoding\": \"https://ga.jspm.io/npm:@walletconnect/encoding@1.0.2/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/environment\": \"https://ga.jspm.io/npm:@walletconnect/environment@1.0.1/dist/cjs/index.js\"\
-    ,\n    \"@walletconnect/ethereum-provider\": \"https://ga.jspm.io/npm:@walletconnect/ethereum-provider@2.7.2/dist/index.es.js\"\
-    ,\n    \"@walletconnect/events\": \"https://ga.jspm.io/npm:@walletconnect/events@1.0.1/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/heartbeat\": \"https://ga.jspm.io/npm:@walletconnect/heartbeat@1.2.1/dist/cjs/index.js\"\
-    ,\n    \"@walletconnect/jsonrpc-http-connection\": \"https://ga.jspm.io/npm:@walletconnect/jsonrpc-http-connection@1.0.6/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/jsonrpc-provider\": \"https://ga.jspm.io/npm:@walletconnect/jsonrpc-provider@1.0.12/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/jsonrpc-types\": \"https://ga.jspm.io/npm:@walletconnect/jsonrpc-types@1.0.2/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/jsonrpc-utils\": \"https://ga.jspm.io/npm:@walletconnect/jsonrpc-utils@1.0.7/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/jsonrpc-ws-connection\": \"https://ga.jspm.io/npm:@walletconnect/jsonrpc-ws-connection@1.0.11/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/keyvaluestorage\": \"https://ga.jspm.io/npm:@walletconnect/keyvaluestorage@1.0.2/dist/cjs/browser/index.js\"\
-    ,\n    \"@walletconnect/legacy-client\": \"https://ga.jspm.io/npm:@walletconnect/legacy-client@2.0.0/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/legacy-modal\": \"https://ga.jspm.io/npm:@walletconnect/legacy-modal@2.0.0/dist/cjs/index.js\"\
-    ,\n    \"@walletconnect/legacy-provider\": \"https://ga.jspm.io/npm:@walletconnect/legacy-provider@2.0.0/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/legacy-types\": \"https://ga.jspm.io/npm:@walletconnect/legacy-types@2.0.0/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/legacy-utils\": \"https://ga.jspm.io/npm:@walletconnect/legacy-utils@2.0.0/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/logger\": \"https://ga.jspm.io/npm:@walletconnect/logger@2.0.1/dist/cjs/index.js\"\
-    ,\n    \"@walletconnect/randombytes\": \"https://ga.jspm.io/npm:@walletconnect/randombytes@1.0.3/dist/esm/browser/index.js\"\
-    ,\n    \"@walletconnect/relay-api\": \"https://ga.jspm.io/npm:@walletconnect/relay-api@1.0.9/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/relay-auth\": \"https://ga.jspm.io/npm:@walletconnect/relay-auth@1.0.4/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/safe-json\": \"https://ga.jspm.io/npm:@walletconnect/safe-json@1.0.2/dist/esm/index.js\"\
-    ,\n    \"@walletconnect/sign-client\": \"https://ga.jspm.io/npm:@walletconnect/sign-client@2.7.2/dist/index.es.js\"\
-    ,\n    \"@walletconnect/time\": \"https://ga.jspm.io/npm:@walletconnect/time@1.0.2/dist/cjs/index.js\"\
-    ,\n    \"@walletconnect/types\": \"https://ga.jspm.io/npm:@walletconnect/types@2.7.2/dist/index.es.js\"\
-    ,\n    \"@walletconnect/universal-provider\": \"https://ga.jspm.io/npm:@walletconnect/universal-provider@2.7.2/dist/index.es.js\"\
-    ,\n    \"@walletconnect/utils\": \"https://ga.jspm.io/npm:@walletconnect/utils@2.7.2/dist/index.es.js\"\
-    ,\n    \"@walletconnect/window-getters\": \"https://ga.jspm.io/npm:@walletconnect/window-getters@1.0.1/dist/cjs/index.js\"\
-    ,\n    \"@walletconnect/window-metadata\": \"https://ga.jspm.io/npm:@walletconnect/window-metadata@1.0.1/dist/cjs/index.js\"\
-    ,\n    \"@web3modal/core\": \"https://ga.jspm.io/npm:@web3modal/core@2.4.1/dist/index.js\"\
-    ,\n    \"@web3modal/standalone\": \"https://ga.jspm.io/npm:@web3modal/standalone@2.3.7/dist/index.js\"\
-    ,\n    \"@web3modal/ui\": \"https://ga.jspm.io/npm:@web3modal/ui@2.4.1/dist/index.js\"\
-    ,\n    \"abitype\": \"https://ga.jspm.io/npm:abitype@0.8.2/dist/esm/index.js\"\
-    ,\n    \"aes-js\": \"https://ga.jspm.io/npm:aes-js@3.0.0/index.js\",\n    \"base64-js\"\
-    : \"https://ga.jspm.io/npm:base64-js@1.5.1/index.js\",\n    \"bech32\": \"https://ga.jspm.io/npm:bech32@1.1.4/index.js\"\
-    ,\n    \"bn.js\": \"https://ga.jspm.io/npm:bn.js@5.2.1/lib/bn.js\",\n    \"buffer\"\
-    : \"https://ga.jspm.io/npm:buffer@6.0.3/index.js\",\n    \"copy-to-clipboard\"\
-    : \"https://ga.jspm.io/npm:copy-to-clipboard@3.3.3/index.js\",\n    \"cross-fetch\"\
-    : \"https://ga.jspm.io/npm:cross-fetch@3.1.5/dist/browser-ponyfill.js\",\n   \
-    \ \"crypto\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/crypto.js\"\
-    ,\n    \"decode-uri-component\": \"https://ga.jspm.io/npm:decode-uri-component@0.2.2/index.js\"\
-    ,\n    \"detect-browser\": \"https://ga.jspm.io/npm:detect-browser@5.3.0/es/index.js\"\
-    ,\n    \"dijkstrajs\": \"https://ga.jspm.io/npm:dijkstrajs@1.0.3/dijkstra.js\"\
-    ,\n    \"encode-utf8\": \"https://ga.jspm.io/npm:encode-utf8@1.0.3/index.js\"\
-    ,\n    \"eventemitter3\": \"https://ga.jspm.io/npm:eventemitter3@4.0.7/index.js\"\
-    ,\n    \"events\": \"https://ga.jspm.io/npm:events@3.3.0/events.js\",\n    \"\
-    filter-obj\": \"https://ga.jspm.io/npm:filter-obj@1.1.0/index.js\",\n    \"hash.js\"\
-    : \"https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js\",\n    \"hey-listen\": \"\
-    https://ga.jspm.io/npm:hey-listen@1.0.8/dist/dev.index.js\",\n    \"ieee754\"\
-    : \"https://ga.jspm.io/npm:ieee754@1.2.1/index.js\",\n    \"inherits\": \"https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js\"\
-    ,\n    \"is-typedarray\": \"https://ga.jspm.io/npm:is-typedarray@1.0.0/index.js\"\
-    ,\n    \"isomorphic-ws\": \"https://ga.jspm.io/npm:isomorphic-ws@5.0.0/browser.js\"\
-    ,\n    \"js-base64\": \"https://ga.jspm.io/npm:js-base64@3.7.5/base64.mjs\",\n\
-    \    \"js-sha3\": \"https://ga.jspm.io/npm:js-sha3@0.8.0/src/sha3.js\",\n    \"\
-    lit\": \"https://ga.jspm.io/npm:lit@2.7.4/index.js\",\n    \"lit-element/lit-element.js\"\
-    : \"https://ga.jspm.io/npm:lit-element@3.3.2/development/lit-element.js\",\n \
-    \   \"lit-html\": \"https://ga.jspm.io/npm:lit-html@2.7.4/development/lit-html.js\"\
-    ,\n    \"lit-html/\": \"https://ga.jspm.io/npm:lit-html@2.7.4/development/\",\n\
-    \    \"lit/\": \"https://ga.jspm.io/npm:lit@2.7.4/\",\n    \"lodash.isequal\"\
-    : \"https://ga.jspm.io/npm:lodash.isequal@4.5.0/index.js\",\n    \"minimalistic-assert\"\
-    : \"https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js\",\n    \"motion\"\
-    : \"https://ga.jspm.io/npm:motion@10.15.5/dist/main.es.js\",\n    \"multiformats/basics\"\
-    : \"https://ga.jspm.io/npm:multiformats@9.9.0/esm/src/basics.js\",\n    \"pako\"\
-    : \"https://ga.jspm.io/npm:pako@2.1.0/dist/pako.esm.mjs\",\n    \"pino\": \"https://ga.jspm.io/npm:pino@7.11.0/browser.js\"\
-    ,\n    \"preact\": \"https://ga.jspm.io/npm:preact@10.13.2/dist/preact.module.js\"\
-    ,\n    \"preact/compat\": \"https://ga.jspm.io/npm:preact@10.13.2/compat/dist/compat.module.js\"\
-    ,\n    \"preact/hooks\": \"https://ga.jspm.io/npm:preact@10.13.2/hooks/dist/hooks.module.js\"\
-    ,\n    \"process\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process.js\"\
-    ,\n    \"proxy-compare\": \"https://ga.jspm.io/npm:proxy-compare@2.5.1/dist/index.modern.js\"\
-    ,\n    \"qrcode\": \"https://ga.jspm.io/npm:qrcode@1.5.3/lib/browser.js\",\n \
-    \   \"query-string\": \"https://ga.jspm.io/npm:query-string@7.1.3/index.js\",\n\
-    \    \"quick-format-unescaped\": \"https://ga.jspm.io/npm:quick-format-unescaped@4.0.4/index.js\"\
-    ,\n    \"safe-json-utils\": \"https://ga.jspm.io/npm:safe-json-utils@1.1.1/dist/cjs/index.js\"\
-    ,\n    \"scrypt-js\": \"https://ga.jspm.io/npm:scrypt-js@3.0.1/scrypt.js\",\n\
-    \    \"split-on-first\": \"https://ga.jspm.io/npm:split-on-first@1.1.0/index.js\"\
-    ,\n    \"strict-uri-encode\": \"https://ga.jspm.io/npm:strict-uri-encode@2.0.0/index.js\"\
-    ,\n    \"toggle-selection\": \"https://ga.jspm.io/npm:toggle-selection@1.0.6/index.js\"\
-    ,\n    \"tslib\": \"https://ga.jspm.io/npm:tslib@2.5.0/tslib.es6.js\",\n    \"\
-    typedarray-to-buffer\": \"https://ga.jspm.io/npm:typedarray-to-buffer@3.1.5/index.js\"\
-    ,\n    \"uint8arrays\": \"https://ga.jspm.io/npm:uint8arrays@3.1.1/esm/src/index.js\"\
-    ,\n    \"uint8arrays/concat\": \"https://ga.jspm.io/npm:uint8arrays@3.1.1/esm/src/concat.js\"\
-    ,\n    \"uint8arrays/from-string\": \"https://ga.jspm.io/npm:uint8arrays@3.1.1/esm/src/from-string.js\"\
-    ,\n    \"uint8arrays/to-string\": \"https://ga.jspm.io/npm:uint8arrays@3.1.1/esm/src/to-string.js\"\
-    ,\n    \"valtio/vanilla\": \"https://ga.jspm.io/npm:valtio@1.10.5/esm/vanilla.mjs\"\
-    ,\n    \"viem/chains\": \"https://ga.jspm.io/npm:viem@0.3.21/dist/esm/chains.js\"\
-    ,\n    \"viem/ens\": \"https://ga.jspm.io/npm:viem@0.3.21/dist/esm/ens.js\",\n\
-    \    \"zustand/middleware\": \"https://ga.jspm.io/npm:zustand@4.3.8/esm/middleware.mjs\"\
-    ,\n    \"zustand/shallow\": \"https://ga.jspm.io/npm:zustand@4.3.8/esm/shallow.mjs\"\
-    ,\n    \"zustand/vanilla\": \"https://ga.jspm.io/npm:zustand@4.3.8/esm/vanilla.mjs\"\
-    \n    },\n    \"https://ga.jspm.io/npm:@walletconnect/environment@1.0.1/\": {\n\
-    \    \"tslib\": \"https://ga.jspm.io/npm:tslib@1.14.1/tslib.es6.js\"\n    },\n\
-    \    \"https://ga.jspm.io/npm:@walletconnect/heartbeat@1.2.1/\": {\n    \"events\"\
-    : \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/events.js\",\n  \
-    \  \"tslib\": \"https://ga.jspm.io/npm:tslib@1.14.1/tslib.es6.js\"\n    },\n \
-    \   \"https://ga.jspm.io/npm:@walletconnect/jsonrpc-http-connection@1.0.6/\":\
-    \ {\n    \"events\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/events.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:@walletconnect/jsonrpc-provider@1.0.12/\"\
-    : {\n    \"events\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/events.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:@walletconnect/keyvaluestorage@1.0.2/\"\
-    : {\n    \"tslib\": \"https://ga.jspm.io/npm:tslib@1.14.1/tslib.es6.js\"\n   \
-    \ },\n    \"https://ga.jspm.io/npm:@walletconnect/legacy-provider@2.0.0/\": {\n\
-    \    \"events\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/events.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:@walletconnect/legacy-utils@2.0.0/\": {\n\
-    \    \"query-string\": \"https://ga.jspm.io/npm:query-string@6.14.1/index.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:@walletconnect/logger@2.0.1/\": {\n   \
-    \ \"tslib\": \"https://ga.jspm.io/npm:tslib@1.14.1/tslib.es6.js\"\n    },\n  \
-    \  \"https://ga.jspm.io/npm:@walletconnect/time@1.0.2/\": {\n    \"tslib\": \"\
-    https://ga.jspm.io/npm:tslib@1.14.1/tslib.es6.js\"\n    },\n    \"https://ga.jspm.io/npm:@web3modal/core@2.3.7/\"\
-    : {\n    \"valtio/vanilla\": \"https://ga.jspm.io/npm:valtio@1.10.4/esm/vanilla.mjs\"\
-    \n    },\n    \"https://ga.jspm.io/npm:@web3modal/standalone@2.3.7/\": {\n   \
-    \ \"@web3modal/core\": \"https://ga.jspm.io/npm:@web3modal/core@2.3.7/dist/index.js\"\
-    ,\n    \"@web3modal/ui\": \"https://ga.jspm.io/npm:@web3modal/ui@2.3.7/dist/index.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:@web3modal/ui@2.3.7/\": {\n    \"@web3modal/core\"\
-    : \"https://ga.jspm.io/npm:@web3modal/core@2.3.7/dist/index.js\",\n    \"lit\"\
-    : \"https://ga.jspm.io/npm:lit@2.7.3/index.js\",\n    \"lit/\": \"https://ga.jspm.io/npm:lit@2.7.3/\"\
-    \n    },\n    \"https://ga.jspm.io/npm:bn.js@5.2.1/\": {\n    \"buffer\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/buffer.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:typedarray-to-buffer@3.1.5/\": {\n    \"\
-    buffer\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/buffer.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:valtio@1.10.4/\": {\n    \"proxy-compare\"\
-    : \"https://ga.jspm.io/npm:proxy-compare@2.5.0/dist/index.modern.js\"\n    },\n\
-    \    \"https://ga.jspm.io/npm:viem@0.3.21/\": {\n    \"@wagmi/chains\": \"https://ga.jspm.io/npm:@wagmi/chains@0.2.16/dist/index.mjs\"\
-    \n    }\n  }\n}\n</script>"}
+    ,\n    \"ethers\": \"https://ga.jspm.io/npm:ethers@5.7.2/lib.esm/index.js\"\n\
+    \  },\n  \"scopes\": {\n    \"https://ga.jspm.io/\": {\n      \"@ethersproject/abi\"\
+    : \"https://ga.jspm.io/npm:@ethersproject/abi@5.7.0/lib.esm/index.js\",\n    \
+    \  \"@ethersproject/abstract-provider\": \"https://ga.jspm.io/npm:@ethersproject/abstract-provider@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/abstract-signer\": \"https://ga.jspm.io/npm:@ethersproject/abstract-signer@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/address\": \"https://ga.jspm.io/npm:@ethersproject/address@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/base64\": \"https://ga.jspm.io/npm:@ethersproject/base64@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/basex\": \"https://ga.jspm.io/npm:@ethersproject/basex@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/bignumber\": \"https://ga.jspm.io/npm:@ethersproject/bignumber@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/bytes\": \"https://ga.jspm.io/npm:@ethersproject/bytes@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/constants\": \"https://ga.jspm.io/npm:@ethersproject/constants@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/contracts\": \"https://ga.jspm.io/npm:@ethersproject/contracts@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/hash\": \"https://ga.jspm.io/npm:@ethersproject/hash@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/hdnode\": \"https://ga.jspm.io/npm:@ethersproject/hdnode@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/json-wallets\": \"https://ga.jspm.io/npm:@ethersproject/json-wallets@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/keccak256\": \"https://ga.jspm.io/npm:@ethersproject/keccak256@5.7.0/lib/index.js\"\
+    ,\n      \"@ethersproject/logger\": \"https://ga.jspm.io/npm:@ethersproject/logger@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/networks\": \"https://ga.jspm.io/npm:@ethersproject/networks@5.7.1/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/pbkdf2\": \"https://ga.jspm.io/npm:@ethersproject/pbkdf2@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/properties\": \"https://ga.jspm.io/npm:@ethersproject/properties@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/providers\": \"https://ga.jspm.io/npm:@ethersproject/providers@5.7.2/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/random\": \"https://ga.jspm.io/npm:@ethersproject/random@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/rlp\": \"https://ga.jspm.io/npm:@ethersproject/rlp@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/sha2\": \"https://ga.jspm.io/npm:@ethersproject/sha2@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/signing-key\": \"https://ga.jspm.io/npm:@ethersproject/signing-key@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/solidity\": \"https://ga.jspm.io/npm:@ethersproject/solidity@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/strings\": \"https://ga.jspm.io/npm:@ethersproject/strings@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/transactions\": \"https://ga.jspm.io/npm:@ethersproject/transactions@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/units\": \"https://ga.jspm.io/npm:@ethersproject/units@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/wallet\": \"https://ga.jspm.io/npm:@ethersproject/wallet@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/web\": \"https://ga.jspm.io/npm:@ethersproject/web@5.7.1/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/wordlists\": \"https://ga.jspm.io/npm:@ethersproject/wordlists@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@noble/curves/abstract/utils\": \"https://ga.jspm.io/npm:@noble/curves@1.0.0/esm/abstract/utils.js\"\
+    ,\n      \"@noble/curves/secp256k1\": \"https://ga.jspm.io/npm:@noble/curves@1.0.0/esm/secp256k1.js\"\
+    ,\n      \"@noble/hashes/crypto\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/crypto.js\"\
+    ,\n      \"@noble/hashes/hmac\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/hmac.js\"\
+    ,\n      \"@noble/hashes/sha256\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/sha256.js\"\
+    ,\n      \"@noble/hashes/sha3\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/sha3.js\"\
+    ,\n      \"@noble/hashes/utils\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/utils.js\"\
+    ,\n      \"abitype\": \"https://ga.jspm.io/npm:abitype@0.8.7/dist/esm/index.js\"\
+    ,\n      \"aes-js\": \"https://ga.jspm.io/npm:aes-js@3.0.0/index.js\",\n     \
+    \ \"bech32\": \"https://ga.jspm.io/npm:bech32@1.1.4/index.js\",\n      \"bn.js\"\
+    : \"https://ga.jspm.io/npm:bn.js@5.2.1/lib/bn.js\",\n      \"buffer\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/buffer.js\"\
+    ,\n      \"bufferutil\": \"https://ga.jspm.io/npm:bufferutil@4.0.7/index.js\"\
+    ,\n      \"crypto\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/crypto.js\"\
+    ,\n      \"events\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/events.js\"\
+    ,\n      \"fs\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/fs.js\"\
+    ,\n      \"hash.js\": \"https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js\",\n\
+    \      \"http\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/http.js\"\
+    ,\n      \"https\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/https.js\"\
+    ,\n      \"inherits\": \"https://ga.jspm.io/npm:inherits@2.0.4/inherits.js\",\n\
+    \      \"isomorphic-ws\": \"https://ga.jspm.io/npm:isomorphic-ws@5.0.0/node.js\"\
+    ,\n      \"js-base64\": \"https://ga.jspm.io/npm:js-base64@3.7.5/base64.mjs\"\
+    ,\n      \"js-sha3\": \"https://ga.jspm.io/npm:js-sha3@0.8.0/src/sha3.js\",\n\
+    \      \"minimalistic-assert\": \"https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js\"\
+    ,\n      \"net\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/net.js\"\
+    ,\n      \"node-gyp-build\": \"https://ga.jspm.io/npm:node-gyp-build@4.6.0/index.js\"\
+    ,\n      \"os\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/os.js\"\
+    ,\n      \"pako\": \"https://ga.jspm.io/npm:pako@2.1.0/dist/pako.esm.mjs\",\n\
+    \      \"path\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/path.js\"\
+    ,\n      \"process\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process-production.js\"\
+    ,\n      \"scrypt-js\": \"https://ga.jspm.io/npm:scrypt-js@3.0.1/scrypt.js\",\n\
+    \      \"stream\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/stream.js\"\
+    ,\n      \"tls\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/tls.js\"\
+    ,\n      \"url\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/url.js\"\
+    ,\n      \"utf-8-validate\": \"https://ga.jspm.io/npm:utf-8-validate@6.0.3/index.js\"\
+    ,\n      \"util\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/util.js\"\
+    ,\n      \"viem\": \"https://ga.jspm.io/npm:viem@0.3.50/dist/esm/index.js\",\n\
+    \      \"ws\": \"https://ga.jspm.io/npm:ws@8.13.0/index.js\",\n      \"zlib\"\
+    : \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/zlib.js\"\n    }\n\
+    \  }\n}\n</script>\n\n<!-- ES Module Shims: Import maps polyfill for olrder browsers\
+    \ without import maps support (eg Safari 16.3) -->\n<script async src=\"https://ga.jspm.io/npm:es-module-shims@1.7.3/dist/es-module-shims.js\"\
+    \ crossorigin=\"anonymous\"></script>"}
 renamed: true
