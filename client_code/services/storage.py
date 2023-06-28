@@ -36,106 +36,23 @@ class LocalStore:
         self.store[(obj.__class__.__name__, getattr(obj, key))] = obj.__dict__
 
 
-class OnChainStore:
-    address = "0x7ee88EB2209039fAb7e61Be48fAefEaCA492ACAD"
-    url = f"https://scrollexplorer.unifra.io/address/{address}"
-    abi = [
-        {"inputs": [], "stateMutability": "nonpayable", "type": "constructor"},
-        {
-            "inputs": [{"internalType": "string", "name": "", "type": "string"}],
-            "name": "ballots",
-            "outputs": [
-                {"internalType": "string", "name": "sismoGroupId", "type": "string"}
-            ],
-            "stateMutability": "view",
-            "type": "function",
-        },
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"},
-                {"internalType": "string", "name": "_sismoGroupId", "type": "string"},
-                {"internalType": "string[]", "name": "_candidates", "type": "string[]"},
-            ],
-            "name": "createBallot",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function",
-        },
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"}
-            ],
-            "name": "getCandidates",
-            "outputs": [{"internalType": "string[]", "name": "", "type": "string[]"}],
-            "stateMutability": "view",
-            "type": "function",
-        },
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"}
-            ],
-            "name": "getSismoGroupID",
-            "outputs": [{"internalType": "string", "name": "", "type": "string"}],
-            "stateMutability": "view",
-            "type": "function",
-        },
-        {
-            "inputs": [
-                {"internalType": "string", "name": "_ballotId", "type": "string"},
-                {
-                    "internalType": "string",
-                    "name": "_encryptedProofAndVote",
-                    "type": "string",
-                },
-            ],
-            "name": "vote",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function",
-        },
-        {
-            "inputs": [
-                {"internalType": "string", "name": "", "type": "string"},
-                {"internalType": "uint256", "name": "", "type": "uint256"},
-            ],
-            "name": "votes",
-            "outputs": [{"internalType": "string", "name": "", "type": "string"}],
-            "stateMutability": "view",
-            "type": "function",
-        },
-    ]
-
+class ArweaveStore:
     def __init__(self):
-        self._contract = None
-
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
         else:
             self.provider = _ethers.providers.Web3Provider(ethereum)
             self.signer = self.provider.getSigner()
-
-    @property
-    def contract(self):
-        if not _ethereum_available:
-            raise ValueError("No connected wallet found")
-
-        if not self._contract:
-            self._contract = _ethers.Contract(self.address, self.abi, self.signer)
-
-        return self._contract
-
-    def register_ballot(self, ballot):
-        self.contract.createBallot(**ballot.__dict__)
+        WebBundlr = Bundlr.default
+        self.bundlr = WebBundlr("https://devnet.bundlr.network", "matic", self.provider)
+        self.bundlr.ready()
 
     def cast_vote(self, ballot, ciphertext):
-        WebBundlr = Bundlr.default
-        bundlr = WebBundlr("https://devnet.bundlr.network", "matic", self.provider)
-        bundlr.ready()
         tags = [{"name": "ballot_uuid", "value": ballot.uuid}]
         num_bytes = len(ciphertext.encode("utf8"))
-        atomic_price = bundlr.getPrice(num_bytes)
-        converted_price = bundlr.utils.fromAtomic(num_bytes)
+        atomic_price = self.bundlr.getPrice(num_bytes)
+        converted_price = self.bundlr.utils.fromAtomic(num_bytes)
         print(f"Uploading {num_bytes} bytes costs {converted_price}")
-        bundlr.fund(atomic_price)
-        response = bundlr.upload(ciphertext, {"tags": tags})
+        self.bundlr.fund(atomic_price)
+        response = self.bundlr.upload(ciphertext, {"tags": tags})
         print(response)
