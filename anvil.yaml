@@ -23,53 +23,80 @@ runtime_options:
 metadata: {title: Electora, logo_img: 'asset:brandmark-design (1)-logo.png'}
 startup_form: null
 native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client/build/bundle.js\"\
-    ></script>\n<!--\n  JSPM Generator Import Map\n  Edit URL: https://generator.jspm.io/#Y2JhYGBiDs0rySzJSU1hcCjOLM7N103OL0rVhzHz8lKTS3STczJT80ocDPQM9AwNGVJLMlKLih3M9Mz0DABMGynSQwA\n\
+    ></script>\n<!--\n  JSPM Generator Import Map\n  Edit URL: https://generator.jspm.io/#Y2JhYGBiDs0rySzJSU1hcCjOLM7N103OL0rVhzHz8lKTS3STczJT80ocDPQM9AwNGVJLMlKLih1M9cz1jACHakV6QwA\n\
     -->\n <script type=\"importmap\">\n{\n  \"imports\": {\n    \"@sismo-core/sismo-connect-client\"\
     : \"https://ga.jspm.io/npm:@sismo-core/sismo-connect-client@0.0.11/lib/esm/index.js\"\
-    ,\n    \"ethers\": \"https://ga.jspm.io/npm:ethers@6.6.0/lib.esm/index.js\"\n\
-    \  },\n  \"scopes\": {\n    \"https://ga.jspm.io/\": {\n      \"#lib.esm/\": \"\
-    https://ga.jspm.io/npm:ethers@6.6.0/lib.esm/\",\n      \"@adraffy/ens-normalize\"\
-    : \"https://ga.jspm.io/npm:@adraffy/ens-normalize@1.9.2/dist/index.mjs\",\n  \
-    \    \"@noble/curves/abstract/utils\": \"https://ga.jspm.io/npm:@noble/curves@1.0.0/esm/abstract/utils.js\"\
+    ,\n    \"ethers\": \"https://ga.jspm.io/npm:ethers@5.7.2/lib.esm/index.js\"\n\
+    \  },\n  \"scopes\": {\n    \"https://ga.jspm.io/\": {\n      \"@ethersproject/abi\"\
+    : \"https://ga.jspm.io/npm:@ethersproject/abi@5.7.0/lib.esm/index.js\",\n    \
+    \  \"@ethersproject/abstract-provider\": \"https://ga.jspm.io/npm:@ethersproject/abstract-provider@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/abstract-signer\": \"https://ga.jspm.io/npm:@ethersproject/abstract-signer@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/address\": \"https://ga.jspm.io/npm:@ethersproject/address@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/base64\": \"https://ga.jspm.io/npm:@ethersproject/base64@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/basex\": \"https://ga.jspm.io/npm:@ethersproject/basex@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/bignumber\": \"https://ga.jspm.io/npm:@ethersproject/bignumber@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/bytes\": \"https://ga.jspm.io/npm:@ethersproject/bytes@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/constants\": \"https://ga.jspm.io/npm:@ethersproject/constants@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/contracts\": \"https://ga.jspm.io/npm:@ethersproject/contracts@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/hash\": \"https://ga.jspm.io/npm:@ethersproject/hash@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/hdnode\": \"https://ga.jspm.io/npm:@ethersproject/hdnode@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/json-wallets\": \"https://ga.jspm.io/npm:@ethersproject/json-wallets@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/keccak256\": \"https://ga.jspm.io/npm:@ethersproject/keccak256@5.7.0/lib/index.js\"\
+    ,\n      \"@ethersproject/logger\": \"https://ga.jspm.io/npm:@ethersproject/logger@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/networks\": \"https://ga.jspm.io/npm:@ethersproject/networks@5.7.1/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/pbkdf2\": \"https://ga.jspm.io/npm:@ethersproject/pbkdf2@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/properties\": \"https://ga.jspm.io/npm:@ethersproject/properties@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/providers\": \"https://ga.jspm.io/npm:@ethersproject/providers@5.7.2/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/random\": \"https://ga.jspm.io/npm:@ethersproject/random@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/rlp\": \"https://ga.jspm.io/npm:@ethersproject/rlp@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/sha2\": \"https://ga.jspm.io/npm:@ethersproject/sha2@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/signing-key\": \"https://ga.jspm.io/npm:@ethersproject/signing-key@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/solidity\": \"https://ga.jspm.io/npm:@ethersproject/solidity@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/strings\": \"https://ga.jspm.io/npm:@ethersproject/strings@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/transactions\": \"https://ga.jspm.io/npm:@ethersproject/transactions@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/units\": \"https://ga.jspm.io/npm:@ethersproject/units@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/wallet\": \"https://ga.jspm.io/npm:@ethersproject/wallet@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/web\": \"https://ga.jspm.io/npm:@ethersproject/web@5.7.1/lib.esm/index.js\"\
+    ,\n      \"@ethersproject/wordlists\": \"https://ga.jspm.io/npm:@ethersproject/wordlists@5.7.0/lib.esm/index.js\"\
+    ,\n      \"@noble/curves/abstract/utils\": \"https://ga.jspm.io/npm:@noble/curves@1.0.0/esm/abstract/utils.js\"\
     ,\n      \"@noble/curves/secp256k1\": \"https://ga.jspm.io/npm:@noble/curves@1.0.0/esm/secp256k1.js\"\
-    ,\n      \"@noble/hashes/crypto\": \"https://ga.jspm.io/npm:@noble/hashes@1.1.2/esm/crypto.js\"\
+    ,\n      \"@noble/hashes/crypto\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/crypto.js\"\
     ,\n      \"@noble/hashes/hmac\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/hmac.js\"\
-    ,\n      \"@noble/hashes/ripemd160\": \"https://ga.jspm.io/npm:@noble/hashes@1.1.2/esm/ripemd160.js\"\
-    ,\n      \"@noble/hashes/scrypt\": \"https://ga.jspm.io/npm:@noble/hashes@1.1.2/esm/scrypt.js\"\
     ,\n      \"@noble/hashes/sha256\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/sha256.js\"\
-    ,\n      \"@noble/hashes/sha3\": \"https://ga.jspm.io/npm:@noble/hashes@1.1.2/esm/sha3.js\"\
+    ,\n      \"@noble/hashes/sha3\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/sha3.js\"\
     ,\n      \"@noble/hashes/utils\": \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/utils.js\"\
-    ,\n      \"@noble/secp256k1\": \"https://ga.jspm.io/npm:@noble/secp256k1@1.7.1/lib/esm/index.js\"\
     ,\n      \"abitype\": \"https://ga.jspm.io/npm:abitype@0.8.7/dist/esm/index.js\"\
-    ,\n      \"aes-js\": \"https://ga.jspm.io/npm:aes-js@4.0.0-beta.5/lib.esm/index.js\"\
-    ,\n      \"buffer\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/buffer.js\"\
+    ,\n      \"aes-js\": \"https://ga.jspm.io/npm:aes-js@3.0.0/index.js\",\n     \
+    \ \"bech32\": \"https://ga.jspm.io/npm:bech32@1.1.4/index.js\",\n      \"bn.js\"\
+    : \"https://ga.jspm.io/npm:bn.js@5.2.1/lib/bn.js\",\n      \"buffer\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/buffer.js\"\
     ,\n      \"bufferutil\": \"https://ga.jspm.io/npm:bufferutil@4.0.7/index.js\"\
     ,\n      \"crypto\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/crypto.js\"\
     ,\n      \"events\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/events.js\"\
     ,\n      \"fs\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/fs.js\"\
-    ,\n      \"http\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/http.js\"\
+    ,\n      \"hash.js\": \"https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js\",\n\
+    \      \"http\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/http.js\"\
     ,\n      \"https\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/https.js\"\
-    ,\n      \"isomorphic-ws\": \"https://ga.jspm.io/npm:isomorphic-ws@5.0.0/node.js\"\
+    ,\n      \"inherits\": \"https://ga.jspm.io/npm:inherits@2.0.4/inherits.js\",\n\
+    \      \"isomorphic-ws\": \"https://ga.jspm.io/npm:isomorphic-ws@5.0.0/node.js\"\
     ,\n      \"js-base64\": \"https://ga.jspm.io/npm:js-base64@3.7.5/base64.mjs\"\
+    ,\n      \"js-sha3\": \"https://ga.jspm.io/npm:js-sha3@0.8.0/src/sha3.js\",\n\
+    \      \"minimalistic-assert\": \"https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js\"\
     ,\n      \"net\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/net.js\"\
     ,\n      \"node-gyp-build\": \"https://ga.jspm.io/npm:node-gyp-build@4.6.0/index.js\"\
     ,\n      \"os\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/os.js\"\
     ,\n      \"pako\": \"https://ga.jspm.io/npm:pako@2.1.0/dist/pako.esm.mjs\",\n\
     \      \"path\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/path.js\"\
     ,\n      \"process\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process-production.js\"\
-    ,\n      \"stream\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/stream.js\"\
+    ,\n      \"scrypt-js\": \"https://ga.jspm.io/npm:scrypt-js@3.0.1/scrypt.js\",\n\
+    \      \"stream\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/stream.js\"\
     ,\n      \"tls\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/tls.js\"\
     ,\n      \"url\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/url.js\"\
-    ,\n      \"utf-8-validate\": \"https://ga.jspm.io/npm:utf-8-validate@5.0.10/index.js\"\
+    ,\n      \"utf-8-validate\": \"https://ga.jspm.io/npm:utf-8-validate@6.0.3/index.js\"\
+    ,\n      \"util\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/util.js\"\
     ,\n      \"viem\": \"https://ga.jspm.io/npm:viem@0.3.50/dist/esm/index.js\",\n\
-    \      \"ws\": \"https://ga.jspm.io/npm:ws@8.5.0/wrapper.mjs\",\n      \"zlib\"\
-    : \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/zlib.js\"\n    },\n\
-    \    \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/\": {\n      \"@noble/hashes/crypto\"\
-    : \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/crypto.js\"\n    },\n    \"\
-    https://ga.jspm.io/npm:isomorphic-ws@5.0.0/\": {\n      \"ws\": \"https://ga.jspm.io/npm:ws@8.5.0/index.js\"\
-    \n    },\n    \"https://ga.jspm.io/npm:viem@0.3.50/\": {\n      \"@noble/hashes/sha3\"\
-    : \"https://ga.jspm.io/npm:@noble/hashes@1.3.0/esm/sha3.js\"\n    }\n  }\n}\n\
-    </script>\n\n<!-- ES Module Shims: Import maps polyfill for olrder browsers without\
-    \ import maps support (eg Safari 16.3) -->\n<script async src=\"https://ga.jspm.io/npm:es-module-shims@1.7.3/dist/es-module-shims.js\"\
+    \      \"ws\": \"https://ga.jspm.io/npm:ws@8.13.0/index.js\",\n      \"zlib\"\
+    : \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/zlib.js\"\n    }\n\
+    \  }\n}\n</script>\n\n<!-- ES Module Shims: Import maps polyfill for olrder browsers\
+    \ without import maps support (eg Safari 16.3) -->\n<script async src=\"https://ga.jspm.io/npm:es-module-shims@1.7.3/dist/es-module-shims.js\"\
     \ crossorigin=\"anonymous\"></script>"}
 renamed: true
