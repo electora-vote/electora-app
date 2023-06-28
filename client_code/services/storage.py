@@ -3,6 +3,7 @@ from anvil_extras.storage import indexed_db
 
 
 _ethers = anvil.js.import_from("ethers").ethers
+_bundlr = anvil.js.import_from("bundlr").bundlr
 
 try:
     from anvil.js.window import ethereum  # noqa unused_import
@@ -127,10 +128,7 @@ class OnChainStore:
         self.contract.createBallot(**ballot.__dict__)
 
     def cast_vote(self, ballot, ciphertext):
-        # self.contract.vote(ballot.uuid, ciphertext)
-        from anvil.js.window import Bundlr
-
-        WebBundlr = Bundlr.default
+        WebBundlr = _bundlr.default
         bundlr = WebBundlr("https://devnet.bundlr.network", "matic", self.provider)
         bundlr.ready()
         tags = [{"name": "ballot_uuid", "value": ballot.uuid}]
