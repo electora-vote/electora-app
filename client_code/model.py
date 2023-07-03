@@ -23,6 +23,7 @@ class Ballot:
         self.candidates = candidates or []
         self.protocol_version = protocol_version
 
+    @property
     def ends_at_timestamp(self):
         return int(self.ends_at.timestamp())
 

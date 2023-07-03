@@ -99,25 +99,5 @@ native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client
     \  }\n}\n</script>\n\n<!-- ES Module Shims: Import maps polyfill for olrder browsers\
     \ without import maps support (eg Safari 16.3) -->\n<script async src=\"https://ga.jspm.io/npm:es-module-shims@1.7.3/dist/es-module-shims.js\"\
     \ crossorigin=\"anonymous\"></script>"}
-db_schema:
-  ballot:
-    title: ballot
-    client: none
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: uuid
-      admin_ui: {width: 200}
-      type: string
-    - name: ends_at
-      admin_ui: {width: 200}
-      type: datetime
-    - name: sismo_group_id
-      admin_ui: {width: 200}
-      type: string
-    - name: candidates
-      admin_ui: {width: 200}
-      type: simpleObject
+db_schema: null
 renamed: true

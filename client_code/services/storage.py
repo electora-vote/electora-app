@@ -83,7 +83,7 @@ class ScrollStore:
         self.contract.createBallot(
             ballot.uuid,
             ballot.name,
-            ballot.ends_at_timestamp(),
+            ballot.ends_at_timestamp,
             ballot.sismo_group_id,
             ballot.dkg_ritual_id,
             ballot.candidates,
