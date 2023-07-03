@@ -1,4 +1,4 @@
-address = "0x89A8dDD6b2DdaEF77C04B5B53Fdf6B8E0fD7AbF7"
+address = "0xFCCA4B31817392Fd94f1177B8B34294c8F774017"
 url = f"https://blockscout.scroll.io/address/{address}"
 abi = [
     {"type": "constructor", "inputs": []},
@@ -64,15 +64,5 @@ abi = [
         "outputs": [{"type": "string", "name": "", "internalType": "string"}],
         "name": "getSismoGroupID",
         "inputs": [{"type": "string", "name": "_ballotId", "internalType": "string"}],
-    },
-    {
-        "type": "function",
-        "stateMutability": "view",
-        "outputs": [{"type": "string", "name": "", "internalType": "string"}],
-        "name": "votes",
-        "inputs": [
-            {"type": "string", "name": "", "internalType": "string"},
-            {"type": "uint256", "name": "", "internalType": "uint256"},
-        ],
     },
 ]

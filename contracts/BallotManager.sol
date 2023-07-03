@@ -10,7 +10,6 @@ contract BallotManager {
         string[] candidates;
         uint8 protocolVersion;
     }
-    mapping(string => string[]) public votes;
     mapping(string => BallotInfo) public ballots;
 
     constructor() {

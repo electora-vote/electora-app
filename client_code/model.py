@@ -17,11 +17,14 @@ class Ballot:
     ):
         self.uuid = uuid
         self.name = name
-        self.ends_at = int(ends_at.timestamp())
+        self.ends_at = ends_at
         self.sismo_group_id = sismo_group_id
         self.dkg_ritual_id = dkg_ritual_id
         self.candidates = candidates or []
         self.protocol_version = protocol_version
+
+    def ends_at_timestamp(self):
+        return int(self.ends_at.timestamp())
 
 
 class Vote:
