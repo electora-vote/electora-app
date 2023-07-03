@@ -15,6 +15,7 @@ def tabulator_options():
 
 
 LOCAL_STORE = storage.LocalStore()
-ONCHAIN_STORE = storage.OnChainStore()
+ARWEAVE_STORE = storage.ArweaveStore()
+SCROLL_STORE = storage.ScrollStore()
 ORIGIN = anvil.server.get_app_origin()
 SCROLL_RPC_URL = "https://alpha-rpc.scroll.io/l2"

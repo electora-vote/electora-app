@@ -30,6 +30,7 @@ class Create(CreateTemplate):
 
     def create_button_click(self, **event_args):
         session.LOCAL_STORE.save(self.item)
+        session.SCROLL_STORE.register_ballot(self.item)
         routing.set_url_hash(f"?ballot_id={self.item.uuid}")
 
     def add_candidate_button_click(self, **event_args):
