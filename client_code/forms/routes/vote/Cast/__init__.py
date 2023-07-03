@@ -9,7 +9,6 @@ from ._anvil_designer import CastTemplate
 @routing.route("vote/cast", url_keys=["ballot_id", "selection", "proof"])
 class Cast(CastTemplate):
     def __init__(self, **properties):
-        self.contract = session.ONCHAIN_STORE.url
         self.vote = Vote(
             ballot=session.LOCAL_STORE.get(Ballot, self.url_dict["ballot_id"]),
             selection=self.url_dict["selection"],
@@ -21,7 +20,7 @@ class Cast(CastTemplate):
         self.init_components(**properties)
 
     def cast_button_click(self, **event_args):
-        session.ONCHAIN_STORE.cast_vote(self.vote.ballot, self.ciphertext)
+        session.ARWEAVE_STORE.cast_vote(self.vote.ballot, self.ciphertext)
 
     def cancel_button_click(self, **event_args):
         routing.set_url_hash("")
