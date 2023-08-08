@@ -3,7 +3,7 @@ import anvil.js
 from anvil_extras import routing
 from app import session
 from app.model import Ballot
-from app.services.storage import ScrollStore
+from app import SCROLL_STORE
 
 from ..Create import Create
 from ..Read import Read
@@ -22,7 +22,6 @@ columns = [
 class Index(IndexTemplate):
     def __init__(self, **properties):
         self.ballots = []
-        self.scroll_store = ScrollStore()
         self.init_components(**properties)
         self.init_tabulator()
 
@@ -42,7 +41,7 @@ class Index(IndexTemplate):
     def refresh_tabulator(self):
         local_ballots = list(session.LOCAL_STORE.all(Ballot))
         try:
-            scroll_ballots = list(self.scroll_store.all(Ballot))
+            scroll_ballots = list(session.SCROLL_STORE.all(Ballot))
         except Exception as e:
             print(f"Failed to fetch ballots from Scroll smart contract: {e}")
             scroll_ballots = []
