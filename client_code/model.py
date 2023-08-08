@@ -7,7 +7,6 @@ class Ballot:
 
     def __init__(
         self,
-        uuid=uuid4().hex,
         name="",
         ends_at=dt.datetime.now(),
         sismo_group_id="",
@@ -15,7 +14,7 @@ class Ballot:
         protocol_version=1,
         candidates=None,
     ):
-        self.uuid = uuid
+        self.uuid = len(ballots)
         self.name = name
         self.ends_at = ends_at
         self.sismo_group_id = sismo_group_id
