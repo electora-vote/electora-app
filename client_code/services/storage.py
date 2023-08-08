@@ -2,7 +2,7 @@ import anvil.js
 from anvil_extras.storage import indexed_db
 from anvil.js.window import Bundlr
 import app.services.manager as manager
-
+from app.model import Ballot
 
 _ethers = anvil.js.import_from("ethers").ethers
 
@@ -68,6 +68,10 @@ class ScrollStore:
         else:
             self.provider = _ethers.providers.Web3Provider(ethereum)
             self.signer = self.provider.getSigner()
+
+    @property
+    def all(self):
+        return (Ballot(item) for item in self.contract.getAllBallots())
 
     @property
     def contract(self):
