@@ -94,3 +94,11 @@ class ScrollStore:
             return receipt.status == 1
         except Exception as e:
             return str(e)
+    
+    def all(self, obj_cls):
+        try:
+            items = self.contract.allBallots()
+            return (obj_cls(**item) for item in items)
+        except Exception as e:
+            print(f"Failed to fetch ballots from Scroll smart contract: {e}")
+            return []
