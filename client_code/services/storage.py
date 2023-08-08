@@ -94,3 +94,9 @@ class ScrollStore:
             return receipt.status == 1
         except Exception as e:
             return str(e)
+    
+    def getAllBallots(self):
+        try:
+            return self.contract.getAllBallots()
+        except Exception as e:
+            return str(e)
