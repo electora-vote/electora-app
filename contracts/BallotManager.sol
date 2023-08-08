@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 contract BallotManager {
     struct BallotInfo {
+        string _ballotId;
         string name;
         uint endTime;
         string sismoGroupId;
@@ -10,11 +11,12 @@ contract BallotManager {
         string[] candidates;
         uint8 protocolVersion;
     }
-    mapping(string => BallotInfo) public ballots;
+    BallotInfo[] public ballots;
+    mapping(string => uint256) public uuidToIndex;
 
     constructor() {
     }
-
+    
     function createBallot(
         string memory _ballotId,
         string memory _name,
@@ -24,26 +26,31 @@ contract BallotManager {
         string[] memory _candidates,
         uint8 _protocolVersion
     ) public {
-        ballots[_ballotId] = BallotInfo(_name, _endTime, _sismoGroupId, _dkgRitualId, _candidates, _protocolVersion);
+        ballots.push(BallotInfo(_ballotId, _name, _endTime, _sismoGroupId, _dkgRitualId, _candidates, _protocolVersion));
+        uuidToIndex[_ballotId] = ballots.length - 1;
     }
 
+    function getAllBallots() public view returns (BallotInfo[] memory) {
+        return ballots;
+    }
+    
     function getName(string memory _ballotId) external view returns(string memory) {
-        return ballots[_ballotId].name;
+        return ballots[uuidToIndex[_ballotId]].name;
     }
-
+    
     function getEndTime(string memory _ballotId) external view returns(uint) {
-        return ballots[_ballotId].endTime;
+        return ballots[uuidToIndex[_ballotId]].endTime;
     }
-
+    
     function getSismoGroupID(string memory _ballotId) external view returns(string memory) {
-        return ballots[_ballotId].sismoGroupId;
+        return ballots[uuidToIndex[_ballotId]].sismoGroupId;
     }
-
+    
     function getCandidates(string memory _ballotId) external view returns(string[] memory) {
-        return ballots[_ballotId].candidates;
+        return ballots[uuidToIndex[_ballotId]].candidates;
     }
 
     function getProtocolVersion(string memory _ballotId) external view returns(uint8) {
-        return ballots[_ballotId].protocolVersion;
+        return ballots[uuidToIndex[_ballotId]].protocolVersion;
     }
 }
