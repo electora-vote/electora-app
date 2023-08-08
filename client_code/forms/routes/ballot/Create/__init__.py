@@ -29,9 +29,12 @@ class Create(CreateTemplate):
         routing.set_url_hash("")
 
     def create_button_click(self, **event_args):
-        session.LOCAL_STORE.save(self.item)
-        session.SCROLL_STORE.register_ballot(self.item)
-        routing.set_url_hash(f"?ballot_id={self.item.uuid}")
+        result = session.SCROLL_STORE.register_ballot(self.item)
+        if result is True:
+            session.LOCAL_STORE.save(self.item)
+            routing.set_url_hash(f"?ballot_id={self.item.uuid}")
+        else:
+            anvil.alert(result)
 
     def add_candidate_button_click(self, **event_args):
         form = Candidate()

@@ -80,12 +80,17 @@ class ScrollStore:
         return self._contract
 
     def register_ballot(self, ballot):
-        self.contract.createBallot(
-            ballot.uuid,
-            ballot.name,
-            ballot.ends_at_timestamp,
-            ballot.sismo_group_id,
-            ballot.dkg_ritual_id,
-            ballot.candidates,
-            ballot.protocol_version,
-        )
+        try:
+            tx = self.contract.createBallot(
+                ballot.uuid,
+                ballot.name,
+                ballot.ends_at_timestamp,
+                ballot.sismo_group_id,
+                ballot.dkg_ritual_id,
+                ballot.candidates,
+                ballot.protocol_version,
+            )
+            receipt = tx.wait()
+            return receipt.status == 1
+        except Exception as e:
+            return str(e)
