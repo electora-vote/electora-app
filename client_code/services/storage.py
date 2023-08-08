@@ -81,8 +81,8 @@ class ScrollStore:
 
     def register_ballot(self, ballot):
         try:
+            _ballotId = uint32(len(self.contract.ballots))
             tx = self.contract.createBallot(
-                ballot.uuid,
                 ballot.name,
                 ballot.ends_at_timestamp,
                 ballot.sismo_group_id,
