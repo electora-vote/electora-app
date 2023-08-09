@@ -83,6 +83,10 @@ class ScrollStore:
 
         return self._contract
 
+    def get_ballot(self, uuid):
+        ballot = self.contract.getBallot(uuid)
+        return Ballot(ballot)
+
     def register_ballot(self, ballot):
         try:
             tx = self.contract.createBallot(
