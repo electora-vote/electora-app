@@ -12,8 +12,8 @@ class Ballot:
         ends_at=dt.datetime.now(),
         sismo_group_id="",
         dkg_ritual_id=0,
-        protocol_version=1,
         candidates=None,
+        protocol_version=1,
     ):
         self.uuid = uuid
         self.name = name
