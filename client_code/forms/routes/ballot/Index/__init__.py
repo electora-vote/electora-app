@@ -37,8 +37,14 @@ class Index(IndexTemplate):
         self.tabulator.options = session.tabulator_options()
         self.tabulator.columns = columns
 
+    def get_ballots_from_scroll_store(self):
+        # TODO: Implement fetching ballots from the scroll store
+        return []
+    
     def refresh_tabulator(self):
-        self.ballots = list(session.LOCAL_STORE.all(Ballot))
+        local_ballots = list(session.LOCAL_STORE.all(Ballot))
+        scroll_ballots = self.get_ballots_from_scroll_store()
+        self.ballots = local_ballots + scroll_ballots
         self.tabulator.data = self.ballots
         self.refresh_data_bindings()
 
