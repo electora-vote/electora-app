@@ -28,9 +28,7 @@ class Ballot:
         return int(self.ends_at.timestamp())
 
     def __eq__(self, other):
-        if isinstance(other, Ballot):
-            return self.uuid == other.uuid
-        return False
+        return isinstance(other, Ballot) and self.uuid == other.uuid
 
     def __hash__(self):
         return hash(self.uuid)
