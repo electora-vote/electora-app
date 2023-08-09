@@ -40,7 +40,7 @@ class Index(IndexTemplate):
     def get_ballots_from_scroll_store(self):
         # TODO: Implement fetching ballots from the scroll store
         return []
-    
+
     def refresh_tabulator(self):
         local_ballots = list(session.LOCAL_STORE.all(Ballot))
         scroll_ballots = self.get_ballots_from_scroll_store()
@@ -65,3 +65,5 @@ class Index(IndexTemplate):
             self.show_ballot(self.url_dict["ballot_id"])
         elif "create_ballot" in self.url_dict:
             self.create_ballot()
+
+    # Add a newline at the end of the file
