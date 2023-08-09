@@ -1,4 +1,4 @@
-address = "0x2442D56Ae943970A16b318acf4A9C9fA75df88Da"
+address = "0x8e6Cf7F12fe2A4d5da9764ec1F0D7395EF744C42"
 url = f"https://blockscout.scroll.io/address/{address}"
 abi = [
     {
@@ -60,6 +60,40 @@ abi = [
                 "internalType": "struct BallotManager.BallotInfo[]",
                 "name": "",
                 "type": "tuple[]",
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+    },
+    {
+        "inputs": [{"internalType": "string", "name": "_ballotId", "type": "string"}],
+        "name": "getBallot",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "string", "name": "_ballotId", "type": "string"},
+                    {"internalType": "string", "name": "name", "type": "string"},
+                    {"internalType": "uint256", "name": "endTime", "type": "uint256"},
+                    {
+                        "internalType": "string",
+                        "name": "sismoGroupId",
+                        "type": "string",
+                    },
+                    {"internalType": "uint8", "name": "dkgRitualId", "type": "uint8"},
+                    {
+                        "internalType": "string[]",
+                        "name": "candidates",
+                        "type": "string[]",
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "protocolVersion",
+                        "type": "uint8",
+                    },
+                ],
+                "internalType": "struct BallotManager.BallotInfo",
+                "name": "",
+                "type": "tuple",
             }
         ],
         "stateMutability": "view",
