@@ -25,14 +25,12 @@ def sync_storage(scroll_store, local_store):
 
 
 def sync_ballot(scroll_store, local_store, ballot_id):
-    local_ballots = local_store.all(Ballot)
-    if ballot_id not in [b.uuid for b in local_ballots]:
-        try:
-            ballot = scroll_store.get_ballot(ballot_id)
-            local_store.save(ballot)
-            return ballot
-        except Exception as e:
-            anvil.alert(e)
+    try:
+        ballot = scroll_store.get_ballot(ballot_id)
+        local_store.save(ballot)
+        return ballot
+    except Exception as e:
+        print(e)
 
 
 LOCAL_STORE = storage.LocalStore()
