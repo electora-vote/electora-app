@@ -98,3 +98,7 @@ class ScrollStore:
             return receipt.status == 1
         except Exception as e:
             return str(e)
+
+    def get_ballots_from_scroll_store(self):
+        # TODO: Implement fetching ballots from the scroll store
+        return []
