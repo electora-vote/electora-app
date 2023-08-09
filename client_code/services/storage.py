@@ -100,5 +100,7 @@ class ScrollStore:
             return str(e)
 
     def get_ballots_from_scroll_store(self):
-        # TODO: Implement fetching ballots from the scroll store
+        # Implement fetching ballots from the scroll store
         return []
+
+# Add a newline at the end of the file
