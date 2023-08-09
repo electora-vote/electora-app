@@ -27,6 +27,14 @@ class Ballot:
     def ends_at_timestamp(self):
         return int(self.ends_at.timestamp())
 
+    def __eq__(self, other):
+        if isinstance(other, Ballot):
+            return self.uuid == other.uuid
+        return False
+
+    def __hash__(self):
+        return hash(self.uuid)
+
 
 class Vote:
     def __init__(self, ballot, proof, selection=None):
