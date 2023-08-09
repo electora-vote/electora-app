@@ -30,6 +30,7 @@ def sync_ballot(scroll_store, local_store, ballot_id):
         try:
             ballot = scroll_store.get_ballot(ballot_id)
             local_store.save(ballot)
+            return ballot
         except Exception as e:
             anvil.alert(e)
 
