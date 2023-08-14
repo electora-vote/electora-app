@@ -3,6 +3,8 @@ dependencies:
   version: {version_tag: v2.3.0}
 - app_id: TGQCF3WT6FVL2EM2
   version: {dev: true}
+- app_id: PSSTRCDLMXPD6OU2
+  version: {dev: true}
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
@@ -18,8 +20,7 @@ runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-full
-  server_spec: {base: python310-minimal}
-  server_spec_disabled: {requirements: eth-ape==0.6.8, base: python310-minimal}
+  server_spec: null
 metadata: {title: Electora, logo_img: 'asset:brandmark-design (1)-logo.png'}
 startup_form: null
 native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client/build/bundle.js\"\
