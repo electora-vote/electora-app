@@ -69,6 +69,13 @@ components:
       name: vote_button
       layout_properties: {}
       event_bindings: {click: vote_button_click}
+    - type: Link
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: 'View on Blockchain Explorer', url: '', font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: explorer_link
+      layout_properties: {}
 - type: Button
   properties: {role: bottom, align: center, tooltip: Hide detail, border: '', enabled: true,
     foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
