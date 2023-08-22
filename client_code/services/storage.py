@@ -3,6 +3,7 @@ from anvil_extras.storage import indexed_db
 from anvil.js.window import Bundlr
 import app.services.manager as manager
 from app.model import Ballot
+from datetime import datetime as dt
 
 _ethers = anvil.js.import_from("ethers").ethers
 
@@ -82,6 +83,11 @@ class ScrollStore:
             self._contract = _ethers.Contract(manager.address, manager.abi, self.signer)
 
         return self._contract
+
+    def get_ballot(self, uuid):
+        ballot = self.contract.getBallot(uuid)
+        ballot[2] = dt.fromtimestamp(ballot[2].toBigInt())
+        return Ballot(*ballot)
 
     def register_ballot(self, ballot):
         try:

@@ -12,8 +12,8 @@ class Ballot:
         ends_at=dt.datetime.now(),
         sismo_group_id="",
         dkg_ritual_id=0,
-        protocol_version=1,
         candidates=None,
+        protocol_version=1,
     ):
         self.uuid = uuid
         self.name = name
@@ -26,6 +26,12 @@ class Ballot:
     @property
     def ends_at_timestamp(self):
         return int(self.ends_at.timestamp())
+
+    def __eq__(self, other):
+        return isinstance(other, Ballot) and self.uuid == other.uuid
+
+    def __hash__(self):
+        return hash(self.uuid)
 
 
 class Vote:

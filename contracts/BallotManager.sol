@@ -33,6 +33,10 @@ contract BallotManager {
     function getAllBallots() public view returns (BallotInfo[] memory) {
         return ballots;
     }
+
+    function getBallot(string memory _ballotId) public view returns (BallotInfo memory) {
+        return ballots[uuidToIndex[_ballotId]];
+    }
     
     function getName(string memory _ballotId) external view returns(string memory) {
         return ballots[uuidToIndex[_ballotId]].name;

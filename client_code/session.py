@@ -1,6 +1,8 @@
+import anvil
 import anvil.js
 import anvil.server
 from app.services import storage
+from app.model import Ballot
 
 anvil.js.report_all_exceptions(True)
 
@@ -12,6 +14,23 @@ def tabulator_options():
         "getter": getattr,
         "selectable": "highlight",
     }
+
+
+def sync_storage(scroll_store, local_store):
+    scroll_ballots = scroll_store.all()
+    local_ballots = local_store.all(Ballot)
+    for ballot in scroll_ballots:
+        if ballot.uuid not in [b.uuid for b in local_ballots]:
+            local_store.save(ballot)
+
+
+def sync_ballot(scroll_store, local_store, ballot_id):
+    try:
+        ballot = scroll_store.get_ballot(ballot_id)
+        local_store.save(ballot)
+        return ballot
+    except Exception as e:
+        print(e)
 
 
 LOCAL_STORE = storage.LocalStore()
