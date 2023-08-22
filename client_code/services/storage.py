@@ -41,9 +41,8 @@ class ArweaveStore:
     def __init__(self):
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
-        else:
-            self.provider = _ethers.providers.Web3Provider(ethereum)
-            self.signer = self.provider.getSigner()
+        self.provider = _ethers.providers.Web3Provider(ethereum)
+        self.signer = self.provider.getSigner()
         WebBundlr = Bundlr.default
         self.bundlr = WebBundlr("https://devnet.bundlr.network", "matic", self.provider)
         self.bundlr.ready()
@@ -65,9 +64,8 @@ class ScrollStore:
 
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
-        else:
-            self.provider = _ethers.providers.Web3Provider(ethereum)
-            self.signer = self.provider.getSigner()
+        self.provider = _ethers.providers.Web3Provider(ethereum)
+        self.signer = self.provider.getSigner()
 
     @property
     def all(self):

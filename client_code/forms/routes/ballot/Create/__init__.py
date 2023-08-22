@@ -38,7 +38,6 @@ class Create(CreateTemplate):
 
     def add_candidate_button_click(self, **event_args):
         form = Candidate()
-        response = anvil.alert(form)
-        if response:
+        if response := anvil.alert(form):
             self.item.candidates.append(form.item["name"])
             self.refresh_tabulator()
