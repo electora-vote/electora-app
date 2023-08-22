@@ -25,9 +25,11 @@ class Index(IndexTemplate):
         self.init_tabulator()
 
     def search_ballot(self, ballot_id):
-        ballot = session.LOCAL_STORE.get(Ballot, ballot_id) or session.sync_ballot(
-            session.SCROLL_STORE, session.LOCAL_STORE, ballot_id
-        )
+        ballot = session.LOCAL_STORE.get(Ballot, ballot_id)
+        if not ballot:
+            ballot = session.sync_ballot(
+                session.SCROLL_STORE, session.LOCAL_STORE, ballot_id
+            )
         if ballot:
             form = Read(ballot=ballot)
             anvil.get_open_form().show_detail(form)
@@ -41,9 +43,11 @@ class Index(IndexTemplate):
             routing.set_url_hash("", load_from_cache=False)
 
     def show_ballot(self, uuid):
-        ballot = session.LOCAL_STORE.get(Ballot, uuid) or session.sync_ballot(
-            session.SCROLL_STORE, session.LOCAL_STORE, uuid
-        )
+        ballot = session.LOCAL_STORE.get(Ballot, uuid)
+        if not ballot:
+            ballot = session.sync_ballot(
+                session.SCROLL_STORE, session.LOCAL_STORE, uuid
+            )
         if ballot:
             form = Read(ballot=ballot)
             anvil.get_open_form().show_detail(form)
