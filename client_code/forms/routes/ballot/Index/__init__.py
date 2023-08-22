@@ -24,6 +24,22 @@ class Index(IndexTemplate):
         self.init_components(**properties)
         self.init_tabulator()
 
+    def search_ballot(self, ballot_id):
+        ballot = session.LOCAL_STORE.get(Ballot, ballot_id) or session.sync_ballot(
+            session.SCROLL_STORE, session.LOCAL_STORE, ballot_id
+        )
+        if ballot:
+            form = Read(ballot=ballot)
+            anvil.get_open_form().show_detail(form)
+        else:
+            anvil.Notification(
+                message="The ballot you are looking for does not exist",
+                title="Ballot not found",
+                icon="fa:exclamation-triangle",
+                style="warning",
+            ).show()
+            routing.set_url_hash("", load_from_cache=False)
+
     def show_ballot(self, uuid):
         ballot = session.LOCAL_STORE.get(Ballot, uuid) or session.sync_ballot(
             session.SCROLL_STORE, session.LOCAL_STORE, uuid
@@ -69,3 +85,6 @@ class Index(IndexTemplate):
             self.show_ballot(self.url_dict["ballot_id"])
         elif "create_ballot" in self.url_dict:
             self.create_ballot()
+    
+    def search_button_click(self, **event_args):
+        self.search_ballot(self.search_bar.text)
