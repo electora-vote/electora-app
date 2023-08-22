@@ -8,7 +8,13 @@ components:
   properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
-  components: []
+  components: 
+  - type: TextBox
+    properties: {}
+    name: search_bar
+  - type: Button
+    properties: {text: 'Search'}
+    name: search_button
 - type: FlowPanel
   properties: {}
   name: navbar_links
