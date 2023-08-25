@@ -3,4 +3,8 @@ gha_enabled: True
 description: 'elecotra is a decentralized voting application. It is built using the python based web framework Anvil. It uses nucypher to encrypt votes. It uses sismo to generate zk proofs. It stores votes on the arweave blockchain via bundlr. All code is formatted by black and should adhere to pep8'
 docs: {'anvil': 'https://anvil.works/docs/api'}
 blocked_dirs: ['.github/']
-
+sandbox:
+  enabled: true
+  image: "Python3"
+  install: "python -m venv venv; . venv/bin/activate; pip install black"
+  formatter: ". venv/bin/activate; black ."
