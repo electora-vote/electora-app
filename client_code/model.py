@@ -27,6 +27,9 @@ class Ballot:
     def ends_at_timestamp(self):
         return int(self.ends_at.timestamp())
 
+    def has_ended(self):
+        return dt.datetime.now() > self.ends_at
+
     def __eq__(self, other):
         return isinstance(other, Ballot) and self.uuid == other.uuid
 
