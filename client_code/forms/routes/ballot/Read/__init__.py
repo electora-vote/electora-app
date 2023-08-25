@@ -2,7 +2,7 @@ import anvil.js
 from app.formatters import FormattedBallot
 from app.services import proof, manager
 
-from ._anvil_designer import ReadTemplate
+from ._anvil_designer import ReadTemplate, status_label
 
 
 class Read(ReadTemplate):
@@ -14,6 +14,12 @@ class Read(ReadTemplate):
         )
         self.init_components(**properties)
         self.vote_button.enabled = not self.ballot.has_ended()
+        if self.ballot.has_ended():
+            self.status_label.text = "Ended"
+            self.status_label.foreground = "#FF0000"  # Red color
+        else:
+            self.status_label.text = "Ongoing"
+            self.status_label.foreground = "#008000"  # Green color
 
     def hide_button_click(self, **event_args):
         anvil.get_open_form().hide_detail()
