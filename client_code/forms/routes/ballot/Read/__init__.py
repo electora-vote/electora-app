@@ -13,6 +13,7 @@ class Read(ReadTemplate):
             f"https://blockscout.scroll.io/address/{manager.address}"
         )
         self.init_components(**properties)
+        self.vote_button.enabled = not self.ballot.has_ended()
 
     def hide_button_click(self, **event_args):
         anvil.get_open_form().hide_detail()
