@@ -11,6 +11,9 @@ columns = [{"field": "name"}]
 class ChooseCandidate(ChooseCandidateTemplate):
     def __init__(self, **properties):
         self.proof = self.url_dict["sismoConnectResponseCompressed"]
+        if not self.proof:
+            routing.set_url_hash(f"#ballot_id={self.dynamic_vars['ballot_id']}")
+            return
         uuid = self.dynamic_vars["ballot_id"]
         self.ballot = session.LOCAL_STORE.get(Ballot, uuid)
         self.selection = ""
