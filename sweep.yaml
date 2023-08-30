@@ -4,6 +4,7 @@ description: 'elecotra is a decentralized voting application. It is built using 
 docs:
   anvil: ["https://anvil.works/docs/api", "We use Anvil for python web development"]
 blocked_dirs: ['.github/']
+branch_use_underscores: true
 sandbox:
   enabled: true
   image: "Python3"
