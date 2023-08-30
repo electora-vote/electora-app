@@ -6,6 +6,8 @@
 
 Electora is a trust minimized, privacy maximised voting protocol that uses the latest in a variety of Web3 technologies.
 
+## What We Are Building
+
 We are creating a voting system where:
 
 * All votes are secret until the ballot closes, and, 
