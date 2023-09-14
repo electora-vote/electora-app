@@ -1,4 +1,6 @@
 import anvil.js
+
+
 class Ballot:
     def __init__(self, uuid, ends_at):
         self.uuid = uuid
@@ -7,6 +9,8 @@ class Ballot:
     @property
     def is_open(self):
         return datetime.datetime.now() < self.ends_at
+
+
 class Read(ReadTemplate):
     def __init__(self, ballot, **properties):
         self.ballot = ballot
