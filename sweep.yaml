@@ -7,7 +7,9 @@ blocked_dirs: ['.github/']
 branch_use_underscores: true
 sandbox:
   install:
-    - pip install black==23.1.0 ruff
+    - pip install black==23.1.0 ruff pre-commit
+    - pre-commit install
   check:
+    - '[[ "$file_path" == *.yaml ]] && pre-commit run --files "$file_path" || exit 0'
     - black {file_path}
     - ruff --format=github {file_path}
