@@ -6,7 +6,8 @@ docs:
 blocked_dirs: ['.github/']
 branch_use_underscores: true
 sandbox:
-  enabled: true
-  image: "Python3"
-  install: "python -m venv venv; . venv/bin/activate; pip install black"
-  formatter: ". venv/bin/activate; black ."
+  install:
+    - pip install black==23.1.0 ruff
+  check:
+    - black --check {file_path}
+    - ruff --format=github {file_path}
