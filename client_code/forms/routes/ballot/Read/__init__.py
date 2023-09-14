@@ -21,9 +21,9 @@ class Read(ReadTemplate):
 
     def vote_button_click(self, **event_args):
         proof.prove_eligibility(self.ballot)
-    
+
     def update_status(self):
-        if dt.datetime.now() > self.ballot.ends_at:
+        if datetime.datetime.now() > self.ballot.ends_at:
             self.vote_button.enabled = False
             self.status_label.text = "Ballot has ended"
             self.status_label.foreground = "#FF0000"  # Red color
