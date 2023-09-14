@@ -1,4 +1,3 @@
-import anvil
 from anvil_extras import routing
 from app.model import Ballot
 from app import session
