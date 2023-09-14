@@ -12,6 +12,7 @@ class ChooseCandidate(ChooseCandidateTemplate):
     def __init__(self, **properties):
         self.proof = self.url_dict["sismoConnectResponseCompressed"]
         if not self.proof:
+            anvil.js.alert("Invalid Sismo group ID. Redirecting to the ballot page.")
             routing.set_url_hash(f"#ballot_id={self.dynamic_vars['ballot_id']}")
             return
         uuid = self.dynamic_vars["ballot_id"]
