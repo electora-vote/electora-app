@@ -52,6 +52,10 @@ components:
       properties: {}
       name: status_label
       layout_properties: {grid_position: 'PTNTKI,JPITRI', full_width_row: false}
+    - type: Label
+      properties: {}
+      name: status_label
+      layout_properties: {grid_position: 'PTNTKI,JPITRI', full_width_row: false}
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
