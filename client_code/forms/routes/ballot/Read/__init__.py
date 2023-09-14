@@ -1,10 +1,12 @@
 import anvil.js
-from app.formatters import FormattedBallot
-from app.services import proof, manager
-from ._anvil_designer import ReadTemplate
-import datetime
+class Ballot:
+    def __init__(self, uuid, ends_at):
+        self.uuid = uuid
+        self.ends_at = ends_at
 
-
+    @property
+    def is_open(self):
+        return datetime.datetime.now() < self.ends_at
 class Read(ReadTemplate):
     def __init__(self, ballot, **properties):
         self.ballot = ballot
@@ -22,8 +24,7 @@ class Read(ReadTemplate):
         proof.prove_eligibility(self.ballot)
 
     def update_status(self):
-        current_time = datetime.datetime.now()
-        if current_time > self.ballot.ends_at:
+        if not self.ballot.is_open:
             self.vote_button.enabled = False
             self.status_label.text = "Ballot has ended"
             self.status_label.foreground = "#FF0000"  # Red color
