@@ -9,5 +9,5 @@ sandbox:
   install:
     - pip install black==23.1.0 ruff
   check:
-    - black --check {file_path}
+    - black {file_path}
     - ruff --format=github {file_path}
