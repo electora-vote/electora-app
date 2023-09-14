@@ -2,7 +2,6 @@ import anvil
 from anvil_extras import routing
 from app.model import Ballot
 from app import session
-from anvil import js
 
 from ._anvil_designer import ChooseCandidateTemplate
 
