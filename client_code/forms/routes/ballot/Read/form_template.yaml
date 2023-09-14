@@ -2,7 +2,7 @@ container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
 components:
-    - type: Label
+- type: Label
   properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
