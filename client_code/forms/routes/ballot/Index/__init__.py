@@ -2,19 +2,9 @@ import anvil
 import anvil.js
 from anvil_extras import routing
 from app import session
-class Ballot:
-    def __init__(self, uuid, name, ends_at, sismo_group_id, dkg_ritual_id, candidates, protocol_version):
-        self.uuid = uuid
-        self.name = name
-        self.ends_at = ends_at
-        self.sismo_group_id = sismo_group_id
-        self.dkg_ritual_id = dkg_ritual_id
-        self.candidates = candidates
-        self.protocol_version = protocol_version
+from appropriate_module import IndexTemplate, Ballot, Read
 
-    @property
-    def status(self):
-        return "Ended" if datetime.now() > self.ends_at else "Ongoing"
+
 @routing.route("")
 @routing.route("", url_keys=["ballot_id"])
 @routing.route("", url_keys=["create_ballot"])
@@ -24,6 +14,7 @@ class Index(IndexTemplate):
         self.init_components(**properties)
         self.init_tabulator()
 
+    # Reverted the changes made to the `show_ballot` function
     def show_ballot(self, uuid):
         ballot = session.LOCAL_STORE.get(Ballot, uuid) or session.sync_ballot(
             session.SCROLL_STORE, session.LOCAL_STORE, uuid
@@ -37,17 +28,8 @@ class Index(IndexTemplate):
                 title="Ballot not found",
                 icon="fa:exclamation-triangle",
                 style="warning",
-            class Template:
-                def __init__(self, **properties):
-                    self.init_components(**properties)
-            
-                def format(self, cell):
-                    ballot = cell.get_value()
-                    self.label_1.text = ballot.name
-                    self.label_2.text = ballot.uuid
-                    self.label_3.text = ballot.status
-                    self.label_3.foreground = "red" if ballot.status == "Ended" else "green"
-                    return self
+            ).show()
+
     def refresh_tabulator(self):
         self.ballots = list(session.LOCAL_STORE.all(Ballot))
         self.tabulator.data = self.ballots
