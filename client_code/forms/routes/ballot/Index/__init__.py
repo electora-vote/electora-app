@@ -2,19 +2,19 @@ import anvil
 import anvil.js
 from anvil_extras import routing
 from app import session
-from app.model import Ballot
+class Ballot:
+    def __init__(self, uuid, name, ends_at, sismo_group_id, dkg_ritual_id, candidates, protocol_version):
+        self.uuid = uuid
+        self.name = name
+        self.ends_at = ends_at
+        self.sismo_group_id = sismo_group_id
+        self.dkg_ritual_id = dkg_ritual_id
+        self.candidates = candidates
+        self.protocol_version = protocol_version
 
-from ..Create import Create
-from ..Read import Read
-from ._anvil_designer import IndexTemplate
-from .Template import Template
-
-columns = [
-    {"field": "uuid", "formatter": Template},
-    {"field": "name", "visible": False},
-]
-
-
+    @property
+    def status(self):
+        return "Ended" if datetime.now() > self.ends_at else "Ongoing"
 @routing.route("")
 @routing.route("", url_keys=["ballot_id"])
 @routing.route("", url_keys=["create_ballot"])
@@ -37,16 +37,17 @@ class Index(IndexTemplate):
                 title="Ballot not found",
                 icon="fa:exclamation-triangle",
                 style="warning",
-            ).show()
-
-    def create_ballot(self):
-        form = Create()
-        anvil.get_open_form().show_detail(form)
-
-    def init_tabulator(self):
-        self.tabulator.options = session.tabulator_options()
-        self.tabulator.columns = columns
-
+            class Template:
+                def __init__(self, **properties):
+                    self.init_components(**properties)
+            
+                def format(self, cell):
+                    ballot = cell.get_value()
+                    self.label_1.text = ballot.name
+                    self.label_2.text = ballot.uuid
+                    self.label_3.text = ballot.status
+                    self.label_3.foreground = "red" if ballot.status == "Ended" else "green"
+                    return self
     def refresh_tabulator(self):
         self.ballots = list(session.LOCAL_STORE.all(Ballot))
         self.tabulator.data = self.ballots
