@@ -62,7 +62,7 @@ components:
     layout_properties: {grid_position: 'ZNQJOB,TOBZHH'}
     components:
     - type: Button
-      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: datetime.now() > self.item.ends_at,
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: datetime.now() < self.item.ends_at,
         foreground: '', visible: true, text: Cast Vote, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: 'fa:check'}
