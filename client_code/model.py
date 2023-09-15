@@ -1,5 +1,6 @@
 import datetime as dt
 from uuid import uuid4
+from datetime import datetime
 
 
 class Ballot:
@@ -32,6 +33,9 @@ class Ballot:
 
     def __hash__(self):
         return hash(self.uuid)
+
+    def get_status(self):
+        return "Ended" if datetime.utcnow() > self.ends_at else "Ongoing"
 
 
 class Vote:
