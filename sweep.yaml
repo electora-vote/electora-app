@@ -10,6 +10,6 @@ sandbox:
     - pip install black==23.1.0 ruff pre-commit
     - pre-commit install
   check:
-    - '[[ "$file_path" == *.yaml ]] && pre-commit run --files "$file_path" || exit 0'
-    - black {file_path}
-    - ruff --format=github {file_path}
+    - '[[ "{file_path}" == *.yaml ]] && pre-commit run --files "{file_path}" || exit 0'
+    - '[[ "{file_path}" == *.py ]] && black {file_path} || exit 0'
+    - '[[ "{file_path}" == *.py ]] && ruff --format=github {file_path} || exit 0'
