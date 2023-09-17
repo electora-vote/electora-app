@@ -1,3 +1,4 @@
+import anvil
 from anvil_extras import routing
 from app.model import Ballot
 from app import session
@@ -11,6 +12,10 @@ columns = [{"field": "name"}]
 class ChooseCandidate(ChooseCandidateTemplate):
     def __init__(self, **properties):
         self.proof = self.url_dict["sismoConnectResponseCompressed"]
+        if not self.proof:
+            anvil.js.alert("Invalid Sismo group ID. Redirecting to the ballot page.")
+            routing.set_url_hash(f"#ballot_id={self.dynamic_vars['ballot_id']}")
+            return
         uuid = self.dynamic_vars["ballot_id"]
         self.ballot = session.LOCAL_STORE.get(Ballot, uuid)
         self.selection = ""
