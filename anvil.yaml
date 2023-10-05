@@ -1,8 +1,8 @@
 dependencies:
 - app_id: C6ZZPAPN4YYF5NVJ
-  version: {version_tag: v2.3.0}
+  version: {version_tag: v2.5.0}
 - app_id: TGQCF3WT6FVL2EM2
-  version: {dev: true}
+  version: {version_tag: 2.2.14}
 - app_id: PSSTRCDLMXPD6OU2
   version: {dev: true}
 services:
