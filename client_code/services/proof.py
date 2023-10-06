@@ -6,7 +6,15 @@ sismo_app_id = "0x022828235eed6dc1978b239bdd735bae"
 
 
 def prove_eligibility(ballot):
-    connection = sismo_client.SismoConnect({"appId": sismo_app_id})
+    config = {
+        "appId": sismo_app_id,
+        "vault": {
+            "impersonate": [
+                "github:theref:4128101",
+            ]
+        },
+    }
+    connection = sismo_client.SismoConnect({"config": config})
     callback = anvil.js.window.encodeURIComponent(
         f"{session.ORIGIN}/#vote/choose/{ballot.uuid}"
     )

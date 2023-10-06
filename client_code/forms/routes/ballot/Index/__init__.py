@@ -26,7 +26,6 @@ class Index(IndexTemplate):
             anvil.Notification(
                 message="The ballot you are looking for does not exist",
                 title="Ballot not found",
-                icon="fa:exclamation-triangle",
                 style="warning",
             ).show()
 

@@ -1,8 +1,8 @@
 dependencies:
 - app_id: C6ZZPAPN4YYF5NVJ
-  version: {version_tag: v2.3.0}
+  version: {version_tag: v2.5.0}
 - app_id: TGQCF3WT6FVL2EM2
-  version: {dev: true}
+  version: {version_tag: 2.2.14}
 - app_id: PSSTRCDLMXPD6OU2
   version: {dev: true}
 services:
@@ -16,17 +16,13 @@ startup: {type: module, module: startup}
 package_name: app
 allow_embedding: false
 name: Electora
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-full
-  server_spec: null
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 metadata: {title: Electora, logo_img: 'asset:brandmark-design (1)-logo.png'}
 startup_form: null
 native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client/build/bundle.js\"\
-    ></script>\n<!--\n  JSPM Generator Import Map\n  Edit URL: https://generator.jspm.io/#Y2JhYGBiDs0rySzJSU1hcCjOLM7N103OL0rVhzHz8lKTS3STczJT80ocDPQM9AwNGVJLMlKLih1M9cz1jACHakV6QwA\n\
+    ></script>\n<!--\n  JSPM Generator Import Map\n  Edit URL: https://generator.jspm.io/#Y2JhYGBiDs0rySzJSU1hcCjOLM7N103OL0rVhzHz8lKTS3STczJT80ocDPQM9IyMGVJLMlKLih1M9cz1jABTxFaKQwA\n\
     -->\n <script type=\"importmap\">\n{\n  \"imports\": {\n    \"@sismo-core/sismo-connect-client\"\
-    : \"https://ga.jspm.io/npm:@sismo-core/sismo-connect-client@0.0.11/lib/esm/index.js\"\
+    : \"https://ga.jspm.io/npm:@sismo-core/sismo-connect-client@0.0.23/lib/esm/index.js\"\
     ,\n    \"ethers\": \"https://ga.jspm.io/npm:ethers@5.7.2/lib.esm/index.js\"\n\
     \  },\n  \"scopes\": {\n    \"https://ga.jspm.io/\": {\n      \"@ethersproject/abi\"\
     : \"https://ga.jspm.io/npm:@ethersproject/abi@5.7.0/lib.esm/index.js\",\n    \
@@ -83,7 +79,7 @@ native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client
     ,\n      \"js-sha3\": \"https://ga.jspm.io/npm:js-sha3@0.8.0/src/sha3.js\",\n\
     \      \"minimalistic-assert\": \"https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js\"\
     ,\n      \"net\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/net.js\"\
-    ,\n      \"node-gyp-build\": \"https://ga.jspm.io/npm:node-gyp-build@4.6.0/index.js\"\
+    ,\n      \"node-gyp-build\": \"https://ga.jspm.io/npm:node-gyp-build@4.6.1/index.js\"\
     ,\n      \"os\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/os.js\"\
     ,\n      \"pako\": \"https://ga.jspm.io/npm:pako@2.1.0/dist/pako.esm.mjs\",\n\
     \      \"path\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/path.js\"\
@@ -95,10 +91,10 @@ native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client
     ,\n      \"utf-8-validate\": \"https://ga.jspm.io/npm:utf-8-validate@6.0.3/index.js\"\
     ,\n      \"util\": \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/util.js\"\
     ,\n      \"viem\": \"https://ga.jspm.io/npm:viem@0.3.50/dist/esm/index.js\",\n\
-    \      \"ws\": \"https://ga.jspm.io/npm:ws@8.13.0/index.js\",\n      \"zlib\"\
+    \      \"ws\": \"https://ga.jspm.io/npm:ws@8.14.2/index.js\",\n      \"zlib\"\
     : \"https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/zlib.js\"\n    }\n\
-    \  }\n}\n</script>\n\n<!-- ES Module Shims: Import maps polyfill for olrder browsers\
-    \ without import maps support (eg Safari 16.3) -->\n<script async src=\"https://ga.jspm.io/npm:es-module-shims@1.7.3/dist/es-module-shims.js\"\
+    \  }\n}\n</script>\n\n<!-- ES Module Shims: Import maps polyfill for older browsers\
+    \ without import maps support (eg Safari 16.3) -->\n<script async src=\"https://ga.jspm.io/npm:es-module-shims@1.8.0/dist/es-module-shims.js\"\
     \ crossorigin=\"anonymous\"></script>"}
 db_schema: null
 renamed: true
