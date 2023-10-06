@@ -25,10 +25,9 @@ class Index(IndexTemplate):
         self.init_tabulator()
 
     def show_ballot(self, uuid):
-        ballot = session.LOCAL_STORE.get(Ballot, uuid) or session.sync_ballot(
+        if ballot := session.LOCAL_STORE.get(Ballot, uuid) or session.sync_ballot(
             session.SCROLL_STORE, session.LOCAL_STORE, uuid
-        )
-        if ballot:
+        ):
             form = Read(ballot=ballot)
             anvil.get_open_form().show_detail(form)
         else:
