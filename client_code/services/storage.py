@@ -1,9 +1,11 @@
 import anvil.js
+import anvil
 from anvil_extras.storage import indexed_db
 from anvil.js.window import Bundlr
 import app.services.manager as manager
 from app.model import Candidate, Ballot
 from datetime import datetime as dt
+from anvil.tables import app_tables
 
 _ethers = anvil.js.import_from("ethers").ethers
 
@@ -49,14 +51,15 @@ class ArweaveStore:
         self.bundlr.ready()
 
     def cast_vote(self, ballot, ciphertext):
-        tags = [{"name": "ballot_uuid", "value": ballot.uuid}]
-        num_bytes = len(ciphertext.encode("utf8"))
-        atomic_price = self.bundlr.getPrice(num_bytes)
-        converted_price = self.bundlr.utils.fromAtomic(num_bytes)
-        print(f"Uploading {num_bytes} bytes costs {converted_price}")
-        self.bundlr.fund(atomic_price)
-        response = self.bundlr.upload(ciphertext, {"tags": tags})
-        print(response)
+        # tags = [{"name": "ballot_uuid", "value": ballot.uuid}]
+        # num_bytes = len(ciphertext.encode("utf8"))
+        # atomic_price = self.bundlr.getPrice(num_bytes)
+        # converted_price = self.bundlr.utils.fromAtomic(num_bytes)
+        # print(f"Uploading {num_bytes} bytes costs {converted_price}")
+        # self.bundlr.fund(atomic_price)
+        # response = self.bundlr.upload(ciphertext, {"tags": tags})
+        # print(response)
+        app_tables.vote_storage.add_row(ballotId=ballot.uuid, vote=ciphertext)
 
 
 class ScrollStore:

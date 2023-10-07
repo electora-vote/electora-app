@@ -1,3 +1,4 @@
+import anvil
 from anvil_extras import routing
 from app import session
 from app.model import Ballot, Vote
@@ -21,6 +22,8 @@ class Cast(CastTemplate):
 
     def cast_button_click(self, **event_args):
         session.ARWEAVE_STORE.cast_vote(self.vote.ballot, self.ciphertext)
+        anvil.alert("Vote Stored!")
+        routing.set_url_hash(f"?ballot_id={self.vote.ballot.uuid}")
 
     def cancel_button_click(self, **event_args):
         routing.set_url_hash("")

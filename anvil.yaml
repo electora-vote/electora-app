@@ -96,5 +96,16 @@ native_deps: {head_html: "<script src=\"https://unpkg.com/@bundlr-network/client
     \  }\n}\n</script>\n\n<!-- ES Module Shims: Import maps polyfill for older browsers\
     \ without import maps support (eg Safari 16.3) -->\n<script async src=\"https://ga.jspm.io/npm:es-module-shims@1.8.0/dist/es-module-shims.js\"\
     \ crossorigin=\"anonymous\"></script>"}
-db_schema: null
+db_schema:
+  vote_storage:
+    title: vote_storage
+    client: full
+    server: full
+    columns:
+    - name: ballotId
+      admin_ui: {width: 200}
+      type: string
+    - name: vote
+      admin_ui: {width: 200}
+      type: string
 renamed: true
