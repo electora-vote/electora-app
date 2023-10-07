@@ -1,4 +1,4 @@
-address = "0x5DFF5bb3b8f210b91EfCa83b13fFCF1db4A2fe06"
+address = "0x603F99b39b1b6E4cB59227b2D09c36a275da81BB"
 url = f"https://sepolia-blockscout.scroll.io/address/{address}"
 abi = [
     {

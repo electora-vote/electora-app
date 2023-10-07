@@ -8,7 +8,7 @@ export function handleballotCreated(event: ballotCreatedEvent): void {
   let entity = new ballotCreated(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
-  entity.ballotId = event.params.ballotId
+  entity.ballotId = event.params.ballotId.toHexString()
   entity.name = event.params.name
   entity.endTime = event.params.endTime
   entity.sismoGroupId = event.params.sismoGroupId
@@ -27,7 +27,7 @@ export function handlecandidateAdded(event: candidateAddedEvent): void {
   let entity = new candidateAdded(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
-  entity.ballotId = event.params.ballotId
+  entity.ballotId = event.params.ballotId.toHexString()
   entity.title = event.params.title
   entity.description = event.params.description
   entity.proof = event.params.proof
