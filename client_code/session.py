@@ -27,7 +27,7 @@ def sync_storage(scroll_store, local_store):
 def sync_ballot(scroll_store, local_store, ballot_id):
     ballot = scroll_store.get_ballot(ballot_id)
     local_store.save(ballot)
-    return ballot
+    return local_store.get(Ballot, ballot_id)
 
 
 LOCAL_STORE = storage.LocalStore()

@@ -1,0 +1,64 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"LFAFUU":10,"YPMZQC":50}'}
+components:
+- type: Label
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: Add Candidate, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_3
+  layout_properties: {grid_position: 'RCXERO,GVDKXI'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Title:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_2
+  layout_properties: {grid_position: 'SABMTH,LFAFUU'}
+- type: TextBox
+  properties: {}
+  name: text_box_1
+  layout_properties: {grid_position: 'SABMTH,YPMZQC'}
+  data_bindings:
+  - {property: text, code: self.item.title, writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Description:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: none, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'JUWUUE,UFTQXS'}
+- type: TextArea
+  properties: {role: null, align: left, height: 176, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    auto_expand: false, font: '', spacing_above: none, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_area_1
+  layout_properties: {grid_position: 'WPTHIB,CILHOC'}
+  data_bindings:
+  - {property: text, code: self.item.description, writeback: true}
+- type: FlowPanel
+  properties: {role: null, vertical_align: full, spacing: medium, align: right, tooltip: '',
+    border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small,
+    background: ''}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'GHUQUM,WOXPWJ'}
+  components:
+  - type: Button
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Cancel, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:times'}
+    name: cancel_button
+    layout_properties: {}
+    event_bindings: {click: cancel_button_click}
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Add, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:plus'}
+    name: add_button
+    layout_properties: {}
+    event_bindings: {click: add_button_click}
+is_package: true
