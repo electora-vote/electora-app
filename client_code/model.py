@@ -52,11 +52,11 @@ class Ballot:
 
 
 class Candidate:
-    def __init__(self, title="", description="", proof="", image_url=""):
+    def __init__(self, title="", description="", proof="", invoice=""):
         self.title = title
         self.description = description
         self.proof = proof
-        self.image_url = image_url
+        self.invoice = invoice
 
     def _serialise(self):
         return self.__dict__

@@ -95,32 +95,26 @@ class ScrollStore:
         return self._to_model(ballot)
 
     def register_ballot(self, ballot):
-        try:
-            tx = self.contract.createBallot(
-                ballot.uuid,
-                ballot.name,
-                ballot.ends_at_timestamp,
-                ballot.sismo_group_id,
-                ballot.candidate_group_id,
-                ballot.dkg_ritual_id,
-                ballot.protocol_version,
-            )
-            receipt = tx.wait()
-            return receipt.status == 1
-        except Exception as e:
-            return str(e)
+        tx = self.contract.createBallot(
+            ballot.uuid,
+            ballot.name,
+            ballot.ends_at_timestamp,
+            ballot.sismo_group_id,
+            ballot.candidate_group_id,
+            ballot.dkg_ritual_id,
+            ballot.protocol_version,
+        )
+        receipt = tx.wait()
+        return receipt.status == 1
 
     def add_candidate(self, ballot, candidate):
-        try:
-            tx = self.contract.addCandidate(
-                ballot.uuid,
-                candidate.uuid,
-                candidate.name,
-                candidate.description,
-                candidate.image_url,
-            )
-            receipt = tx.wait()
-            ballot.add_candidate(candidate)
-            return receipt.status == 1
-        except Exception as e:
-            return str(e)
+        tx = self.contract.addCandidate(
+            ballot.uuid,
+            candidate.title,
+            candidate.description,
+            candidate.proof,
+            candidate.invoice,
+        )
+        receipt = tx.wait()
+        ballot.add_candidate(candidate)
+        return receipt.status == 1
