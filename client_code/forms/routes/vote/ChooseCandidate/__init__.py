@@ -4,7 +4,7 @@ from app import session
 
 from ._anvil_designer import ChooseCandidateTemplate
 
-columns = [{"field": "name"}]
+columns = [{"field": "title"}]
 
 
 @routing.route("vote/choose/{ballot_id}", url_keys=["sismoConnectResponseCompressed"])
@@ -15,8 +15,8 @@ class ChooseCandidate(ChooseCandidateTemplate):
         self.ballot = session.LOCAL_STORE.get(Ballot, uuid)
         self.selection = ""
         self.init_components(**properties)
-        self.tabulator.data = [{"name": c} for c in self.ballot.candidates]
-        self.tabulator.options = {"index": "name", "selectable": "highlight"}
+        self.tabulator.data = [{"title": c.title} for c in self.ballot.candidates]
+        self.tabulator.options = {"index": "title", "selectable": "highlight"}
         self.tabulator.columns = columns
 
     def tabulator_row_click(self, row, **event_args):
