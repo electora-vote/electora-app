@@ -6,7 +6,7 @@
       {
         "indexed": true,
         "internalType": "string",
-        "name": "_ballotId",
+        "name": "ballotId",
         "type": "string"
       },
       {
@@ -55,7 +55,7 @@
       {
         "indexed": true,
         "internalType": "string",
-        "name": "_ballotId",
+        "name": "ballotId",
         "type": "string"
       },
       {

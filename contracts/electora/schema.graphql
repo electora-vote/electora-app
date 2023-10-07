@@ -1,6 +1,6 @@
 type ballotCreated @entity(immutable: true) {
   id: Bytes!
-  _ballotId: String! # string
+  ballotId: String! # string
   name: String! # string
   endTime: BigInt! # uint256
   sismoGroupId: String! # string
@@ -14,7 +14,7 @@ type ballotCreated @entity(immutable: true) {
 
 type candidateAdded @entity(immutable: true) {
   id: Bytes!
-  _ballotId: String! # string
+  ballotId: String! # string
   title: String! # string
   description: String! # string
   proof: String! # string

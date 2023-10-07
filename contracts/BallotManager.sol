@@ -22,8 +22,8 @@ contract BallotManager {
     mapping(string => uint256) public uuidToIndex;
     mapping(string => Candidate[]) public ballotIdToCandidates;
 
-    event ballotCreated(string indexed _ballotId, string name, uint endTime, string sismoGroupId, string candidateGroupId, uint8 dkgRitualId, uint8 protocolVersion);
-    event candidateAdded(string indexed _ballotId, string title, string description, string proof, string invoice);
+    event ballotCreated(string indexed ballotId, string name, uint endTime, string sismoGroupId, string candidateGroupId, uint8 dkgRitualId, uint8 protocolVersion);
+    event candidateAdded(string indexed ballotId, string title, string description, string proof, string invoice);
 
 
     constructor() {

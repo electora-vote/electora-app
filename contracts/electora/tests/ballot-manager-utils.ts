@@ -6,7 +6,7 @@ import {
 } from "../generated/BallotManager/BallotManager"
 
 export function createballotCreatedEvent(
-  _ballotId: string,
+  ballotId: string,
   name: string,
   endTime: BigInt,
   sismoGroupId: string,
@@ -19,7 +19,7 @@ export function createballotCreatedEvent(
   ballotCreatedEvent.parameters = new Array()
 
   ballotCreatedEvent.parameters.push(
-    new ethereum.EventParam("_ballotId", ethereum.Value.fromString(_ballotId))
+    new ethereum.EventParam("ballotId", ethereum.Value.fromString(ballotId))
   )
   ballotCreatedEvent.parameters.push(
     new ethereum.EventParam("name", ethereum.Value.fromString(name))
@@ -59,7 +59,7 @@ export function createballotCreatedEvent(
 }
 
 export function createcandidateAddedEvent(
-  _ballotId: string,
+  ballotId: string,
   title: string,
   description: string,
   proof: string,
@@ -70,7 +70,7 @@ export function createcandidateAddedEvent(
   candidateAddedEvent.parameters = new Array()
 
   candidateAddedEvent.parameters.push(
-    new ethereum.EventParam("_ballotId", ethereum.Value.fromString(_ballotId))
+    new ethereum.EventParam("ballotId", ethereum.Value.fromString(ballotId))
   )
   candidateAddedEvent.parameters.push(
     new ethereum.EventParam("title", ethereum.Value.fromString(title))

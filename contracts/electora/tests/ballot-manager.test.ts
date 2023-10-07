@@ -17,7 +17,7 @@ import { createballotCreatedEvent } from "./ballot-manager-utils"
 
 describe("Describe entity assertions", () => {
   beforeAll(() => {
-    let _ballotId = "Example string value"
+    let ballotId = "Example string value"
     let name = "Example string value"
     let endTime = BigInt.fromI32(234)
     let sismoGroupId = "Example string value"
@@ -25,7 +25,7 @@ describe("Describe entity assertions", () => {
     let dkgRitualId = 123
     let protocolVersion = 123
     let newballotCreatedEvent = createballotCreatedEvent(
-      _ballotId,
+      ballotId,
       name,
       endTime,
       sismoGroupId,
@@ -50,7 +50,7 @@ describe("Describe entity assertions", () => {
     assert.fieldEquals(
       "ballotCreated",
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
-      "_ballotId",
+      "ballotId",
       "Example string value"
     )
     assert.fieldEquals(
