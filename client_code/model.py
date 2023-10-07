@@ -11,6 +11,7 @@ class Ballot:
         name="",
         ends_at=dt.datetime.now(),
         sismo_group_id="",
+        candidate_group_id="",
         dkg_ritual_id=0,
         candidates=None,
         protocol_version=1,
@@ -19,6 +20,7 @@ class Ballot:
         self.name = name
         self.ends_at = ends_at
         self.sismo_group_id = sismo_group_id
+        self.candidate_group_id = candidate_group_id
         self.dkg_ritual_id = dkg_ritual_id
         self.candidates = candidates or []
         self.protocol_version = protocol_version

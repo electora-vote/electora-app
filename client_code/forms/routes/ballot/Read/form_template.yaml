@@ -11,10 +11,17 @@ components:
   layout_properties: {grid_position: 'PZYYWE,ZOVIKM', full_width_row: false}
   data_bindings:
   - {property: text, code: self.item.name}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Candidates:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: none, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_4
+  layout_properties: {grid_position: 'CEVSMN,VJCKGA'}
 - type: TextArea
   properties: {role: null, align: left, height: 124, tooltip: '', placeholder: '',
     border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
-    auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
+    auto_expand: false, font: '', spacing_above: none, spacing_below: small, italic: false,
     background: '', bold: false, underline: false}
   name: text_area_1
   layout_properties: {grid_position: 'HBJDTP,ZSIELZ', full_width_row: false}

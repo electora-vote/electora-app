@@ -35,7 +35,6 @@ class LocalStore:
 
     def save(self, obj):
         key = getattr(obj, "key")
-        print(obj.__dict__)
         self.store[(obj.__class__.__name__, getattr(obj, key))] = obj.__dict__
 
 
@@ -66,9 +65,8 @@ class ScrollStore:
 
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
-        else:
-            self.provider = _ethers.providers.Web3Provider(ethereum)
-            self.signer = self.provider.getSigner()
+        self.provider = _ethers.providers.Web3Provider(ethereum)
+        self.signer = self.provider.getSigner()
 
     def all(self):
         ballots = self.contract.getAllBallots()
@@ -98,6 +96,7 @@ class ScrollStore:
                 ballot.name,
                 ballot.ends_at_timestamp,
                 ballot.sismo_group_id,
+                ballot.candidate_group_id,
                 ballot.dkg_ritual_id,
                 ballot.candidates,
                 ballot.protocol_version,
