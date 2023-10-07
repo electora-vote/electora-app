@@ -1,0 +1,8 @@
+{
+  "scroll-sepolia": {
+    "BallotManager": {
+      "address": "0x603F99b39b1b6E4cB59227b2D09c36a275da81BB",
+      "startBlock": 1391786
+    }
+  }
+}
