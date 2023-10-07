@@ -46,7 +46,7 @@ class ArweaveStore:
             self.provider = _ethers.providers.Web3Provider(ethereum)
             self.signer = self.provider.getSigner()
         WebBundlr = Bundlr.default
-        self.bundlr = WebBundlr("https://devnet.bundlr.network", "matic", self.provider)
+        self.bundlr = WebBundlr("https://devnet.irys.xyz", "matic", self.provider)
         self.bundlr.ready()
 
     def cast_vote(self, ballot, ciphertext):

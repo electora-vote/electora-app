@@ -30,10 +30,9 @@ components:
   - {property: text, code: self.vote.proof, writeback: false}
 - type: RichText
   properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-    foreground: '', visible: true, font_size: null, content: 'Your selection: {selection}
-
-      Contract: {contract}', font: '', spacing_above: small, spacing_below: small,
-    data: null, background: '', format: markdown}
+    foreground: '', visible: true, font_size: null, content: 'Your selection: {selection}',
+    font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+    format: markdown}
   name: rich_text_1
   layout_properties: {grid_position: 'BMYAFM,IMEOEX'}
   components:
@@ -43,13 +42,6 @@ components:
     layout_properties: {slot: selection}
     data_bindings:
     - {property: text, code: self.vote.selection}
-  - type: Link
-    properties: {}
-    name: link_1
-    layout_properties: {slot: contract}
-    data_bindings:
-    - {property: text, code: self.contract}
-    - {property: url, code: self.contract}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Your encrypted submission:', font_size: null, font: '',
