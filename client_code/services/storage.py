@@ -35,6 +35,7 @@ class LocalStore:
 
     def save(self, obj):
         key = getattr(obj, "key")
+        print(obj.__dict__)
         self.store[(obj.__class__.__name__, getattr(obj, key))] = obj.__dict__
 
 
@@ -42,9 +43,8 @@ class ArweaveStore:
     def __init__(self):
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
-        else:
-            self.provider = _ethers.providers.Web3Provider(ethereum)
-            self.signer = self.provider.getSigner()
+        self.provider = _ethers.providers.Web3Provider(ethereum)
+        self.signer = self.provider.getSigner()
         WebBundlr = Bundlr.default
         self.bundlr = WebBundlr("https://devnet.irys.xyz", "matic", self.provider)
         self.bundlr.ready()
@@ -70,9 +70,11 @@ class ScrollStore:
             self.provider = _ethers.providers.Web3Provider(ethereum)
             self.signer = self.provider.getSigner()
 
-    @property
     def all(self):
-        return (Ballot(item) for item in self.contract.getAllBallots())
+        ballots = self.contract.getAllBallots()
+        for ballot in ballots:
+            ballot[2] = dt.fromtimestamp(ballot[2].toBigInt())
+            yield Ballot(*ballot)
 
     @property
     def contract(self):
