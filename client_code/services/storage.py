@@ -70,7 +70,6 @@ class ScrollStore:
 
     def _to_model(self, ballot_info):
         candidates = self.contract.getCandidates(ballot_info[0])
-        print(candidates)
         ballot_info[2] = dt.fromtimestamp(ballot_info[2].toBigInt())
         ballot = Ballot(*ballot_info)
         ballot.candidates = [Candidate(*c) for c in candidates]
