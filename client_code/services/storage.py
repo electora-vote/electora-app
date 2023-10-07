@@ -98,7 +98,6 @@ class ScrollStore:
                 ballot.sismo_group_id,
                 ballot.candidate_group_id,
                 ballot.dkg_ritual_id,
-                ballot.candidates,
                 ballot.protocol_version,
             )
             receipt = tx.wait()
