@@ -104,3 +104,18 @@ class ScrollStore:
             return receipt.status == 1
         except Exception as e:
             return str(e)
+
+    def add_candidate(self, ballot, candidate):
+        try:
+            tx = self.contract.addCandidate(
+                ballot.uuid,
+                candidate.uuid,
+                candidate.name,
+                candidate.description,
+                candidate.image_url,
+            )
+            receipt = tx.wait()
+            ballot.add_candidate(candidate)
+            return receipt.status == 1
+        except Exception as e:
+            return str(e)

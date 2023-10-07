@@ -35,6 +35,19 @@ class Ballot:
     def __hash__(self):
         return hash(self.uuid)
 
+    def add_candidate(self, candidate):
+        self.candidates.append(candidate)
+
+
+class Candidate:
+    key = "uuid"
+
+    def __init__(self, uuid=uuid4().hex, name="", description="", image_url=""):
+        self.uuid = uuid
+        self.name = name
+        self.description = description
+        self.image_url = image_url
+
 
 class Vote:
     def __init__(self, ballot, proof, selection=None):
