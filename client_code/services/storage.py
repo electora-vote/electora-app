@@ -2,7 +2,7 @@ import anvil.js
 from anvil_extras.storage import indexed_db
 from anvil.js.window import Bundlr
 import app.services.manager as manager
-from app.model import Ballot
+from app.model import Candidate, Ballot
 from datetime import datetime as dt
 
 _ethers = anvil.js.import_from("ethers").ethers
@@ -26,16 +26,16 @@ class LocalStore:
     @classmethod
     def all(cls, obj_cls):
         items = (v for k, v in cls.store.items() if k.split(",")[0] == obj_cls.__name__)
-        return (obj_cls(**item) for item in items)
+        return (obj_cls._deserialise(item) for item in items if item)
 
     @classmethod
     def get(cls, obj_cls, uuid):
         item = cls.store.get(f"{obj_cls.__name__},{uuid}", None)
-        return obj_cls(**item) if item else None
+        return obj_cls._deserialise(item) if item else None
 
     def save(self, obj):
         key = getattr(obj, "key")
-        self.store[(obj.__class__.__name__, getattr(obj, key))] = obj.__dict__
+        self.store[(obj.__class__.__name__, getattr(obj, key))] = obj._serialise()
 
 
 class ArweaveStore:
@@ -68,11 +68,18 @@ class ScrollStore:
         self.provider = _ethers.providers.Web3Provider(ethereum)
         self.signer = self.provider.getSigner()
 
+    def _to_model(self, ballot_info):
+        candidates = self.contract.getCandidates(ballot_info[0])
+        print(candidates)
+        ballot_info[2] = dt.fromtimestamp(ballot_info[2].toBigInt())
+        ballot = Ballot(*ballot_info)
+        ballot.candidates = [Candidate(*c) for c in candidates]
+        return ballot
+
     def all(self):
         ballots = self.contract.getAllBallots()
         for ballot in ballots:
-            ballot[2] = dt.fromtimestamp(ballot[2].toBigInt())
-            yield Ballot(*ballot)
+            yield self._to_model(ballot)
 
     @property
     def contract(self):
@@ -86,8 +93,7 @@ class ScrollStore:
 
     def get_ballot(self, uuid):
         ballot = self.contract.getBallot(uuid)
-        ballot[2] = dt.fromtimestamp(ballot[2].toBigInt())
-        return Ballot(*ballot)
+        return self._to_model(ballot)
 
     def register_ballot(self, ballot):
         try:

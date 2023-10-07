@@ -14,4 +14,4 @@ class FormattedBallot(Ballot):
 
     @property
     def formatted_candidates(self):
-        return "\n".join(self.candidates)
+        return "\n".join([c.title for c in self.candidates])
