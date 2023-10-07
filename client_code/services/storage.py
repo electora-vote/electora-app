@@ -66,9 +66,8 @@ class ScrollStore:
 
         if not _ethereum_available:
             raise ValueError("No connected wallet found")
-        else:
-            self.provider = _ethers.providers.Web3Provider(ethereum)
-            self.signer = self.provider.getSigner()
+        self.provider = _ethers.providers.Web3Provider(ethereum)
+        self.signer = self.provider.getSigner()
 
     def all(self):
         ballots = self.contract.getAllBallots()
