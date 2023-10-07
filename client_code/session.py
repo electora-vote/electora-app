@@ -38,3 +38,5 @@ ARWEAVE_STORE = storage.ArweaveStore()
 SCROLL_STORE = storage.ScrollStore()
 ORIGIN = anvil.server.get_app_origin()
 SCROLL_RPC_URL = "https://alpha-rpc.scroll.io/l2"
+
+sync_storage(SCROLL_STORE, LOCAL_STORE)

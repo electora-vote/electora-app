@@ -35,6 +35,7 @@ class LocalStore:
 
     def save(self, obj):
         key = getattr(obj, "key")
+        print(obj.__dict__)
         self.store[(obj.__class__.__name__, getattr(obj, key))] = obj.__dict__
 
 
@@ -70,9 +71,11 @@ class ScrollStore:
             self.provider = _ethers.providers.Web3Provider(ethereum)
             self.signer = self.provider.getSigner()
 
-    @property
     def all(self):
-        return (Ballot(item) for item in self.contract.getAllBallots())
+        ballots = self.contract.getAllBallots()
+        for ballot in ballots:
+            ballot[2] = dt.fromtimestamp(ballot[2].toBigInt())
+            yield Ballot(*ballot)
 
     @property
     def contract(self):
