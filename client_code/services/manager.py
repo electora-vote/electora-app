@@ -1,4 +1,4 @@
-address = "0x53aa5b2DDCe249dF629cd2ffade97dfB166fb05c"
+address = "0x5DFF5bb3b8f210b91EfCa83b13fFCF1db4A2fe06"
 url = f"https://sepolia-blockscout.scroll.io/address/{address}"
 abi = [
     {
@@ -29,7 +29,6 @@ abi = [
         "stateMutability": "nonpayable",
         "type": "function",
     },
-    {"inputs": [], "stateMutability": "nonpayable", "type": "constructor"},
     {
         "inputs": [
             {"internalType": "string", "name": "", "type": "string"},
