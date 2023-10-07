@@ -20,7 +20,7 @@ columns = [
 @routing.route("", url_keys=["create_ballot"])
 class Index(IndexTemplate):
     def __init__(self, **properties):
-        self.ballots = []
+        self.ballots = list(session.LOCAL_STORE.all(Ballot))
         self.init_components(**properties)
         self.init_tabulator()
 
