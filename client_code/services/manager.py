@@ -1,14 +1,27 @@
-address = "0x8e6Cf7F12fe2A4d5da9764ec1F0D7395EF744C42"
-url = f"https://blockscout.scroll.io/address/{address}"
+address = "0x53aa5b2DDCe249dF629cd2ffade97dfB166fb05c"
+url = f"https://sepolia-blockscout.scroll.io/address/{address}"
 abi = [
+    {
+        "inputs": [
+            {"internalType": "string", "name": "_ballotId", "type": "string"},
+            {"internalType": "string", "name": "_title", "type": "string"},
+            {"internalType": "string", "name": "_description", "type": "string"},
+            {"internalType": "string", "name": "_proof", "type": "string"},
+            {"internalType": "string", "name": "_invoice", "type": "string"},
+        ],
+        "name": "addCandidate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function",
+    },
     {
         "inputs": [
             {"internalType": "string", "name": "_ballotId", "type": "string"},
             {"internalType": "string", "name": "_name", "type": "string"},
             {"internalType": "uint256", "name": "_endTime", "type": "uint256"},
             {"internalType": "string", "name": "_sismoGroupId", "type": "string"},
+            {"internalType": "string", "name": "_candidateGroupId", "type": "string"},
             {"internalType": "uint8", "name": "_dkgRitualId", "type": "uint8"},
-            {"internalType": "string[]", "name": "_candidates", "type": "string[]"},
             {"internalType": "uint8", "name": "_protocolVersion", "type": "uint8"},
         ],
         "name": "createBallot",
@@ -18,6 +31,21 @@ abi = [
     },
     {"inputs": [], "stateMutability": "nonpayable", "type": "constructor"},
     {
+        "inputs": [
+            {"internalType": "string", "name": "", "type": "string"},
+            {"internalType": "uint256", "name": "", "type": "uint256"},
+        ],
+        "name": "ballotIdToCandidates",
+        "outputs": [
+            {"internalType": "string", "name": "title", "type": "string"},
+            {"internalType": "string", "name": "description", "type": "string"},
+            {"internalType": "string", "name": "proof", "type": "string"},
+            {"internalType": "string", "name": "invoice", "type": "string"},
+        ],
+        "stateMutability": "view",
+        "type": "function",
+    },
+    {
         "inputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
         "name": "ballots",
         "outputs": [
@@ -25,6 +53,7 @@ abi = [
             {"internalType": "string", "name": "name", "type": "string"},
             {"internalType": "uint256", "name": "endTime", "type": "uint256"},
             {"internalType": "string", "name": "sismoGroupId", "type": "string"},
+            {"internalType": "string", "name": "candidateGroupId", "type": "string"},
             {"internalType": "uint8", "name": "dkgRitualId", "type": "uint8"},
             {"internalType": "uint8", "name": "protocolVersion", "type": "uint8"},
         ],
@@ -45,12 +74,12 @@ abi = [
                         "name": "sismoGroupId",
                         "type": "string",
                     },
-                    {"internalType": "uint8", "name": "dkgRitualId", "type": "uint8"},
                     {
-                        "internalType": "string[]",
-                        "name": "candidates",
-                        "type": "string[]",
+                        "internalType": "string",
+                        "name": "candidateGroupId",
+                        "type": "string",
                     },
+                    {"internalType": "uint8", "name": "dkgRitualId", "type": "uint8"},
                     {
                         "internalType": "uint8",
                         "name": "protocolVersion",
@@ -79,12 +108,12 @@ abi = [
                         "name": "sismoGroupId",
                         "type": "string",
                     },
-                    {"internalType": "uint8", "name": "dkgRitualId", "type": "uint8"},
                     {
-                        "internalType": "string[]",
-                        "name": "candidates",
-                        "type": "string[]",
+                        "internalType": "string",
+                        "name": "candidateGroupId",
+                        "type": "string",
                     },
+                    {"internalType": "uint8", "name": "dkgRitualId", "type": "uint8"},
                     {
                         "internalType": "uint8",
                         "name": "protocolVersion",
@@ -101,8 +130,27 @@ abi = [
     },
     {
         "inputs": [{"internalType": "string", "name": "_ballotId", "type": "string"}],
+        "name": "getCandidateGroupID",
+        "outputs": [{"internalType": "string", "name": "", "type": "string"}],
+        "stateMutability": "view",
+        "type": "function",
+    },
+    {
+        "inputs": [{"internalType": "string", "name": "_ballotId", "type": "string"}],
         "name": "getCandidates",
-        "outputs": [{"internalType": "string[]", "name": "", "type": "string[]"}],
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "string", "name": "title", "type": "string"},
+                    {"internalType": "string", "name": "description", "type": "string"},
+                    {"internalType": "string", "name": "proof", "type": "string"},
+                    {"internalType": "string", "name": "invoice", "type": "string"},
+                ],
+                "internalType": "struct BallotManager.Candidate[]",
+                "name": "",
+                "type": "tuple[]",
+            }
+        ],
         "stateMutability": "view",
         "type": "function",
     },
