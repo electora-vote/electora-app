@@ -5,6 +5,9 @@ dependencies:
   version: {version_tag: 2.2.14}
 - app_id: PSSTRCDLMXPD6OU2
   version: {dev: true}
+- dep_id: dep_pa6himlkhemkq
+  version: {dev: false}
+  resolution_hints: {app_id: B6GOK24IP67TRRKW, name: web3auth, package_name: web3auth}
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}

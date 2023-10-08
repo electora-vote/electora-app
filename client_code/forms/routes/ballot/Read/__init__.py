@@ -11,7 +11,7 @@ class Read(ReadTemplate):
         self.ballot = ballot
         self.item = FormattedBallot(ballot)
         self.explorer_link.url = (
-            f"https://blockscout.scroll.io/address/{manager.address}"
+            f"https://sepolia-blockscout.scroll.io/address/{manager.address}"
         )
         self.init_components(**properties)
 

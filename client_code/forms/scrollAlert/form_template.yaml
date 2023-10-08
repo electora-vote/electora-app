@@ -1,0 +1,22 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: RichText
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: 'Please make sure you
+      have the Scroll Sepolia Network and some Scroll ETH before continuing - {Scroll}',
+    font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+    format: markdown}
+  name: rich_text_1
+  layout_properties: {grid_position: 'SXMOXM,PLJFGB'}
+  components:
+  - type: Link
+    properties: {role: null, url: 'https://scroll.io/portal', align: left, tooltip: '',
+      border: '', foreground: '', visible: true, text: Scroll Portal, font_size: null,
+      wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+      col_widths: '', spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: link_2
+    layout_properties: {grid_position: 'JXPWFL,JGEJJU', slot: Scroll}
+is_package: true

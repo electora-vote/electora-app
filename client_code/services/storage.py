@@ -1,11 +1,12 @@
 import anvil.js
 import anvil
 from anvil_extras.storage import indexed_db
-from anvil.js.window import Bundlr
 import app.services.manager as manager
 from app.model import Candidate, Ballot
 from datetime import datetime as dt
 from anvil.tables import app_tables
+from web3auth.login import login_with_web3auth
+
 
 _ethers = anvil.js.import_from("ethers").ethers
 
@@ -42,13 +43,14 @@ class LocalStore:
 
 class ArweaveStore:
     def __init__(self):
-        if not _ethereum_available:
-            raise ValueError("No connected wallet found")
-        self.provider = _ethers.providers.Web3Provider(ethereum)
-        self.signer = self.provider.getSigner()
-        WebBundlr = Bundlr.default
-        self.bundlr = WebBundlr("https://devnet.irys.xyz", "matic", self.provider)
-        self.bundlr.ready()
+        pass
+        # if not _ethereum_available:
+        #     raise ValueError("No connected wallet found")
+        # self.provider = _ethers.providers.Web3Provider(ethereum)
+        # self.signer = self.provider.getSigner()
+        # WebBundlr = Bundlr.default
+        # self.bundlr = WebBundlr("https://devnet.irys.xyz", "matic", self.provider)
+        # self.bundlr.ready()
 
     def cast_vote(self, ballot, ciphertext):
         # tags = [{"name": "ballot_uuid", "value": ballot.uuid}]
@@ -70,6 +72,10 @@ class ScrollStore:
             raise ValueError("No connected wallet found")
         self.provider = _ethers.providers.Web3Provider(ethereum)
         self.signer = self.provider.getSigner()
+        try:
+            self.signer.getAddress()
+        except:
+            login_with_web3auth()
 
     def _to_model(self, ballot_info):
         candidates = self.contract.getCandidates(ballot_info[0])
