@@ -1,5 +1,7 @@
+import anvil
 import anvil.js
 from anvil_extras import routing
+from app.forms.modals.ScrollAlert import ScrollAlert
 
 from ._anvil_designer import MainTemplate
 
@@ -23,3 +25,7 @@ class Main(MainTemplate):
             self.detail.remove_from_parent()
         self.detail = None
         anvil.js.window.hideDetailPanel()
+
+    def on_form_load(self, url_hash, url_pattern, url_dict, form):
+        if not url_hash and not url_dict:
+            anvil.alert(content=ScrollAlert())
